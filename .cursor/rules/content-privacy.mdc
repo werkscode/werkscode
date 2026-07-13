@@ -1,0 +1,40 @@
+---
+description: Blog/portfolio content layout, frontmatter, and privacy guardrails
+globs: content/**
+alwaysApply: false
+---
+
+# Content & Privacy
+
+## File layout
+
+| Locale | Blog | Portfolio |
+|--------|------|-----------|
+| EN | `content/blog/*.md` | `content/portfolio/*.md` |
+| DE | `content/de/blog/*.md` | `content/de/portfolio/*.md` |
+
+Schema defined in `content.config.ts`. Blog posts support `draft: true` (hidden from listing).
+
+## Frontmatter
+
+**Blog**: `title`, `description`, `date`, `tags`, `draft`
+**Portfolio**: `title`, `description`, `date`, `tech`, `featured`, `link`
+
+Set `draft: true` until the author confirms publish.
+
+## Privacy — never commit
+
+Content in git is public-facing — including `draft: true` posts. Same rules apply to portfolio items and all markdown in the repo.
+
+- Real company name, address, employees, customers, suppliers
+- Private manufacturing app names, ERP/RPS data, production figures
+- Anything identifying a specific German manufacturing business
+
+See [`.cursor/public-repo-standards.md`](../public-repo-standards.md).
+
+## Safe storytelling
+
+- "A small metal manufacturing company" / "my shopfloor"
+- Abstract lessons: learning to code while running a business, AI as a multiplier
+- WERKSCODE as the public brand; anonymized composites instead of real incidents
+- When unsure, ask the author before including a detail

@@ -1,0 +1,34 @@
+---
+description: Nitro API routes, Zod validation, and Drizzle ORM patterns
+globs: server/**,drizzle/**
+alwaysApply: false
+---
+
+# Server & API
+
+## Route pattern
+
+Follow `server/api/contact.post.ts`:
+
+1. Zod schema for request body
+2. `safeParse` → `createError({ statusCode: 400, data: parsed.error.flatten() })`
+3. Drizzle via `useDb()` singleton
+4. Return minimal JSON (`{ success: true, id }`)
+
+## Database changes
+
+1. Edit `server/db/schema.ts`
+2. `pnpm db:generate` → `pnpm db:migrate`
+3. In Docker: `make dev-migrate`
+
+Never run migrations against production without explicit author approval.
+
+## Config
+
+- `DATABASE_URL` / `NUXT_DATABASE_URL` from runtime config
+- `useDb()` throws 503 if database is not configured
+
+## Existing routes
+
+- `GET /api/health` — health check
+- `POST /api/contact` — contact form → `contact_messages` table

@@ -1,0 +1,41 @@
+---
+description: WERKSCODE mission, stack, privacy boundaries, and scope discipline
+alwaysApply: true
+---
+
+# WERKSCODE — Project Overview
+
+Public blog and portfolio at **WERKSCODE** — *WERKSCODE works*. Inspire self-employed people (especially in Germany) to learn coding with modern AI tools while running a business.
+
+## Audience & tone
+
+- **Audience**: Non-developer entrepreneurs, craftspeople, small-business owners
+- **Tone**: Practical, honest, fun — shopfloor meets software
+- **Author voice**: Managing director of a small metal manufacturing company who learned to code on the job
+
+## Stack
+
+- Nuxt 4, Vue 3, TypeScript, pnpm
+- shadcn-vue, Tailwind v4
+- @nuxt/content (blog + portfolio), @nuxtjs/i18n (en/de)
+- Drizzle ORM + PostgreSQL
+- Docker + Makefile
+
+## Not this project
+
+Do **not** port patterns from private manufacturing apps:
+
+- No Laravel, Sanctum, RPS/ERP, permissions, or enterprise auth
+- No private manufacturing app monorepo conventions
+
+Private manufacturing apps exist locally for author context only. **Never** cite their names, schemas, or internals in committed files, commit messages, code comments, or site copy.
+
+## Public repository
+
+This repo is **public from day one** — write code, comments, commits, and docs as if published today. See [`.cursor/public-repo-standards.md`](../public-repo-standards.md).
+
+## Scope discipline
+
+- Minimal diffs; no over-engineering
+- Match conventions in `nuxt.config.ts`, `Makefile`, and existing pages
+- UI strings in locale files; routes via `localePath()`; content via `useLocalizedContentPath()`

@@ -1,0 +1,41 @@
+---
+description: Docker development workflow via Makefile
+globs: Dockerfile*,docker-compose*,Makefile
+alwaysApply: false
+---
+
+# Docker & Makefile
+
+## Daily workflow
+
+```bash
+make dev          # Start full dev stack with hot reload
+make dev-rebuild  # After package.json or Dockerfile changes
+make dev-logs     # Follow app logs
+make dev-shell    # Shell in app container (requires dev stack running)
+make dev-migrate  # Run Drizzle migrations in container
+```
+
+## Host + DB only
+
+```bash
+make db-up        # PostgreSQL only
+pnpm dev          # Nuxt on host
+pnpm db:migrate   # Migrations on host
+```
+
+## Gotchas
+
+- Dev image is **Debian-based** (not Alpine) — required for native modules
+- Container startup runs `nuxt prepare` — do not remove
+- After adding npm packages in Docker: `make dev-rebuild`
+- Production binds `127.0.0.1:3000` for reverse proxy use
+
+## Staging / production
+
+```bash
+make staging-migrate && make staging-up
+make prod-migrate && make prod-up
+```
+
+See `Makefile` for full target list (`make help`).

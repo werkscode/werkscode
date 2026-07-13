@@ -1,0 +1,45 @@
+# WERKSCODE — Agent Guide
+
+Public blog and portfolio for **WERKSCODE** (*WERKSCODE works*). A managing director of a small metal manufacturing company shares the journey of learning to code on the job — with AI tools — to inspire self-employed people in Germany and beyond.
+
+**This repository is public from day one.** Write code, comments, commits, and docs as if published today. See [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md).
+
+## Quick commands
+
+```bash
+make dev              # Docker dev stack
+make dev-rebuild      # After package.json changes
+pnpm dev              # Host dev (with make db-up)
+pnpm db:migrate       # Apply Drizzle migrations
+```
+
+## Rules (`.cursor/rules/`)
+
+| Rule | When it applies |
+|------|-----------------|
+| `werkscode-project.mdc` | Always — mission, stack, privacy, public posture |
+| `frontend.mdc` | `app/**` — i18n, routing, components |
+| `content-privacy.mdc` | `content/**` — blog/portfolio + anonymization |
+| `server-api.mdc` | `server/**`, `drizzle/**` — API + DB patterns |
+| `docker.mdc` | Docker/Makefile files |
+
+## Skills (`.cursor/skills/`)
+
+Invoke by name when starting a task:
+
+| Skill | Use for |
+|-------|---------|
+| `write-journey-post` | Draft bilingual blog posts in author voice |
+| `add-blog-post` | Create markdown files in content paths |
+| `add-i18n-strings` | Add EN/DE UI translations |
+| `add-shadcn-component` | Add shadcn-vue UI components |
+| `add-api-route` | New Nitro API endpoints |
+| `git-commit` | Conventional Commits, privacy-safe messages |
+
+## Key conventions
+
+- UI copy → `i18n/locales/en.json` + `de.json`
+- Links → `localePath()`; content paths → `useLocalizedContentPath()`
+- Blog EN: `content/blog/`; DE: `content/de/blog/`
+- API: Zod validate → Drizzle via `useDb()`
+- Commits: Conventional Commits in English; scan for secrets before staging

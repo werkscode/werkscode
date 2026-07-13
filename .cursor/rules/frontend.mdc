@@ -1,0 +1,43 @@
+---
+description: Nuxt 4 frontend conventions — i18n, routing, components, theme
+globs: app/**
+alwaysApply: false
+---
+
+# Frontend (Nuxt 4)
+
+## i18n
+
+- All UI strings in `i18n/locales/en.json` and `i18n/locales/de.json` — never hardcode copy in `.vue` files
+- Use `t('key')` or `$t('key')`; SEO meta via `seo.*` keys
+- German copy: informal "du", professional but approachable
+
+## Routing
+
+- Default locale `en`; German at `/de/...` (`prefix_except_default`)
+- Internal links: `localePath('/blog')`, not raw paths
+- Content queries: `useLocalizedContentPath()` — EN `/blog`, DE `/de/blog`
+
+## Components
+
+- shadcn-vue: `app/components/ui/` — import `@/components/ui/...`
+- Layout: `app/components/layout/` with `pathPrefix: false` (use `<AppHeader>`, not `<LayoutAppHeader>`)
+- Toasts: `toast` from `vue-sonner`; `<Toaster />` in layout (shadcn wrapper)
+
+## Theme
+
+- localStorage key: `werkscode-theme`
+- Dark mode via `document.documentElement.classList.toggle('dark', ...)`
+
+## Page patterns
+
+```vue
+const { t } = useI18n()
+const localePath = useLocalePath()
+const { localizedPath } = useLocalizedContentPath()
+
+useSeoMeta({
+  title: () => t('seo.blog.title'),
+  description: () => t('seo.blog.description'),
+})
+```
