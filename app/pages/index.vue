@@ -12,6 +12,7 @@ const localePath = useLocalePath()
 <template>
   <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
     <section class="space-y-6">
+      <AppLogo variant="icon" size="lg" />
       <Badge variant="secondary">
         {{ t('home.badge') }}
       </Badge>

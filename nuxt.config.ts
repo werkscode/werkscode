@@ -64,6 +64,17 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/logo.png', media: '(prefers-color-scheme: light)' },
+        { rel: 'icon', type: 'image/png', href: '/logo-dark.png', media: '(prefers-color-scheme: dark)' },
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'apple-touch-icon', href: '/logo.png' },
+      ],
+      meta: [
+        { property: 'og:image', content: '/logo.png' },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:image', content: '/logo.png' },
+      ],
       script: [
         {
           key: 'theme-init',
@@ -114,15 +125,12 @@ export default defineNuxtConfig({
 
       // @nuxtjs/mdc adds unresolvable nested optimizeDeps entries via @nuxt/content
       const include = config.optimizeDeps?.include ?? []
-      config.optimizeDeps = {
-        ...config.optimizeDeps,
-        include: [
-          ...new Set([
-            ...optimizeDepsInclude,
-            ...include.filter(dep => !dep.includes('@nuxtjs/mdc')),
-          ]),
-        ],
-      }
+      config.optimizeDeps!.include = [
+        ...new Set([
+          ...optimizeDepsInclude,
+          ...include.filter(dep => !dep.includes('@nuxtjs/mdc')),
+        ]),
+      ]
     },
   },
 })

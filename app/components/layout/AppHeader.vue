@@ -26,8 +26,8 @@ function isActive(path: string) {
 <template>
   <header class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
     <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
-      <NuxtLink :to="localePath('/')" class="font-heading text-xl font-normal tracking-tight">
-        {{ t('brand') }}
+      <NuxtLink :to="localePath('/')" class="inline-flex items-center">
+        <AppLogo variant="wordmark" size="sm" />
       </NuxtLink>
 
       <nav class="hidden items-center gap-1 md:flex">
@@ -55,7 +55,8 @@ function isActive(path: string) {
           </SheetTrigger>
           <SheetContent side="right" class="w-64">
             <SheetHeader>
-              <SheetTitle>{{ t('nav.menu') }}</SheetTitle>
+              <SheetTitle class="sr-only">{{ t('nav.menu') }}</SheetTitle>
+              <AppLogo variant="wordmark" size="sm" />
             </SheetHeader>
             <nav class="mt-6 flex flex-col gap-2">
               <NuxtLink
