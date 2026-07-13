@@ -24,30 +24,23 @@ useSeoMeta({
 </script>
 
 <template>
-  <article v-if="post" class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-    <header class="space-y-4">
-      <Button variant="ghost" size="sm" class="-ml-2" as-child>
-        <NuxtLink :to="localePath('/blog')">
-          {{ t('blog.back') }}
-        </NuxtLink>
-      </Button>
-      <h1 class="text-4xl">
-        {{ post.title }}
-      </h1>
-      <div v-if="post.date || post.tags?.length" class="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-        <time v-if="post.date">{{ post.date }}</time>
-        <Badge
-          v-for="tag in post.tags"
-          :key="tag"
-          variant="secondary"
-        >
-          {{ tag }}
-        </Badge>
-      </div>
-    </header>
+  <ContentArticle
+    v-if="post"
+    :title="post.title"
+    :back-to="localePath('/blog')"
+    :back-label="t('blog.back')"
+  >
+    <template v-if="post.date || post.tags?.length" #meta>
+      <time v-if="post.date">{{ post.date }}</time>
+      <Badge
+        v-for="tag in post.tags"
+        :key="tag"
+        variant="secondary"
+      >
+        {{ tag }}
+      </Badge>
+    </template>
 
-    <div class="prose prose-neutral dark:prose-invert mt-10 max-w-none">
-      <ContentRenderer :value="post" />
-    </div>
-  </article>
+    <ContentRenderer :value="post" />
+  </ContentArticle>
 </template>

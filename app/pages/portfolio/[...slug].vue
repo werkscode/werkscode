@@ -24,39 +24,32 @@ useSeoMeta({
 </script>
 
 <template>
-  <article v-if="project" class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-    <header class="space-y-4">
-      <Button variant="ghost" size="sm" class="-ml-2" as-child>
-        <NuxtLink :to="localePath('/portfolio')">
-          {{ t('portfolio.back') }}
-        </NuxtLink>
+  <ContentArticle
+    v-if="project"
+    :title="project.title"
+    :back-to="localePath('/portfolio')"
+    :back-label="t('portfolio.back')"
+  >
+    <template v-if="project.tech?.length || project.link" #meta>
+      <Badge
+        v-for="tech in project.tech"
+        :key="tech"
+        variant="secondary"
+      >
+        {{ tech }}
+      </Badge>
+      <Button
+        v-if="project.link"
+        variant="outline"
+        size="sm"
+        as-child
+      >
+        <a :href="project.link" target="_blank" rel="noopener noreferrer">
+          {{ t('portfolio.visitProject') }}
+        </a>
       </Button>
-      <h1 class="text-4xl">
-        {{ project.title }}
-      </h1>
-      <div class="flex flex-wrap items-center gap-2">
-        <Badge
-          v-for="tech in project.tech"
-          :key="tech"
-          variant="secondary"
-        >
-          {{ tech }}
-        </Badge>
-        <Button
-          v-if="project.link"
-          variant="outline"
-          size="sm"
-          as-child
-        >
-          <a :href="project.link" target="_blank" rel="noopener noreferrer">
-            {{ t('portfolio.visitProject') }}
-          </a>
-        </Button>
-      </div>
-    </header>
+    </template>
 
-    <div class="prose prose-neutral dark:prose-invert mt-10 max-w-none">
-      <ContentRenderer :value="project" />
-    </div>
-  </article>
+    <ContentRenderer :value="project" />
+  </ContentArticle>
 </template>

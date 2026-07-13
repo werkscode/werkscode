@@ -45,50 +45,52 @@ async function onSubmit() {
 </script>
 
 <template>
-  <div class="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24">
-    <h1 class="text-4xl">
-      {{ t('contact.title') }}
-    </h1>
-    <p class="mt-4 text-muted-foreground">
-      {{ t('contact.description') }}
-    </p>
+  <PageShell width="narrow">
+    <PageHeader
+      :title="t('contact.title')"
+      :description="t('contact.description')"
+    />
 
-    <form class="mt-8 space-y-6" @submit.prevent="onSubmit">
-      <div class="space-y-2">
-        <Label for="name">{{ t('contact.name') }}</Label>
-        <Input
-          id="name"
-          v-model="form.name"
-          :placeholder="t('contact.namePlaceholder')"
-          required
-        />
-      </div>
+    <Card>
+      <CardContent class="pt-6">
+        <form class="space-y-6" @submit.prevent="onSubmit">
+          <div class="space-y-2">
+            <Label for="name">{{ t('contact.name') }}</Label>
+            <Input
+              id="name"
+              v-model="form.name"
+              :placeholder="t('contact.namePlaceholder')"
+              required
+            />
+          </div>
 
-      <div class="space-y-2">
-        <Label for="email">{{ t('contact.email') }}</Label>
-        <Input
-          id="email"
-          v-model="form.email"
-          type="email"
-          :placeholder="t('contact.emailPlaceholder')"
-          required
-        />
-      </div>
+          <div class="space-y-2">
+            <Label for="email">{{ t('contact.email') }}</Label>
+            <Input
+              id="email"
+              v-model="form.email"
+              type="email"
+              :placeholder="t('contact.emailPlaceholder')"
+              required
+            />
+          </div>
 
-      <div class="space-y-2">
-        <Label for="message">{{ t('contact.message') }}</Label>
-        <Textarea
-          id="message"
-          v-model="form.message"
-          :placeholder="t('contact.messagePlaceholder')"
-          rows="5"
-          required
-        />
-      </div>
+          <div class="space-y-2">
+            <Label for="message">{{ t('contact.message') }}</Label>
+            <Textarea
+              id="message"
+              v-model="form.message"
+              :placeholder="t('contact.messagePlaceholder')"
+              rows="5"
+              required
+            />
+          </div>
 
-      <Button type="submit" :disabled="isSubmitting">
-        {{ isSubmitting ? t('contact.submitting') : t('contact.submit') }}
-      </Button>
-    </form>
-  </div>
+          <Button type="submit" :disabled="isSubmitting">
+            {{ isSubmitting ? t('contact.submitting') : t('contact.submit') }}
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  </PageShell>
 </template>

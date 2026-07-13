@@ -19,15 +19,13 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-    <h1 class="text-4xl">
-      {{ t('portfolio.title') }}
-    </h1>
-    <p class="mt-4 text-muted-foreground">
-      {{ t('portfolio.description') }}
-    </p>
+  <PageShell>
+    <PageHeader
+      :title="t('portfolio.title')"
+      :description="t('portfolio.description')"
+    />
 
-    <div v-if="projects?.length" class="mt-10 grid gap-6 sm:grid-cols-2">
+    <div v-if="projects?.length" class="grid gap-6 sm:grid-cols-2">
       <Card
         v-for="project in projects"
         :key="project.path"
@@ -67,8 +65,8 @@ useSeoMeta({
       </Card>
     </div>
 
-    <p v-else class="mt-10 text-muted-foreground">
+    <EmptyState v-else>
       {{ t('portfolio.empty') }}
-    </p>
-  </div>
+    </EmptyState>
+  </PageShell>
 </template>

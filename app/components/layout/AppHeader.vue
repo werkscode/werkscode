@@ -36,7 +36,7 @@ function isActive(path: string) {
           :key="item.to"
           :to="item.to"
           class="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-          :class="isActive(item.to) ? 'text-primary' : 'text-muted-foreground'"
+          :class="isActive(item.to) ? 'bg-accent/60 text-primary' : 'text-muted-foreground'"
         >
           {{ item.label }}
         </NuxtLink>
@@ -64,7 +64,7 @@ function isActive(path: string) {
                 :key="item.to"
                 :to="item.to"
                 class="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent"
-                :class="isActive(item.to) ? 'text-primary' : 'text-muted-foreground'"
+                :class="isActive(item.to) ? 'bg-accent/60 text-primary' : 'text-muted-foreground'"
                 @click="mobileOpen = false"
               >
                 {{ item.label }}

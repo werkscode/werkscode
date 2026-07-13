@@ -10,19 +10,18 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-    <section class="space-y-6">
-      <AppLogo variant="icon" size="lg" />
-      <Badge variant="secondary">
-        {{ t('home.badge') }}
-      </Badge>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl">
-        {{ t('home.title') }}
-      </h1>
-      <p class="max-w-2xl text-lg text-muted-foreground">
-        {{ t('home.description') }}
-      </p>
-      <div class="flex flex-wrap gap-3 pt-2">
+  <PageShell>
+    <PageHeader
+      :title="t('home.title')"
+      :description="t('home.description')"
+    >
+      <template #eyebrow>
+        <AppLogo variant="icon" size="md" />
+        <Badge variant="secondary">
+          {{ t('home.badge') }}
+        </Badge>
+      </template>
+      <div class="flex flex-wrap gap-3">
         <Button as-child>
           <NuxtLink :to="localePath('/blog')">
             {{ t('home.readBlog') }}
@@ -34,12 +33,12 @@ const localePath = useLocalePath()
           </NuxtLink>
         </Button>
       </div>
-    </section>
+    </PageHeader>
 
-    <Separator class="my-16" />
+    <Separator class="mb-12 sm:mb-16" />
 
     <section class="grid gap-6 sm:grid-cols-2">
-      <Card>
+      <Card class="transition-shadow hover:shadow-md">
         <CardHeader>
           <CardTitle>{{ t('home.blogCard.title') }}</CardTitle>
           <CardDescription>
@@ -54,7 +53,7 @@ const localePath = useLocalePath()
           </Button>
         </CardContent>
       </Card>
-      <Card>
+      <Card class="transition-shadow hover:shadow-md">
         <CardHeader>
           <CardTitle>{{ t('home.portfolioCard.title') }}</CardTitle>
           <CardDescription>
@@ -70,5 +69,5 @@ const localePath = useLocalePath()
         </CardContent>
       </Card>
     </section>
-  </div>
+  </PageShell>
 </template>

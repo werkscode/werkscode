@@ -20,48 +20,47 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-    <h1 class="text-4xl">
-      {{ t('blog.title') }}
-    </h1>
-    <p class="mt-4 text-muted-foreground">
-      {{ t('blog.description') }}
-    </p>
+  <PageShell width="narrow">
+    <PageHeader
+      :title="t('blog.title')"
+      :description="t('blog.description')"
+    />
 
-    <div v-if="posts?.length" class="mt-10 space-y-6">
-      <article
+    <div v-if="posts?.length" class="grid gap-4">
+      <Card
         v-for="post in posts"
         :key="post.path"
-        class="group"
+        class="group transition-shadow hover:shadow-md"
       >
-        <NuxtLink :to="post.path" class="block space-y-2">
-          <h2 class="text-2xl group-hover:text-primary transition-colors">
-            {{ post.title }}
-          </h2>
-          <p v-if="post.description" class="text-muted-foreground">
+        <CardHeader>
+          <CardTitle class="group-hover:text-primary transition-colors">
+            <NuxtLink :to="post.path">
+              {{ post.title }}
+            </NuxtLink>
+          </CardTitle>
+          <CardDescription v-if="post.description">
             {{ post.description }}
-          </p>
-          <div class="flex items-center gap-2 text-sm text-muted-foreground">
-            <time v-if="post.date">{{ post.date }}</time>
-            <template v-if="post.tags?.length">
-              <span>&middot;</span>
-              <Badge
-                v-for="tag in post.tags"
-                :key="tag"
-                variant="secondary"
-                class="text-xs"
-              >
-                {{ tag }}
-              </Badge>
-            </template>
-          </div>
-        </NuxtLink>
-        <Separator class="mt-6" />
-      </article>
+          </CardDescription>
+        </CardHeader>
+        <CardContent class="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+          <time v-if="post.date">{{ post.date }}</time>
+          <template v-if="post.tags?.length">
+            <span aria-hidden="true">&middot;</span>
+            <Badge
+              v-for="tag in post.tags"
+              :key="tag"
+              variant="secondary"
+              class="text-xs"
+            >
+              {{ tag }}
+            </Badge>
+          </template>
+        </CardContent>
+      </Card>
     </div>
 
-    <p v-else class="mt-10 text-muted-foreground">
+    <EmptyState v-else>
       {{ t('blog.empty') }}
-    </p>
-  </div>
+    </EmptyState>
+  </PageShell>
 </template>
