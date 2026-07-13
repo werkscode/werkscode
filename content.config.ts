@@ -30,6 +30,7 @@ export default defineContentConfig({
         tech: z.array(z.string()).optional(),
         featured: z.boolean().optional(),
         link: z.string().url().optional(),
+        draft: z.boolean().optional(),
       }),
       indexes: [
         { columns: ['date'] },

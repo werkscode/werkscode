@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 1. Ask for **topic** and **key lesson** (1–2 sentences from the author)
 2. Confirm **anonymization** — no real company, customer, or employee names
-3. Ask which to draft first if unclear: EN, DE, or both
+3. Draft **English first** in chat unless the author has already approved EN and asked for DE
 
 ## Privacy checklist
 
@@ -51,9 +51,13 @@ Add `manufacturing`, `entrepreneurship`, or `german-business` tags when relevant
 
 ## Bilingual workflow
 
+- EN first in chat → author approves → save EN file
+- DE adaptation in chat → author approves → save DE file
 - EN → `content/blog/<slug>.md`
 - DE → `content/de/blog/<slug>.md` (adapt, don't machine-translate — German "du" form)
 - Same slug in both locales for mental pairing
+
+See [`content-session`](../content-session/SKILL.md) for the full collaboration flow.
 
 ## After drafting
 

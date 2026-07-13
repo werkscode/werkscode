@@ -6,6 +6,7 @@ tech:
   - Nuxt
   - TypeScript
 featured: false
+draft: true
 ---
 
 # Placeholder Project

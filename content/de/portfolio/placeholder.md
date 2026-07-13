@@ -6,6 +6,7 @@ tech:
   - Nuxt
   - TypeScript
 featured: false
+draft: true
 ---
 
 # Platzhalter-Projekt

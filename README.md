@@ -94,9 +94,22 @@ drizzle/              # SQL migrations
 
 ## Content
 
-- **Blog** — add markdown files to `content/blog/`
-- **Portfolio** — add markdown files to `content/portfolio/`
-- Placeholder files are included; replace with real content later.
+- **Blog** — markdown in `content/blog/` (EN) and `content/de/blog/` (DE)
+- **Portfolio** — markdown in `content/portfolio/` and `content/de/portfolio/`
+- Set `draft: true` in frontmatter until ready to publish; listings hide drafts
+- Placeholder files are included; replace with real content later
+
+### Writing content with Cursor
+
+This repo is **public from day one** — never commit real company, customer, or employee names, even in drafts.
+
+1. Start a chat with **"content session"** or **"new blog post"** / **"new portfolio entry"**
+2. Answer intake questions; the assistant drafts **English in chat first**
+3. Say **"save EN"** when happy → files land in `content/` with `draft: true`
+4. Preview with `make dev`, then **"draft German"** → **"save DE"** when approved
+5. Say **"publish"** to remove drafts from listings; **"commit"** when ready to git
+
+See [`.cursor/skills/content-session/SKILL.md`](.cursor/skills/content-session/SKILL.md) for the full workflow.
 
 ## API
 

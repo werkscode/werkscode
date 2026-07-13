@@ -6,6 +6,7 @@ const portfolioBasePath = computed(() => localizedPath('/portfolio'))
 const { data: projects } = await useAsyncData(
   () => `portfolio-list-${portfolioBasePath.value}`,
   () => queryCollection('portfolio')
+    .where('draft', '<>', true)
     .where('path', 'LIKE', `${portfolioBasePath.value}%`)
     .order('date', 'DESC')
     .all(),

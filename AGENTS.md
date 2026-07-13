@@ -29,8 +29,11 @@ Invoke by name when starting a task:
 
 | Skill | Use for |
 |-------|---------|
-| `write-journey-post` | Draft bilingual blog posts in author voice |
-| `add-blog-post` | Create markdown files in content paths |
+| `content-session` | Start blog/portfolio collaboration — intake, EN-first, chat before files |
+| `write-journey-post` | Draft blog posts in author voice |
+| `write-portfolio-entry` | Draft portfolio case studies (anonymized projects) |
+| `add-blog-post` | Create blog markdown files in content paths |
+| `add-portfolio-entry` | Create portfolio markdown files in content paths |
 | `add-i18n-strings` | Add EN/DE UI translations |
 | `add-shadcn-component` | Add shadcn-vue UI components |
 | `add-api-route` | New Nitro API endpoints |
@@ -41,5 +44,6 @@ Invoke by name when starting a task:
 - UI copy → `i18n/locales/en.json` + `de.json`
 - Links → `localePath()`; content paths → `useLocalizedContentPath()`
 - Blog EN: `content/blog/`; DE: `content/de/blog/`
+- Portfolio EN: `content/portfolio/`; DE: `content/de/portfolio/`
 - API: Zod validate → Drizzle via `useDb()`
 - Commits: Conventional Commits in English; scan for secrets before staging
