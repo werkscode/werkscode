@@ -24,3 +24,6 @@ logs
 !.env.example
 !.env.staging.example
 !.env.production.example
+
+# pnpm
+.pnpm-store
