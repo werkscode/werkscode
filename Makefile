@@ -1,7 +1,7 @@
 .PHONY: help \
 	db-up db-down db-logs db-shell \
 	up down build logs ps shell migrate \
-	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate \
+	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate dev-content-reset \
 	staging-migrate staging-up staging-down staging-logs staging-build \
 	prod-migrate prod-up prod-down prod-logs prod-build \
 	clean clean-dev clean-staging clean-prod
@@ -83,6 +83,12 @@ dev-shell: ## Shell into dev app container
 
 dev-migrate: ## Run database migrations (dev stack)
 	$(COMPOSE) $(DEV) --profile migrate up migrate
+
+dev-content-reset: ## Clear @nuxt/content cache and restart dev app
+	@$(COMPOSE) $(DEV) ps --status running -q app | grep -q . \
+		|| (echo "App is not running. Start it with: make dev-up" && exit 1)
+	$(COMPOSE) $(DEV) exec app sh -c 'rm -rf /app/.data/content'
+	$(COMPOSE) $(DEV) restart app
 
 # --- Staging ---
 
