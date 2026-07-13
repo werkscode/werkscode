@@ -1,0 +1,11 @@
+# WERKSCODE — canonical https://werkscode.de
+# Backend: Docker prod stack on 127.0.0.1:3000 (see docker-compose.prod.yml)
+
+werkscode.de {
+	reverse_proxy 127.0.0.1:3000
+}
+
+# Redirect aliases and www to canonical (preserve path)
+www.werkscode.de, werkscode.com, www.werkscode.com, werkscode.dev, www.werkscode.dev {
+	redir https://werkscode.de{uri} permanent
+}

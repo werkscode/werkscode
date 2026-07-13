@@ -56,13 +56,21 @@ docker compose -f docker-compose.yml -f docker-compose.staging.yml up -d
 
 ## Docker production
 
+Production runs behind **Caddy** on the VPS with free **Let's Encrypt** HTTPS. Full guide: **[deploy/README.md](deploy/README.md)**.
+
 ```bash
-# Configure .env from .env.production.example
-docker compose -f docker-compose.yml -f docker-compose.prod.yml --profile migrate up migrate
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# On the server — see deploy/README.md for DNS, Caddy, and first-time setup
+cp .env.production.example .env   # edit secrets; never commit
+make prod-build
+make prod-migrate
+make prod-up
 ```
 
-Production binds the app to `127.0.0.1:3000` for use behind a reverse proxy.
+- **Canonical URL:** `https://werkscode.de` (`.com` / `.dev` redirect via Caddy)
+- App binds **`127.0.0.1:3000`** only — Caddy proxies `:443`
+- **Updates:** `git pull`, `make prod-build`, recreate `app` (content is in the image)
+
+Caddy configs live in [`deploy/caddy/`](deploy/caddy/).
 
 ## Scripts
 

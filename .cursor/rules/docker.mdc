@@ -40,4 +40,6 @@ make staging-migrate && make staging-up
 make prod-migrate && make prod-up
 ```
 
+Production HTTPS and multi-site VPS: [deploy/README.md](../deploy/README.md).
+
 See `Makefile` for full target list (`make help`).
