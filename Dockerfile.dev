@@ -1,0 +1,22 @@
+# Debian-based image: better-sqlite3 (used by @nuxt/content) ships glibc prebuilds
+# that fail on Alpine (musl) with "ld-linux-x86-64.so.2: No such file or directory".
+FROM node:22-bookworm-slim
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends python3 build-essential \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN corepack enable && corepack prepare pnpm@10.19.0 --activate
+
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+
+COPY . .
+# postinstall runs before app source exists; regenerate after full copy
+RUN pnpm nuxt prepare
+
+EXPOSE 3000
+
+CMD ["pnpm", "dev", "--host", "0.0.0.0"]

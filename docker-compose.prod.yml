@@ -1,0 +1,44 @@
+# Production stack — app binds localhost only for reverse proxy.
+# Requires .env with POSTGRES_* and DATABASE_URL (see .env.production.example).
+#
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml --profile migrate up migrate
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+services:
+  db:
+    container_name: werkscode-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - internal
+
+  app:
+    container_name: werkscode-app
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3000:3000'
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+    networks:
+      - internal
+
+  migrate:
+    profiles:
+      - migrate
+    container_name: werkscode-migrate
+    env_file:
+      - .env
+
+networks:
+  internal:
+    name: werkscode-internal
+
+volumes:
+  postgres_data:
+    name: werkscode-postgres

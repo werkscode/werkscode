@@ -1,0 +1,22 @@
+services:
+  db:
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+
+  app:
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+      NUXT_PUBLIC_APP_URL: ${NUXT_PUBLIC_APP_URL:-http://localhost:3000}
+
+  migrate:
+    profiles:
+      - migrate
+    env_file:
+      - path: .env
+        required: false

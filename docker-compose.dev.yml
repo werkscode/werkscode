@@ -1,0 +1,28 @@
+services:
+  db:
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: 'true'
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
+      NUXT_DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
+      NUXT_PUBLIC_APP_URL: http://localhost:3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: ['sh', '-c', 'pnpm nuxt prepare && pnpm dev --host 0.0.0.0']
+
+volumes:
+  postgres_dev_data:

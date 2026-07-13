@@ -1,0 +1,65 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-werkscode}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-werkscode}
+      POSTGRES_DB: ${POSTGRES_DB:-werkscode}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-werkscode} -d ${POSTGRES_DB:-werkscode}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
+      NUXT_DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
+      NUXT_PUBLIC_APP_URL: ${NUXT_PUBLIC_APP_URL:-http://localhost:3000}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:3000/api/health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks:
+      - app
+
+  migrate:
+    profiles:
+      - migrate
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ['pnpm', 'db:migrate']
+    networks:
+      - app
+
+networks:
+  app:
+
+volumes:
+  postgres_data:

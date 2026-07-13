@@ -1,0 +1,105 @@
+{
+  "brand": "WERKSCODE",
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "menu": "Menu"
+  },
+  "footer": {
+    "copyright": "© {year} WERKSCODE. All rights reserved."
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "switch": "Switch language",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "seo": {
+    "titleSuffix": "WERKSCODE",
+    "home": {
+      "title": "WERKSCODE — Personal Blog & Portfolio",
+      "description": "WERKSCODE works — a coding CEO building at the intersection of shopfloor and software."
+    },
+    "about": {
+      "title": "About — WERKSCODE",
+      "description": "About page placeholder."
+    },
+    "contact": {
+      "title": "Contact — WERKSCODE",
+      "description": "Get in touch."
+    },
+    "blog": {
+      "title": "Blog — WERKSCODE",
+      "description": "Blog posts and writing."
+    },
+    "portfolio": {
+      "title": "Portfolio — WERKSCODE",
+      "description": "Selected projects and work."
+    }
+  },
+  "home": {
+    "badge": "Coming soon",
+    "title": "WERKSCODE works",
+    "description": "A coding CEO from the manufacturing shopfloor. A place for writing, projects, and experiments where Werks meets code.",
+    "readBlog": "Read the blog",
+    "viewPortfolio": "View portfolio",
+    "blogCard": {
+      "title": "Blog",
+      "description": "Thoughts on development, manufacturing, and building things.",
+      "cta": "Browse posts →"
+    },
+    "portfolioCard": {
+      "title": "Portfolio",
+      "description": "Selected projects and case studies.",
+      "cta": "See projects →"
+    }
+  },
+  "about": {
+    "title": "About",
+    "description": "This is a placeholder about page. Personal bio and details will be added later."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Send a message. This form stores submissions in PostgreSQL.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you{'@'}example.com",
+    "messagePlaceholder": "Your message...",
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "toast": {
+      "successTitle": "Message sent",
+      "successDescription": "Thanks for reaching out. This is a scaffold — check the database for the entry.",
+      "errorTitle": "Failed to send message",
+      "errorDescription": "Please try again or check that the database is running."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Posts and notes. Placeholder content for now.",
+    "empty": "No posts yet.",
+    "back": "← Back to blog",
+    "notFound": "Post not found"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Selected projects. Placeholder content for now.",
+    "featured": "Featured",
+    "viewProject": "View project →",
+    "visitProject": "Visit project",
+    "empty": "No projects yet.",
+    "back": "← Back to portfolio",
+    "notFound": "Project not found"
+  },
+  "errors": {
+    "invalidForm": "Invalid form data"
+  }
+}
