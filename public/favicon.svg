@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="WERKSCODE">
+  <style>
+    .plate { fill: #3A6A9C; }
+    .mark { fill: none; stroke: #F6F8FA; stroke-width: 11; stroke-linecap: round; stroke-linejoin: round; }
+    @media (prefers-color-scheme: dark) {
+      .plate { fill: #5687BC; }
+    }
+  </style>
+  <rect class="plate" x="2" y="2" width="96" height="96" rx="20" />
+  <polyline class="mark" points="24,32 37,72 50,49 63,72 76,32" />
+</svg>

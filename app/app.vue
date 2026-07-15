@@ -3,8 +3,8 @@ const config = useRuntimeConfig()
 
 const ogImage = computed(() => {
   const base = config.public.appUrl
-  if (!base) return '/logo.png'
-  return `${base.replace(/\/$/, '')}/logo.png`
+  if (!base) return '/og.png'
+  return `${base.replace(/\/$/, '')}/og.png`
 })
 
 useSeoMeta({

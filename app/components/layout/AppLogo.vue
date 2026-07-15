@@ -11,53 +11,39 @@ const { t } = useI18n()
 
 type LogoSize = 'sm' | 'md' | 'lg'
 
-const iconSizeClasses: Record<LogoSize, string> = {
+const iconOnlyClasses: Record<LogoSize, string> = {
   sm: 'size-8',
   md: 'size-12',
   lg: 'size-16',
 }
 
-const wordmarkSizeClasses: Record<LogoSize, string> = {
-  sm: 'h-8',
-  md: 'h-10',
-  lg: 'h-14',
+const wordmarkIconClasses: Record<LogoSize, string> = {
+  sm: 'size-7',
+  md: 'size-9',
+  lg: 'size-12',
 }
 
-const heightClass = computed(() => {
-  const size = props.size as LogoSize
-  return props.variant === 'icon'
-    ? iconSizeClasses[size]
-    : wordmarkSizeClasses[size]
-})
+const wordmarkTextClasses: Record<LogoSize, string> = {
+  sm: 'text-lg',
+  md: 'text-2xl',
+  lg: 'text-4xl',
+}
+
+const size = computed(() => props.size as LogoSize)
 </script>
 
 <template>
-  <span class="inline-flex shrink-0 items-center" :class="heightClass">
-    <template v-if="variant === 'wordmark'">
-      <img
-        src="/wordmark.png"
-        :alt="t('brand')"
-        class="h-full w-auto dark:hidden"
-      >
-      <img
-        src="/wordmark-dark.png"
-        alt=""
-        aria-hidden="true"
-        class="hidden h-full w-auto dark:block"
-      >
-    </template>
-    <template v-else>
-      <img
-        src="/logo.png"
-        :alt="t('brand')"
-        class="size-full object-contain dark:hidden"
-      >
-      <img
-        src="/logo-dark.png"
-        alt=""
-        aria-hidden="true"
-        class="hidden size-full object-contain dark:block"
-      >
-    </template>
+  <span v-if="variant === 'icon'" class="inline-flex shrink-0 items-center" :class="iconOnlyClasses[size]">
+    <LogoMark class="size-full" :title="t('brand')" />
+  </span>
+
+  <span v-else class="inline-flex shrink-0 items-center gap-2.5">
+    <LogoMark :class="wordmarkIconClasses[size]" :title="t('brand')" />
+    <span
+      class="font-sans font-bold uppercase leading-none tracking-tight"
+      :class="wordmarkTextClasses[size]"
+    >
+      <span class="text-foreground">WERKS</span><span class="text-primary">CODE</span>
+    </span>
   </span>
 </template>

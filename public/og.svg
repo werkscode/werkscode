@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="WERKSCODE works">
+  <rect width="1200" height="630" fill="#F4F6F9" />
+  <g stroke="#D9E0E8" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157" />
+    <line x1="0" y1="472" x2="1200" y2="472" />
+  </g>
+
+  <g transform="translate(520,120)">
+    <rect x="0" y="0" width="160" height="160" rx="34" fill="#3A6A9C" />
+    <circle cx="26" cy="26" r="5" fill="#F6F8FA" opacity="0.5" />
+    <circle cx="134" cy="26" r="5" fill="#F6F8FA" opacity="0.5" />
+    <circle cx="26" cy="134" r="5" fill="#F6F8FA" opacity="0.5" />
+    <circle cx="134" cy="134" r="5" fill="#F6F8FA" opacity="0.5" />
+    <polyline points="42,54 61,112 80,78 99,112 118,54" fill="none" stroke="#F6F8FA" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <text x="600" y="400" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="92" letter-spacing="2">
+    <tspan fill="#1E2A3A">WERKS</tspan><tspan fill="#3A6A9C">CODE</tspan>
+  </text>
+
+  <text x="600" y="452" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="400" font-size="30" letter-spacing="6" fill="#5A6B7E">SHOPFLOOR MEETS SOFTWARE</text>
+
+  <rect x="0" y="618" width="1200" height="12" fill="#3A6A9C" />
+</svg>

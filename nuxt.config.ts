@@ -70,15 +70,15 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/png', href: '/logo.png', media: '(prefers-color-scheme: light)' },
-        { rel: 'icon', type: 'image/png', href: '/logo-dark.png', media: '(prefers-color-scheme: dark)' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', href: '/icon-32.png', sizes: '32x32' },
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-        { rel: 'apple-touch-icon', href: '/logo.png' },
+        { rel: 'apple-touch-icon', href: '/icon-180.png' },
       ],
       meta: [
-        { property: 'og:image', content: '/logo.png' },
-        { name: 'twitter:card', content: 'summary' },
-        { name: 'twitter:image', content: '/logo.png' },
+        { property: 'og:image', content: '/og.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:image', content: '/og.png' },
       ],
       script: [
         {
