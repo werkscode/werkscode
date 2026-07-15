@@ -16,7 +16,7 @@ defineProps<{
   <nav
     v-if="links.length"
     aria-label="Table of contents"
-    class="mb-8 rounded-md border-2 border-border/80 bg-muted/20 px-4 py-4 lg:sticky lg:top-24 lg:mb-0"
+    class="rounded-md border-2 border-border/80 bg-muted/20 px-4 py-4"
   >
     <p class="font-mono-label mb-3 text-muted-foreground">
       {{ label }}

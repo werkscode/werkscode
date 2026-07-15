@@ -24,12 +24,14 @@ const localePath = useLocalePath()
 const aiAssistLabels = computed(() =>
   (props.aiAssist ?? []).map(key => t(`blog.aiAssist.${key}`)),
 )
+
+const hasToc = computed(() => Boolean(props.tocLinks?.length && props.tocLabel))
 </script>
 
 <template>
-  <PageShell width="narrow">
+  <PageShell :width="hasToc ? 'default' : 'narrow'">
     <article>
-      <header class="space-y-4 border-b-2 border-foreground/10 pb-8">
+      <header class="max-w-3xl space-y-4 border-b-2 border-foreground/10 pb-8">
         <Button variant="ghost" size="sm" class="-ml-2 whitespace-nowrap" as-child>
           <NuxtLink :to="backTo">
             {{ backLabel }}
@@ -60,16 +62,19 @@ const aiAssistLabels = computed(() =>
 
       <div
         class="mt-10"
-        :class="tocLinks?.length ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_12rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_14rem]' : ''"
+        :class="hasToc
+          ? 'lg:flex lg:items-stretch lg:gap-12 xl:gap-16'
+          : 'max-w-3xl'"
       >
-        <div class="min-w-0">
+        <div class="min-w-0 w-full max-w-3xl">
           <ArticleToc
-            v-if="tocLinks?.length && tocLabel"
-            :links="tocLinks"
-            :label="tocLabel"
-            class="lg:hidden"
+            v-if="hasToc"
+            :links="tocLinks!"
+            :label="tocLabel!"
+            class="mb-8 lg:hidden"
           />
-          <div class="prose-content">
+
+          <div class="prose-content mt-0">
             <slot />
           </div>
 
@@ -96,13 +101,15 @@ const aiAssistLabels = computed(() =>
         </div>
 
         <aside
-          v-if="tocLinks?.length && tocLabel"
-          class="hidden min-w-0 lg:block"
+          v-if="hasToc"
+          class="relative hidden w-56 shrink-0 lg:block xl:w-64"
         >
-          <ArticleToc
-            :links="tocLinks"
-            :label="tocLabel"
-          />
+          <div class="sticky top-28">
+            <ArticleToc
+              :links="tocLinks!"
+              :label="tocLabel!"
+            />
+          </div>
         </aside>
       </div>
     </article>

@@ -175,6 +175,11 @@
     @apply prose-blockquote:border-l-primary prose-blockquote:border-l-4 prose-blockquote:font-normal prose-blockquote:not-italic;
   }
 
+  /* Caller may zero the default top margin when spacing is applied by a parent. */
+  .prose-content.mt-0 {
+    margin-top: 0;
+  }
+
   .prose-content :is(h1, h2, h3, h4) a {
     font-weight: inherit;
     color: inherit;
