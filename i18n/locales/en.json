@@ -51,11 +51,14 @@
     }
   },
   "home": {
-    "badge": "Coming soon",
     "title": "WERKSCODE works",
     "description": "A coding CEO from the manufacturing shopfloor. A place for writing, projects, and experiments where Werks meets code.",
     "readBlog": "Read the blog",
     "viewPortfolio": "View portfolio",
+    "latest": {
+      "label": "Latest writing",
+      "cta": "Read post →"
+    },
     "manifesto": {
       "label": "What this is",
       "text": "A public notebook from a small metal shop — not a startup pitch deck. Real notes on learning to code while running a business."
@@ -89,6 +92,16 @@
   "contact": {
     "title": "Contact",
     "description": "Send a message — I'll get back to you as soon as I can.",
+    "trust": {
+      "who": "You're writing to the managing director behind WERKSCODE — a small metal shop learning to code in public.",
+      "response": "I usually reply within a few days.",
+      "privacy": "Your message is stored securely and never shared. See how this site is built on the transparency page."
+    },
+    "links": {
+      "about": "About me",
+      "transparency": "Transparency",
+      "github": "GitHub"
+    },
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -123,23 +136,46 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Posts and notes. Placeholder content for now.",
+    "description": "Notes on learning to code while running a small manufacturing business.",
+    "featured": "Latest",
     "empty": "No posts yet.",
     "back": "← Back to blog",
-    "notFound": "Post not found"
+    "notFound": "Post not found",
+    "toc": "On this page",
+    "endCta": {
+      "text": "Want to talk shopfloor, code, or your own learning path?",
+      "contact": "Send a message",
+      "transparency": "How AI helped write this"
+    },
+    "aiAssist": {
+      "label": "AI assisted with",
+      "drafting": "drafting",
+      "editing": "editing",
+      "translation": "translation",
+      "code": "code",
+      "research": "research",
+      "images": "images"
+    }
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Selected projects. Placeholder content for now.",
+    "description": "Selected projects and experiments from the shopfloor-to-code journey.",
     "featured": "Featured",
     "viewProject": "View project →",
     "visitProject": "Visit project",
     "empty": "No projects yet.",
+    "emptyHint": "Case studies land here as projects ship. Meanwhile:",
+    "emptyBlog": "Read the blog",
+    "emptyContact": "Get in touch",
     "back": "← Back to portfolio",
     "notFound": "Project not found"
   },
   "errors": {
     "invalidForm": "Invalid form data",
-    "pageNotFound": "Page not found"
+    "pageNotFound": "Page not found",
+    "pageNotFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+    "genericTitle": "Something went wrong",
+    "genericDescription": "An unexpected error occurred. Please try again or head back to the homepage.",
+    "recovery": "Try one of these instead:"
   }
 }

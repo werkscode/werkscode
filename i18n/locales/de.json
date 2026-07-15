@@ -51,11 +51,14 @@
     }
   },
   "home": {
-    "badge": "Demnächst",
     "title": "WERKSCODE works",
     "description": "Ein Coding-CEO vom Fertigungsshopfloor. Ein Ort für Texte, Projekte und Experimente, wo Werks auf Code trifft.",
     "readBlog": "Zum Blog",
     "viewPortfolio": "Portfolio ansehen",
+    "latest": {
+      "label": "Neuester Beitrag",
+      "cta": "Beitrag lesen →"
+    },
     "manifesto": {
       "label": "Worum es geht",
       "text": "Ein öffentliches Notizbuch aus einem kleinen Metallbetrieb — kein Startup-Pitch. Echte Notizen zum Programmierenlernen neben dem Tagesgeschäft."
@@ -89,6 +92,16 @@
   "contact": {
     "title": "Kontakt",
     "description": "Senden Sie eine Nachricht — ich melde mich so schnell wie möglich.",
+    "trust": {
+      "who": "Sie schreiben dem Geschäftsführer hinter WERKSCODE — einem kleinen Metallbetrieb, der öffentlich Programmieren lernt.",
+      "response": "Ich antworte in der Regel innerhalb weniger Tage.",
+      "privacy": "Ihre Nachricht wird sicher gespeichert und nicht weitergegeben. Wie diese Seite entsteht, steht auf der Transparenz-Seite."
+    },
+    "links": {
+      "about": "Über mich",
+      "transparency": "Transparenz",
+      "github": "GitHub"
+    },
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
@@ -123,23 +136,46 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Beiträge und Notizen. Vorerst nur Platzhalterinhalte.",
+    "description": "Notizen zum Programmierenlernen neben dem Tagesgeschäft in einem kleinen Fertigungsbetrieb.",
+    "featured": "Neueste",
     "empty": "Noch keine Beiträge.",
     "back": "← Zurück zum Blog",
-    "notFound": "Beitrag nicht gefunden"
+    "notFound": "Beitrag nicht gefunden",
+    "toc": "Auf dieser Seite",
+    "endCta": {
+      "text": "Lust auf Shopfloor, Code oder euren eigenen Lernweg?",
+      "contact": "Nachricht senden",
+      "transparency": "Wie KI beim Schreiben half"
+    },
+    "aiAssist": {
+      "label": "KI half bei",
+      "drafting": "Entwurf",
+      "editing": "Überarbeitung",
+      "translation": "Übersetzung",
+      "code": "Code",
+      "research": "Recherche",
+      "images": "Bilder"
+    }
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Ausgewählte Projekte. Vorerst nur Platzhalterinhalte.",
+    "description": "Ausgewählte Projekte und Experimente auf dem Weg vom Shopfloor zum Code.",
     "featured": "Hervorgehoben",
     "viewProject": "Projekt ansehen →",
     "visitProject": "Projekt besuchen",
     "empty": "Noch keine Projekte.",
+    "emptyHint": "Fallstudien kommen hier hin, sobald Projekte fertig sind. Bis dahin:",
+    "emptyBlog": "Zum Blog",
+    "emptyContact": "Kontakt aufnehmen",
     "back": "← Zurück zum Portfolio",
     "notFound": "Projekt nicht gefunden"
   },
   "errors": {
     "invalidForm": "Ungültige Formulardaten",
-    "pageNotFound": "Seite nicht gefunden"
+    "pageNotFound": "Seite nicht gefunden",
+    "pageNotFoundDescription": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "genericTitle": "Etwas ist schiefgelaufen",
+    "genericDescription": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.",
+    "recovery": "Versuchen Sie stattdessen:"
   }
 }

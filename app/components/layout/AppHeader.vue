@@ -10,8 +10,13 @@ const navItems = computed(() => [
   { label: t('nav.blog'), to: localePath('/blog') },
   { label: t('nav.portfolio'), to: localePath('/portfolio') },
   { label: t('nav.about'), to: localePath('/about') },
+  { label: t('nav.transparency'), to: localePath('/transparency') },
   { label: t('nav.contact'), to: localePath('/contact') },
 ])
+
+const mobileNavItems = computed(() =>
+  navItems.value.filter(item => item.to !== localePath('/contact')),
+)
 
 const mobileOpen = ref(false)
 
@@ -50,7 +55,7 @@ function isActive(path: string) {
               </SheetHeader>
               <nav class="mt-8 flex flex-col gap-1">
                 <NuxtLink
-                  v-for="item in navItems"
+                  v-for="item in mobileNavItems"
                   :key="item.to"
                   :to="item.to"
                   class="rounded-sm px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
@@ -60,6 +65,16 @@ function isActive(path: string) {
                   {{ item.label }}
                 </NuxtLink>
               </nav>
+              <div class="mt-6 border-t border-border/60 pt-6">
+                <Button size="lg" class="w-full" as-child>
+                  <NuxtLink
+                    :to="localePath('/contact')"
+                    @click="mobileOpen = false"
+                  >
+                    {{ t('nav.contact') }}
+                  </NuxtLink>
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

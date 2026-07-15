@@ -3,6 +3,7 @@ import { toast } from 'vue-sonner'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { public: publicConfig } = useRuntimeConfig()
 
 useSeoMeta({
   title: () => t('seo.contact.title'),
@@ -53,6 +54,40 @@ async function onSubmit() {
       :title="t('contact.title')"
       :description="t('contact.description')"
     />
+
+    <div class="mb-8 space-y-4 border-2 border-border/80 bg-muted/20 px-5 py-6 sm:px-6">
+      <p class="text-sm leading-relaxed text-foreground">
+        {{ t('contact.trust.who') }}
+      </p>
+      <p class="text-sm text-muted-foreground">
+        {{ t('contact.trust.response') }}
+      </p>
+      <p class="text-sm text-muted-foreground">
+        {{ t('contact.trust.privacy') }}
+      </p>
+      <nav class="flex flex-wrap gap-x-4 gap-y-2 pt-1 text-sm">
+        <NuxtLink
+          :to="localePath('/about')"
+          class="whitespace-nowrap text-primary transition-colors hover:underline focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {{ t('contact.links.about') }}
+        </NuxtLink>
+        <NuxtLink
+          :to="localePath('/transparency')"
+          class="whitespace-nowrap text-primary transition-colors hover:underline focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {{ t('contact.links.transparency') }}
+        </NuxtLink>
+        <a
+          :href="publicConfig.githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="whitespace-nowrap text-primary transition-colors hover:underline focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {{ t('contact.links.github') }}
+        </a>
+      </nav>
+    </div>
 
     <Card class="border-2 border-border/80">
       <CardContent class="pt-6">

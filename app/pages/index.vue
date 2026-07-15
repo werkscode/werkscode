@@ -1,5 +1,18 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { localizedPath } = useLocalizedContentPath()
+const { formatDate } = useFormattedDate()
+const blogBasePath = computed(() => localizedPath('/blog'))
+
+const { data: latestPost } = await useAsyncData(
+  () => `home-latest-${blogBasePath.value}`,
+  () => queryCollection('blog')
+    .where('draft', '<>', true)
+    .where('path', 'LIKE', `${blogBasePath.value}%`)
+    .order('date', 'DESC')
+    .first(),
+  { watch: [blogBasePath] },
+)
 
 useSeoMeta({
   title: () => t('seo.home.title'),
@@ -17,9 +30,6 @@ const localePath = useLocalePath()
     >
       <template #eyebrow>
         <AppLogo variant="icon" size="md" />
-        <Badge variant="outline" class="font-mono-label">
-          {{ t('home.badge') }}
-        </Badge>
       </template>
       <div class="flex flex-wrap gap-3">
         <Button size="lg" as-child>
@@ -42,6 +52,46 @@ const localePath = useLocalePath()
       <p class="max-w-3xl font-heading text-xl leading-relaxed text-foreground sm:text-2xl">
         {{ t('home.manifesto.text') }}
       </p>
+    </section>
+
+    <section
+      v-if="latestPost"
+      class="mb-14 sm:mb-16"
+    >
+      <p class="font-mono-label mb-4 text-primary">
+        {{ t('home.latest.label') }}
+      </p>
+      <Card class="group border-2 border-border/80 transition-[border-color,box-shadow] hover:border-primary/40 hover:shadow-sm">
+        <CardHeader class="gap-3">
+          <CardTitle class="font-heading text-2xl font-normal group-hover:text-primary transition-colors">
+            <NuxtLink
+              :to="latestPost.path"
+              class="outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {{ latestPost.title }}
+            </NuxtLink>
+          </CardTitle>
+          <CardDescription
+            v-if="latestPost.description"
+            class="text-base leading-relaxed"
+          >
+            {{ latestPost.description }}
+          </CardDescription>
+        </CardHeader>
+        <CardContent class="flex flex-wrap items-center gap-2">
+          <time
+            v-if="latestPost.date"
+            class="font-mono-label normal-case tracking-normal text-muted-foreground"
+          >
+            {{ formatDate(latestPost.date) }}
+          </time>
+          <Button variant="link" class="h-auto px-0 text-base" as-child>
+            <NuxtLink :to="latestPost.path">
+              {{ t('home.latest.cta') }}
+            </NuxtLink>
+          </Button>
+        </CardContent>
+      </Card>
     </section>
 
     <section class="mb-14 sm:mb-16">
