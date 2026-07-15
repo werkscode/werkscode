@@ -91,9 +91,10 @@ app/                  # Nuxt 4 app directory
   assets/css/         # Tailwind + custom theme
   components/         # Layout + shadcn UI components
   pages/              # Routes
-content/              # Blog and portfolio markdown
+content/              # Blog, portfolio, and editorial pages
   blog/
   portfolio/
+  pages/
 server/               # Nitro server
   api/                # API routes
   db/                 # Drizzle schema
@@ -104,8 +105,17 @@ drizzle/              # SQL migrations
 
 - **Blog** — markdown in `content/blog/` (EN) and `content/de/blog/` (DE)
 - **Portfolio** — markdown in `content/portfolio/` and `content/de/portfolio/`
+- **Editorial pages** — About and Transparency in `content/pages/` and `content/de/pages/`
 - Set `draft: true` in frontmatter until ready to publish; listings hide drafts
 - Placeholder files are included; replace with real content later
+
+### AI transparency
+
+This project uses AI tools (mainly Cursor) for code and content. The author edits, verifies, and takes responsibility for what ships.
+
+- **Site:** [/transparency](https://werkscode.de/transparency) — reader-facing summary (EN + DE)
+- **Policy:** [AI-USAGE.md](AI-USAGE.md) — tools, principles, structured `ai_assist` metadata
+- **Standards:** [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md) — privacy + optional `Assisted-by: Cursor` commit trailer
 
 ### Writing content with Cursor
 

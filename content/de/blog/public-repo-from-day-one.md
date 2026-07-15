@@ -6,6 +6,10 @@ tags:
   - learning
   - ai-tools
   - entrepreneurship
+ai_assist:
+  - drafting
+  - editing
+  - translation
 draft: false
 ---
 
@@ -41,7 +45,7 @@ Der Wendepunkt war unspektakulär: ein Dienstagabend. Eine Stunde Arbeit an etwa
 
 Echte Software wird 2026 häufig öffentlich entwickelt. Oder zumindest so, als könnte morgen jemand mitlesen.
 
-Also habe ich WERKSCODE vom ersten Tag an öffentlich gemacht. Nicht am ersten Tag einer fertigen Website, sondern am ersten Tag ihres Fundaments.
+Also habe ich [WERKSCODE auf GitHub](https://github.com/werkscode/werkscode) vom ersten Tag an öffentlich gemacht. Nicht am ersten Tag einer fertigen Website, sondern am ersten Tag ihres Fundaments.
 
 ## Wovor ich Angst hatte
 
@@ -97,7 +101,7 @@ Das Repository öffentlich zu machen, hat mich nicht auf magische Weise produkti
 
 Ich habe die Entwicklungsumgebung nach Änderungen an Abhängigkeiten neu gebaut. Ich bin auf Content-Cache-Fehler gestoßen und habe gelernt, was Nuxt Content in SQLite speichert. Ich habe Layout-Code mehrfach umgeschrieben, bis sich gemeinsame Seitenkomponenten ergeben haben.
 
-Die Git-History zeigt diesen Weg. Und das ist in Ordnung.
+Die Git-History im [Repository](https://github.com/werkscode/werkscode) zeigt diesen Weg. Und das ist in Ordnung.
 
 Was die Öffentlichkeit verhindert hat, war etwas anderes: das perfekte private Projekt, das nie live geht, weil es letztlich nur für mich selbst gedacht war.
 
@@ -113,7 +117,7 @@ Das Repository soll zeigen, wie du arbeitest – nicht jedes Detail darüber, wo
 
 WERKSCODE ist mein kleiner öffentlicher Ort. Der Name ist Wortspiel und Versprechen zugleich: Werk trifft Code.
 
-Dass das Repository vom ersten Tag an öffentlich ist, gehört dazu. So lerne ich wirklich – nicht nur so lange, bis alles hübsch genug aussieht, um es zu zeigen.
+Dass [das Repository vom ersten Tag an öffentlich](https://github.com/werkscode/werkscode) ist, gehört dazu. So lerne ich wirklich – nicht nur so lange, bis alles hübsch genug aussieht, um es zu zeigen.
 
 Du musst nicht deine Fertigung ins Internet stellen. Du musst kein Influencer werden.
 

@@ -25,7 +25,7 @@ services:
       # Keep @nuxt/content SQLite cache in a container volume (not the bind mount).
       # Avoids root-owned .data on the host and stale/partial content indexes.
       - nuxt_content_cache:/app/.data
-    command: ['sh', '-c', 'pnpm rebuild better-sqlite3 && pnpm nuxt prepare && pnpm dev --host 0.0.0.0']
+    command: ['./scripts/docker-dev-entrypoint.sh']
 
 volumes:
   postgres_dev_data:

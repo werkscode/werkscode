@@ -28,7 +28,7 @@ pnpm db:migrate   # Migrations on host
 
 - Dev image is **Debian-based** (not Alpine) — required for native modules
 - Container startup runs `nuxt prepare` — do not remove
-- After adding npm packages in Docker: `make dev-rebuild`
+- After adding npm packages in Docker: `make dev-rebuild` (refreshes the anonymous `node_modules` volume)
 - Production binds `127.0.0.1:3000` for reverse proxy use
 - `@nuxt/content` SQLite cache lives in the `nuxt_content_cache` Docker volume (not on the host `.data/`). If you see `no such table: _content_*`, run `make dev-content-reset` and wait for the log line `Processed … collections` before opening portfolio/blog pages
 - Host-only dev (`pnpm dev`): delete `.data/content` and restart if content collections were added or queries fail with missing `_content_*` tables

@@ -8,19 +8,24 @@ alwaysApply: false
 
 ## File layout
 
-| Locale | Blog | Portfolio |
-|--------|------|-----------|
-| EN | `content/blog/*.md` | `content/portfolio/*.md` |
-| DE | `content/de/blog/*.md` | `content/de/portfolio/*.md` |
+| Locale | Blog | Portfolio | Pages |
+|--------|------|-----------|-------|
+| EN | `content/blog/*.md` | `content/portfolio/*.md` | `content/pages/*.md` |
+| DE | `content/de/blog/*.md` | `content/de/portfolio/*.md` | `content/de/pages/*.md` |
 
 Schema defined in `content.config.ts`. Blog posts support `draft: true` (hidden from listing).
 
 ## Frontmatter
 
-**Blog**: `title`, `description`, `date`, `tags`, `draft`
-**Portfolio**: `title`, `description`, `date`, `tech`, `featured`, `link`, `draft`
+**Blog**: `title`, `description`, `date`, `tags`, `draft`, `ai_assist` (optional)
+**Portfolio**: `title`, `description`, `date`, `tech`, `featured`, `link`, `draft`, `ai_assist` (optional)
+**Pages**: `title`, `description`, `draft`
 
 Set `draft: true` until the author confirms publish. Both blog and portfolio listings hide drafts.
+
+### AI disclosure (`ai_assist`)
+
+Record honestly how AI helped: `drafting`, `editing`, `translation`, `code`, `research`, `images`. See [`AI-USAGE.md`](../AI-USAGE.md) for definitions. Not rendered on posts yet — metadata for transparency in git.
 
 ## Privacy — never commit
 

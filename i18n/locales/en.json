@@ -6,11 +6,13 @@
     "portfolio": "Portfolio",
     "about": "About",
     "contact": "Contact",
+    "transparency": "Transparency",
     "openMenu": "Open menu",
     "menu": "Menu"
   },
   "footer": {
-    "copyright": "© {year} WERKSCODE. All rights reserved."
+    "copyright": "© {year} WERKSCODE. All rights reserved.",
+    "github": "GitHub"
   },
   "theme": {
     "toggle": "Toggle theme"
@@ -28,7 +30,11 @@
     },
     "about": {
       "title": "About — WERKSCODE",
-      "description": "About page placeholder."
+      "description": "Managing director of a small metal manufacturing company, learning to code in public."
+    },
+    "transparency": {
+      "title": "Transparency — WERKSCODE",
+      "description": "How AI tools help build this site, what stays human, and how I keep it honest."
     },
     "contact": {
       "title": "Contact — WERKSCODE",
@@ -62,7 +68,7 @@
   },
   "about": {
     "title": "About",
-    "description": "This is a placeholder about page. Personal bio and details will be added later."
+    "description": "Managing director of a small metal manufacturing company, learning to code in public."
   },
   "contact": {
     "title": "Contact",
@@ -100,6 +106,7 @@
     "notFound": "Project not found"
   },
   "errors": {
-    "invalidForm": "Invalid form data"
+    "invalidForm": "Invalid form data",
+    "pageNotFound": "Page not found"
   }
 }

@@ -6,6 +6,9 @@ tags:
   - learning
   - ai-tools
   - entrepreneurship
+ai_assist:
+  - drafting
+  - editing
 draft: false
 ---
 
@@ -27,7 +30,7 @@ But "later" has a cost. Private repos teach you to perform for an audience of on
 
 The breaking point wasn't dramatic. It was a Tuesday evening. I'd spent an hour fixing something small — routing, or a database migration, I don't remember which — and I thought: *if I'm going to learn this properly, I need habits that match how real software gets built.* Real software, in 2026, is often built in the open. Or at least built as if someone might read it tomorrow.
 
-So I made WERKSCODE public from day one. Not day one of a finished site. Day one of the scaffold.
+So I made [WERKSCODE public on GitHub](https://github.com/werkscode/werkscode) from day one. Not day one of a finished site. Day one of the scaffold.
 
 ## What I was afraid of
 
@@ -61,7 +64,7 @@ I also stopped confusing *learning* with *launching*. The site can say "coming s
 
 Going public didn't magically make me productive.
 
-I still rebuilt the dev environment after dependency changes. I still hit content-cache errors and had to learn what Nuxt Content keeps in SQLite. I still wrote layout code three different ways before we settled on shared page components. The repo shows that arc if you look at the history — and I'm okay with that.
+I still rebuilt the dev environment after dependency changes. I still hit content-cache errors and had to learn what Nuxt Content keeps in SQLite. I still wrote layout code three different ways before we settled on shared page components. [The repository](https://github.com/werkscode/werkscode) shows that arc if you look at the history — and I'm okay with that.
 
 What public *did* do was prevent the worst dead end: a perfect private project that never ships because it was only ever meant for me.
 
@@ -71,7 +74,7 @@ If you're learning to code while running a business, you don't need a private sa
 
 Pick something low-risk to open source — a site, a script, a template — not your crown jewels. Write down what must never appear in git. Use drafts for content you're not ready to publish on the *website*, even if the *repo* is already visible. Let the repository document how you work, not every detail of how you earn a living.
 
-WERKSCODE is my small public place. The name is a joke and a promise: Werks meets code. The repo being public from day one is part of the promise too — *this is how I'm actually learning*, not how I'll pretend I learned once it's pretty.
+WERKSCODE is my small public place. The name is a joke and a promise: Werks meets code. [The repo being public from day one](https://github.com/werkscode/werkscode) is part of the promise too — *this is how I'm actually learning*, not how I'll pretend I learned once it's pretty.
 
 You don't have to open your manufacturing systems to the internet. You don't have to become an influencer. You only have to decide whether hiding your learning is still helping you — or whether it's the same "we'll digitalize when we have time" story the shopfloor has heard before.
 

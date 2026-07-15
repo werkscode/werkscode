@@ -8,10 +8,5 @@ useSeoMeta({
 </script>
 
 <template>
-  <PageShell>
-    <PageHeader
-      :title="t('about.title')"
-      :description="t('about.description')"
-    />
-  </PageShell>
+  <EditorialPage slug="about" />
 </template>

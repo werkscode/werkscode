@@ -45,6 +45,7 @@ export default defineNuxtConfig({
     databaseUrl: '',
     public: {
       appUrl: '',
+      githubUrl: 'https://github.com/werkscode/werkscode',
     },
   },
 

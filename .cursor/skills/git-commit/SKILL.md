@@ -49,6 +49,9 @@ Block the commit if staged diff or message contains:
 <type>(<scope>): <short summary>
 
 [optional body — 1-3 sentences explaining WHY]
+
+[optional trailers]
+Assisted-by: Cursor
 ```
 
 | Type | When |
@@ -67,6 +70,7 @@ Rules:
 - English only; imperative mood ("add" not "added")
 - Subject ≤ 72 chars; body explains **why**, not a file list
 - One logical change per commit — suggest splitting mixed diffs
+- Optional trailer `Assisted-by: Cursor` when AI meaningfully assisted (see [`AI-USAGE.md`](../../AI-USAGE.md))
 
 ## Step 5 — Commit
 

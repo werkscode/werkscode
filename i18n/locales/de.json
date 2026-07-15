@@ -6,11 +6,13 @@
     "portfolio": "Portfolio",
     "about": "Über mich",
     "contact": "Kontakt",
+    "transparency": "Transparenz",
     "openMenu": "Menü öffnen",
     "menu": "Menü"
   },
   "footer": {
-    "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten."
+    "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten.",
+    "github": "GitHub"
   },
   "theme": {
     "toggle": "Design umschalten"
@@ -28,7 +30,11 @@
     },
     "about": {
       "title": "Über mich — WERKSCODE",
-      "description": "Platzhalter für die Über-mich-Seite."
+      "description": "Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt."
+    },
+    "transparency": {
+      "title": "Transparenz — WERKSCODE",
+      "description": "Wie KI-Tools beim Aufbau dieser Seite helfen, was menschlich bleibt und wie ich ehrlich bleibe."
     },
     "contact": {
       "title": "Kontakt — WERKSCODE",
@@ -62,7 +68,7 @@
   },
   "about": {
     "title": "Über mich",
-    "description": "Dies ist eine Platzhalter-Seite. Persönliche Informationen werden später ergänzt."
+    "description": "Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt."
   },
   "contact": {
     "title": "Kontakt",
@@ -100,6 +106,7 @@
     "notFound": "Projekt nicht gefunden"
   },
   "errors": {
-    "invalidForm": "Ungültige Formulardaten"
+    "invalidForm": "Ungültige Formulardaten",
+    "pageNotFound": "Seite nicht gefunden"
   }
 }

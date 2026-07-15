@@ -31,6 +31,17 @@ If secrets ever land in history: stop, warn the author, and use `git filter-repo
 - No secrets in the working tree
 - LICENSE is added only when the author requests it
 
+## AI transparency
+
+AI tools (mainly Cursor) assist with code and content in this repository. The author edits, verifies, and takes responsibility for what ships.
+
+- **Policy:** [`AI-USAGE.md`](../AI-USAGE.md) — tools, principles, structured disclosure
+- **Site:** `/transparency` — reader-facing summary (EN + DE)
+- **Content metadata:** optional `ai_assist` frontmatter on blog/portfolio entries (see `content.config.ts`)
+- **Commits:** optional `Assisted-by: Cursor` trailer when AI assistance was substantial
+
+Never paste secrets, customer names, or internal system details into AI chat. Project rules in `.cursor/` apply to assistants too.
+
 ## Conventional Commits
 
 Commit messages in English, imperative mood:
@@ -39,6 +50,9 @@ Commit messages in English, imperative mood:
 <type>(<scope>): <short summary>
 
 [optional body — WHY, not a file list]
+
+[optional trailers]
+Assisted-by: Cursor
 ```
 
 Types: `feat`, `fix`, `docs`, `refactor`, `chore`, `build`, `db`

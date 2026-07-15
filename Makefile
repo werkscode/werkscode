@@ -6,7 +6,7 @@
 	prod-migrate prod-up prod-down prod-logs prod-build \
 	clean clean-dev clean-staging clean-prod
 
-COMPOSE := docker compose
+COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
 BASE    := -f docker-compose.yml
 DEV     := $(BASE) -f docker-compose.dev.yml
 STAGING := $(BASE) -f docker-compose.staging.yml
@@ -71,7 +71,7 @@ dev-build: ## Build dev images
 	$(COMPOSE) $(DEV) build
 
 dev-rebuild: dev-build ## Rebuild image and restart dev (after package.json changes)
-	$(COMPOSE) $(DEV) up -d --force-recreate app
+	$(COMPOSE) $(DEV) up -d --force-recreate --renew-anon-volumes app
 
 dev-logs: ## Follow dev stack logs
 	$(COMPOSE) $(DEV) logs -f

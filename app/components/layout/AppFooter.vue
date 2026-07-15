@@ -2,6 +2,7 @@
 const year = new Date().getFullYear()
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { public: publicConfig } = useRuntimeConfig()
 </script>
 
 <template>
@@ -18,9 +19,20 @@ const localePath = useLocalePath()
         <NuxtLink :to="localePath('/about')" class="transition-colors hover:text-foreground">
           {{ t('nav.about') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('/transparency')" class="transition-colors hover:text-foreground">
+          {{ t('nav.transparency') }}
+        </NuxtLink>
         <NuxtLink :to="localePath('/contact')" class="transition-colors hover:text-foreground">
           {{ t('nav.contact') }}
         </NuxtLink>
+        <a
+          :href="publicConfig.githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-colors hover:text-foreground"
+        >
+          {{ t('footer.github') }}
+        </a>
       </nav>
     </div>
   </footer>
