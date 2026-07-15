@@ -4,6 +4,11 @@ import postgres from 'postgres'
 import * as schema from '../db/schema'
 
 export default defineNitroPlugin(async () => {
+  // Prerender runs during `nuxt build` — no database host exists in the build container.
+  if (import.meta.prerender) {
+    return
+  }
+
   const config = useRuntimeConfig()
   const connectionString = config.databaseUrl || process.env.DATABASE_URL
 

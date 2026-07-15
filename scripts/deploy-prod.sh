@@ -27,5 +27,15 @@ fi
 $COMPOSE -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate app
 
 echo "==> Health check"
-curl -sf http://127.0.0.1:3000/api/health >/dev/null
-echo "Deploy OK"
+for i in $(seq 1 30); do
+  if curl -sf http://127.0.0.1:3000/api/health >/dev/null; then
+    echo "Deploy OK"
+    exit 0
+  fi
+  echo "Waiting for app... ($i/30)"
+  sleep 2
+done
+
+echo "Health check failed after 60s"
+$COMPOSE -f docker-compose.yml -f docker-compose.prod.yml logs --tail=50 app || true
+exit 1

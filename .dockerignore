@@ -1,0 +1,21 @@
+.git
+.github
+.cursor
+node_modules
+.output
+.nuxt
+.nitro
+.data
+.cache
+dist
+.pnpm-store
+
+# Never bake server secrets into the image at build time
+.env
+.env.*
+!.env.example
+!.env.production.example
+!.env.staging.example
+
+*.log
+.DS_Store
