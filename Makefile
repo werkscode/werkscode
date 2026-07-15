@@ -3,7 +3,7 @@
 	up down build logs ps shell migrate \
 	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate dev-content-reset \
 	staging-migrate staging-up staging-down staging-logs staging-build \
-	prod-migrate prod-up prod-down prod-logs prod-build \
+	prod-migrate prod-up prod-down prod-logs prod-build prod-deploy \
 	clean clean-dev clean-staging clean-prod
 
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
@@ -120,6 +120,9 @@ prod-down: ## Stop production stack
 
 prod-build: ## Build production images
 	$(COMPOSE) $(PROD) build
+
+prod-deploy: ## Pull, migrate, rebuild, and restart app (run on server)
+	./scripts/deploy-prod.sh
 
 prod-logs: ## Follow production stack logs
 	$(COMPOSE) $(PROD) logs -f

@@ -96,7 +96,7 @@ sudo mkdir -p /opt/werkscode /etc/caddy/sites
 Clone this repo:
 
 ```bash
-sudo git clone https://github.com/<your-org>/werkscode.git /opt/werkscode
+sudo git clone https://github.com/werkscode/werkscode.git /opt/werkscode
 # or your fork URL — adjust permissions: sudo chown -R $USER:$USER /opt/werkscode
 ```
 
@@ -181,8 +181,60 @@ In a browser:
 
 Blog/portfolio content is **baked into the Docker image** at build time.
 
+### Automatic (GitHub Actions)
+
+Pushes to `main` run [`.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml): build in CI, then SSH to the VPS and run [`scripts/deploy-prod.sh`](../scripts/deploy-prod.sh).
+
+**One-time GitHub setup** (repo → Settings → Secrets and variables → Actions):
+
+| Secret | Example | Required |
+|--------|---------|----------|
+| `DEPLOY_HOST` | VPS public IP or hostname | yes |
+| `DEPLOY_USER` | Linux user with Docker access | yes |
+| `DEPLOY_SSH_KEY` | Private key (PEM) for that user | yes |
+| `DEPLOY_PORT` | `22` | no |
+| `DEPLOY_PATH` | `/opt/werkscode` | no |
+
+Create repo → Settings → Environments → **production** (optional but recommended for deploy approval gates).
+
+**One-time VPS setup for deploys:**
+
+```bash
+# On your laptop — dedicated deploy key (no passphrase for CI)
+ssh-keygen -t ed25519 -f ~/.ssh/werkscode-deploy -N ""
+cat ~/.ssh/werkscode-deploy.pub   # add this line to VPS ~/.ssh/authorized_keys
+
+# Paste private key into GitHub secret DEPLOY_SSH_KEY
+cat ~/.ssh/werkscode-deploy
+```
+
+On the server, ensure the deploy user can run Docker without sudo and the repo is checked out:
+
+```bash
+sudo usermod -aG docker "$USER"
+cd /opt/werkscode && git remote -v   # should point at github.com/werkscode/werkscode
+chmod +x scripts/deploy-prod.sh
+```
+
+Test manually before relying on Actions:
+
 ```bash
 cd /opt/werkscode
+make prod-deploy
+```
+
+Trigger a deploy from GitHub: Actions → **Deploy production** → **Run workflow**.
+
+### Manual
+
+```bash
+cd /opt/werkscode
+make prod-deploy
+```
+
+Or step by step:
+
+```bash
 git pull
 make prod-build
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate app
@@ -234,4 +286,7 @@ sudo systemctl reload caddy
 |------|---------|
 | [`caddy/Caddyfile`](caddy/Caddyfile) | Main config — `import sites/*.caddy` |
 | [`caddy/sites/werkscode.caddy`](caddy/sites/werkscode.caddy) | WERKSCODE proxy + domain redirects |
+| [`../scripts/deploy-prod.sh`](../scripts/deploy-prod.sh) | Production deploy script (GitHub Actions + `make prod-deploy`) |
+| [`../.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml) | CI build + SSH deploy on push to `main` |
+| [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) | PR build check |
 | [`../docker-compose.prod.yml`](../docker-compose.prod.yml) | Prod stack — app on `127.0.0.1:3000` |
