@@ -18,7 +18,7 @@ Schema defined in `content.config.ts`. Blog posts support `draft: true` (hidden 
 ## Frontmatter
 
 **Blog**: `title`, `description`, `date`, `tags`, `draft`, `ai_assist` (optional)
-**Portfolio**: `title`, `description`, `date`, `tech`, `featured`, `link`, `draft`, `ai_assist` (optional)
+**Portfolio**: `title`, `description`, `date`, `cover`, `tech`, `featured`, `link`, `draft`, `ai_assist` (optional)
 **Pages**: `title`, `description`, `draft`
 
 Set `draft: true` until the author confirms publish. Both blog and portfolio listings hide drafts.
