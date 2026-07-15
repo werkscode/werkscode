@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  verify-build:
     runs-on: ubuntu-latest
     env:
       NUXT_PUBLIC_APP_URL: https://werkscode.de
@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     name: Deploy to VPS
-    needs: build
+    needs: verify-build
     runs-on: ubuntu-latest
     environment: production
 
