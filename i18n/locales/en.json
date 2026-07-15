@@ -11,6 +11,7 @@
     "menu": "Menu"
   },
   "footer": {
+    "statement": "Shopfloor meets software — learning to code in public, one honest post at a time.",
     "copyright": "© {year} WERKSCODE. All rights reserved.",
     "github": "GitHub"
   },
@@ -55,15 +56,30 @@
     "description": "A coding CEO from the manufacturing shopfloor. A place for writing, projects, and experiments where Werks meets code.",
     "readBlog": "Read the blog",
     "viewPortfolio": "View portfolio",
+    "manifesto": {
+      "label": "What this is",
+      "text": "A public notebook from a small metal shop — not a startup pitch deck. Real notes on learning to code while running a business."
+    },
+    "paths": {
+      "title": "Where to start",
+      "count": "02 paths"
+    },
     "blogCard": {
+      "label": "Writing",
       "title": "Blog",
       "description": "Thoughts on development, manufacturing, and building things.",
       "cta": "Browse posts →"
     },
     "portfolioCard": {
+      "label": "Work",
       "title": "Portfolio",
       "description": "Selected projects and case studies.",
       "cta": "See projects →"
+    },
+    "contactStrip": {
+      "label": "Get in touch",
+      "text": "Questions, ideas, or your own shopfloor story?",
+      "cta": "Send a message"
     }
   },
   "about": {

@@ -27,3 +27,8 @@ logs
 
 # pnpm
 .pnpm-store
+
+# Agent skills (local tooling, not part of the site)
+.agents/
+skills-lock.json
+.hallmark/

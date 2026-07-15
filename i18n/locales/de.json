@@ -11,6 +11,7 @@
     "menu": "Menü"
   },
   "footer": {
+    "statement": "Werks trifft Software — öffentlich Programmieren lernen, ein ehrlicher Beitrag nach dem anderen.",
     "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten.",
     "github": "GitHub"
   },
@@ -55,15 +56,30 @@
     "description": "Ein Coding-CEO vom Fertigungsshopfloor. Ein Ort für Texte, Projekte und Experimente, wo Werks auf Code trifft.",
     "readBlog": "Zum Blog",
     "viewPortfolio": "Portfolio ansehen",
+    "manifesto": {
+      "label": "Worum es geht",
+      "text": "Ein öffentliches Notizbuch aus einem kleinen Metallbetrieb — kein Startup-Pitch. Echte Notizen zum Programmierenlernen neben dem Tagesgeschäft."
+    },
+    "paths": {
+      "title": "Einstieg",
+      "count": "02 Wege"
+    },
     "blogCard": {
+      "label": "Texte",
       "title": "Blog",
       "description": "Gedanken zu Entwicklung, Fertigung und dem Bauen von Dingen.",
       "cta": "Beiträge lesen →"
     },
     "portfolioCard": {
+      "label": "Arbeit",
       "title": "Portfolio",
       "description": "Ausgewählte Projekte und Fallstudien.",
       "cta": "Projekte ansehen →"
+    },
+    "contactStrip": {
+      "label": "Kontakt",
+      "text": "Fragen, Ideen oder eure eigene Werks-Geschichte?",
+      "cta": "Nachricht senden"
     }
   },
   "about": {

@@ -24,55 +24,58 @@ function isActive(path: string) {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-    <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
-      <NuxtLink :to="localePath('/')" class="inline-flex items-center">
-        <AppLogo variant="wordmark" size="sm" />
-      </NuxtLink>
+  <header class="sticky top-0 z-50 border-b-2 border-foreground/10 bg-background/90 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex h-14 items-center justify-between gap-4 border-b border-border/60">
+        <NuxtLink
+          :to="localePath('/')"
+          class="inline-flex min-w-0 items-center rounded-sm outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <AppLogo variant="wordmark" size="sm" />
+        </NuxtLink>
 
-      <nav class="hidden items-center gap-1 md:flex">
+        <div class="flex shrink-0 items-center gap-1">
+          <LanguageSwitcher />
+          <ThemeToggle />
+          <Sheet v-model:open="mobileOpen">
+            <SheetTrigger as-child>
+              <Button variant="ghost" size="icon" class="md:hidden" :aria-label="t('nav.openMenu')">
+                <Menu class="size-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" class="w-72">
+              <SheetHeader>
+                <SheetTitle class="sr-only">{{ t('nav.menu') }}</SheetTitle>
+                <AppLogo variant="wordmark" size="sm" />
+              </SheetHeader>
+              <nav class="mt-8 flex flex-col gap-1">
+                <NuxtLink
+                  v-for="item in navItems"
+                  :key="item.to"
+                  :to="item.to"
+                  class="rounded-sm px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+                  :class="isActive(item.to) ? 'bg-accent text-foreground' : 'text-muted-foreground'"
+                  @click="mobileOpen = false"
+                >
+                  {{ item.label }}
+                </NuxtLink>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+
+      <nav class="hidden h-11 items-center gap-1 md:flex">
         <NuxtLink
           v-for="item in navItems"
           :key="item.to"
           :to="item.to"
-          class="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-          :class="isActive(item.to) ? 'bg-accent/60 text-primary' : 'text-muted-foreground'"
+          class="rounded-sm px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+          :class="isActive(item.to) ? 'text-foreground underline decoration-primary decoration-2 underline-offset-8' : 'text-muted-foreground'"
         >
           {{ item.label }}
         </NuxtLink>
-        <LanguageSwitcher />
-        <ThemeToggle />
       </nav>
-
-      <div class="flex items-center gap-2 md:hidden">
-        <LanguageSwitcher />
-        <ThemeToggle />
-        <Sheet v-model:open="mobileOpen">
-          <SheetTrigger as-child>
-            <Button variant="ghost" size="icon" :aria-label="t('nav.openMenu')">
-              <Menu class="size-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" class="w-64">
-            <SheetHeader>
-              <SheetTitle class="sr-only">{{ t('nav.menu') }}</SheetTitle>
-              <AppLogo variant="wordmark" size="sm" />
-            </SheetHeader>
-            <nav class="mt-6 flex flex-col gap-2">
-              <NuxtLink
-                v-for="item in navItems"
-                :key="item.to"
-                :to="item.to"
-                class="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent"
-                :class="isActive(item.to) ? 'bg-accent/60 text-primary' : 'text-muted-foreground'"
-                @click="mobileOpen = false"
-              >
-                {{ item.label }}
-              </NuxtLink>
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </div>
     </div>
   </header>
 </template>

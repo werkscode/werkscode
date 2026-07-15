@@ -5,10 +5,13 @@
       aria-hidden="true"
     >
       <div
-        class="absolute -top-1/3 left-1/2 h-[70%] w-full max-w-4xl -translate-x-1/2 rounded-full bg-primary/8 blur-3xl dark:bg-primary/12"
+        class="absolute inset-0 surface-hatch opacity-[0.35] dark:opacity-[0.15]"
       />
       <div
-        class="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[3.5rem_3.5rem] mask-[radial-gradient(ellipse_at_top,black_10%,transparent_70%)] opacity-40"
+        class="absolute -right-1/4 top-0 h-[55%] w-[70%] max-w-3xl rounded-full bg-primary/6 blur-3xl dark:bg-primary/10"
+      />
+      <div
+        class="absolute bottom-0 left-0 h-px w-full bg-border"
       />
     </div>
 

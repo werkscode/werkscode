@@ -2,6 +2,7 @@
 import { toast } from 'vue-sonner'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 useSeoMeta({
   title: () => t('seo.contact.title'),
@@ -53,7 +54,7 @@ async function onSubmit() {
       :description="t('contact.description')"
     />
 
-    <Card>
+    <Card class="border-2 border-border/80">
       <CardContent class="pt-6">
         <form class="space-y-6" @submit.prevent="onSubmit">
           <div class="sr-only" aria-hidden="true">
@@ -68,7 +69,9 @@ async function onSubmit() {
           </div>
 
           <div class="space-y-2">
-            <Label for="name">{{ t('contact.name') }}</Label>
+            <Label for="name" class="font-mono-label normal-case tracking-normal text-foreground">
+              {{ t('contact.name') }}
+            </Label>
             <Input
               id="name"
               v-model="form.name"
@@ -78,7 +81,9 @@ async function onSubmit() {
           </div>
 
           <div class="space-y-2">
-            <Label for="email">{{ t('contact.email') }}</Label>
+            <Label for="email" class="font-mono-label normal-case tracking-normal text-foreground">
+              {{ t('contact.email') }}
+            </Label>
             <Input
               id="email"
               v-model="form.email"
@@ -89,7 +94,9 @@ async function onSubmit() {
           </div>
 
           <div class="space-y-2">
-            <Label for="message">{{ t('contact.message') }}</Label>
+            <Label for="message" class="font-mono-label normal-case tracking-normal text-foreground">
+              {{ t('contact.message') }}
+            </Label>
             <Textarea
               id="message"
               v-model="form.message"
@@ -99,7 +106,7 @@ async function onSubmit() {
             />
           </div>
 
-          <Button type="submit" :disabled="isSubmitting">
+          <Button type="submit" size="lg" :disabled="isSubmitting">
             {{ isSubmitting ? t('contact.submitting') : t('contact.submit') }}
           </Button>
         </form>

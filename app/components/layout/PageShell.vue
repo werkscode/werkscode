@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<{
-  width?: 'default' | 'narrow'
+  width?: 'default' | 'narrow' | 'wide'
   class?: string
 }>(), {
   width: 'default',
@@ -12,11 +12,17 @@ const props = withDefaults(defineProps<{
 <template>
   <div
     :class="cn(
-      'mx-auto w-full max-w-5xl px-4 py-12 sm:px-6 sm:py-20',
+      'mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20',
       props.class,
     )"
   >
-    <div :class="props.width === 'narrow' ? 'max-w-3xl' : 'w-full'">
+    <div
+      :class="cn(
+        props.width === 'narrow' && 'max-w-3xl',
+        props.width === 'wide' && 'w-full',
+        props.width === 'default' && 'w-full',
+      )"
+    >
       <slot />
     </div>
   </div>
