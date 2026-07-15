@@ -11,7 +11,7 @@ alwaysApply: false
 Follow `server/api/contact.post.ts`:
 
 1. Zod schema for request body
-2. `safeParse` → `createError({ statusCode: 400, data: parsed.error.flatten() })`
+2. `safeParse` → `createError({ statusCode: 400, data: z.flattenError(parsed.error) })`
 3. Drizzle via `useDb()` singleton
 4. Return minimal JSON (`{ success: true, id }`)
 
@@ -31,4 +31,6 @@ Never run migrations against production without explicit author approval.
 ## Existing routes
 
 - `GET /api/health` — health check
-- `POST /api/contact` — contact form → `contact_messages` table
+- `POST /api/contact` — contact form → `contact_messages` table (+ optional Resend email)
+- `GET /api/admin/contact-messages` — list messages (Bearer `NUXT_CONTACT_ADMIN_TOKEN`)
+- `PATCH /api/admin/contact-messages/:id` — mark message read (Bearer token)

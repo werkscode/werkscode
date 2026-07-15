@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
     throw createError({
       statusCode: 400,
       statusMessage: 'Invalid request',
-      data: parsed.error.flatten(),
+      data: z.flattenError(parsed.error),
     })
   }
 
@@ -71,7 +71,9 @@ User-facing messages → `add-i18n-strings` skill.
 ## Existing routes
 
 - `GET /api/health`
-- `POST /api/contact` → `contact_messages` table
+- `POST /api/contact` → `contact_messages` table (+ optional Resend notify)
+- `GET /api/admin/contact-messages` → list (Bearer `NUXT_CONTACT_ADMIN_TOKEN`)
+- `PATCH /api/admin/contact-messages/:id` → mark read
 
 ## Public repo
 

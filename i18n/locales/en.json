@@ -72,10 +72,11 @@
   },
   "contact": {
     "title": "Contact",
-    "description": "Send a message. This form stores submissions in PostgreSQL.",
+    "description": "Send a message — I'll get back to you as soon as I can.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
+    "website": "Website",
     "namePlaceholder": "Your name",
     "emailPlaceholder": "you{'@'}example.com",
     "messagePlaceholder": "Your message...",
@@ -83,10 +84,26 @@
     "submitting": "Sending...",
     "toast": {
       "successTitle": "Message sent",
-      "successDescription": "Thanks for reaching out. This is a scaffold — check the database for the entry.",
+      "successDescription": "Thanks for reaching out. I'll reply as soon as I can.",
       "errorTitle": "Failed to send message",
-      "errorDescription": "Please try again or check that the database is running."
+      "errorDescription": "Please try again in a moment."
     }
+  },
+  "admin": {
+    "seo": {
+      "title": "Contact messages — Admin"
+    },
+    "title": "Contact messages",
+    "description": "Private inbox for contact form submissions.",
+    "tokenLabel": "Admin token",
+    "tokenPlaceholder": "Enter your admin token",
+    "login": "Sign in",
+    "loading": "Loading...",
+    "refresh": "Refresh",
+    "empty": "No messages yet.",
+    "unread": "Unread",
+    "emailSent": "Email sent",
+    "messageCount": "{count} messages loaded"
   },
   "blog": {
     "title": "Blog",

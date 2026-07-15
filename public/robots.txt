@@ -1,2 +1,3 @@
 User-Agent: *
-Disallow:
+Disallow: /admin/messages
+Disallow: /de/admin/messages

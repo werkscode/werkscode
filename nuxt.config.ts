@@ -43,6 +43,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     databaseUrl: '',
+    resendApiKey: '',
+    contactNotifyEmail: '',
+    contactFromEmail: '',
+    contactAdminToken: '',
     public: {
       appUrl: '',
       githubUrl: 'https://github.com/werkscode/werkscode',

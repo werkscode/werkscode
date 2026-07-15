@@ -72,10 +72,11 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Senden Sie eine Nachricht. Dieses Formular speichert Eingaben in PostgreSQL.",
+    "description": "Senden Sie eine Nachricht — ich melde mich so schnell wie möglich.",
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
+    "website": "Website",
     "namePlaceholder": "Ihr Name",
     "emailPlaceholder": "sie{'@'}beispiel.de",
     "messagePlaceholder": "Ihre Nachricht...",
@@ -83,10 +84,26 @@
     "submitting": "Wird gesendet...",
     "toast": {
       "successTitle": "Nachricht gesendet",
-      "successDescription": "Vielen Dank für Ihre Nachricht. Dies ist ein Gerüst — prüfen Sie die Datenbank für den Eintrag.",
+      "successDescription": "Vielen Dank für Ihre Nachricht. Ich antworte so schnell wie möglich.",
       "errorTitle": "Senden fehlgeschlagen",
-      "errorDescription": "Bitte versuchen Sie es erneut oder prüfen Sie, ob die Datenbank läuft."
+      "errorDescription": "Bitte versuchen Sie es in Kürze erneut."
     }
+  },
+  "admin": {
+    "seo": {
+      "title": "Kontaktnachrichten — Admin"
+    },
+    "title": "Kontaktnachrichten",
+    "description": "Privater Posteingang für Kontaktformular-Eingaben.",
+    "tokenLabel": "Admin-Token",
+    "tokenPlaceholder": "Admin-Token eingeben",
+    "login": "Anmelden",
+    "loading": "Wird geladen...",
+    "refresh": "Aktualisieren",
+    "empty": "Noch keine Nachrichten.",
+    "unread": "Ungelesen",
+    "emailSent": "E-Mail gesendet",
+    "messageCount": "{count} Nachrichten geladen"
   },
   "blog": {
     "title": "Blog",

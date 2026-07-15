@@ -12,6 +12,7 @@ const form = reactive({
   name: '',
   email: '',
   message: '',
+  website: '',
 })
 
 const isSubmitting = ref(false)
@@ -32,6 +33,7 @@ async function onSubmit() {
     form.name = ''
     form.email = ''
     form.message = ''
+    form.website = ''
   }
   catch {
     toast.error(t('contact.toast.errorTitle'), {
@@ -54,6 +56,17 @@ async function onSubmit() {
     <Card>
       <CardContent class="pt-6">
         <form class="space-y-6" @submit.prevent="onSubmit">
+          <div class="sr-only" aria-hidden="true">
+            <Label for="website">{{ t('contact.website') }}</Label>
+            <Input
+              id="website"
+              v-model="form.website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
           <div class="space-y-2">
             <Label for="name">{{ t('contact.name') }}</Label>
             <Input

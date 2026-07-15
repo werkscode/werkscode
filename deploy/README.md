@@ -124,6 +124,20 @@ NUXT_PUBLIC_APP_URL=https://werkscode.de
 NODE_ENV=production
 ```
 
+**Contact form** (optional but recommended):
+
+```bash
+# Resend — verify werkscode.de at https://resend.com/domains first
+NUXT_RESEND_API_KEY=re_...
+NUXT_CONTACT_FROM_EMAIL=contact@werkscode.de
+NUXT_CONTACT_NOTIFY_EMAIL=you@example.com
+
+# Admin inbox — bookmark https://werkscode.de/admin/messages
+NUXT_CONTACT_ADMIN_TOKEN=<run: openssl rand -hex 32>
+```
+
+Until Resend verifies your domain, use `onboarding@resend.dev` as `NUXT_CONTACT_FROM_EMAIL` for testing. List recent submissions: `make prod-messages`.
+
 `@db` is the Docker service hostname — not `localhost`.
 
 ---

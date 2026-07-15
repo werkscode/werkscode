@@ -5,5 +5,7 @@ export const contactMessages = pgTable('contact_messages', {
   name: varchar('name', { length: 255 }).notNull(),
   email: varchar('email', { length: 255 }).notNull(),
   message: text('message').notNull(),
+  readAt: timestamp('read_at', { withTimezone: true }),
+  emailSentAt: timestamp('email_sent_at', { withTimezone: true }),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 })

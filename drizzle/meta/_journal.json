@@ -8,6 +8,13 @@
       "when": 1783945256927,
       "tag": "0000_slim_joshua_kane",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1784104313316,
+      "tag": "0001_cold_blade",
+      "breakpoints": true
     }
   ]
 }

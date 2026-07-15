@@ -138,7 +138,24 @@ See [`.cursor/skills/content-session/SKILL.md`](.cursor/skills/content-session/S
 ## API
 
 - `GET /api/health` — health check
-- `POST /api/contact` — contact form submission (stores in PostgreSQL)
+- `POST /api/contact` — contact form (stores in PostgreSQL, optional Resend email)
+- `GET /api/admin/contact-messages` — list contact messages (Bearer token)
+- `PATCH /api/admin/contact-messages/:id` — mark message as read (Bearer token)
+
+## Contact form
+
+Submissions are stored in PostgreSQL. Optional email notifications via [Resend](https://resend.com). Spam protection uses a honeypot field and IP rate limiting (5 requests per 15 minutes).
+
+**Admin inbox:** bookmark `/admin/messages` (not linked in navigation). Sign in with `NUXT_CONTACT_ADMIN_TOKEN`.
+
+**Production checklist:**
+
+1. Verify `werkscode.de` in [Resend Domains](https://resend.com/domains) (DNS records at your domain provider)
+2. Create a Resend API key and set contact env vars (see below)
+3. Generate a long random `NUXT_CONTACT_ADMIN_TOKEN`
+4. Run `make prod-migrate` after deploy to apply schema changes
+
+**CLI fallback:** `make prod-messages` lists the last 20 submissions on the production database.
 
 ## Environment variables
 
@@ -149,3 +166,7 @@ See `.env.example` for all variables. Key ones:
 | `DATABASE_URL` | PostgreSQL connection string |
 | `NUXT_DATABASE_URL` | Same, for Nuxt runtime config |
 | `NUXT_PUBLIC_APP_URL` | Public site URL |
+| `NUXT_RESEND_API_KEY` | Resend API key for contact notifications |
+| `NUXT_CONTACT_FROM_EMAIL` | Sender address (e.g. `contact@werkscode.de`) |
+| `NUXT_CONTACT_NOTIFY_EMAIL` | Inbox that receives notifications |
+| `NUXT_CONTACT_ADMIN_TOKEN` | Bearer token for `/admin/messages` |

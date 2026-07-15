@@ -3,7 +3,7 @@
 	up down build logs ps shell migrate \
 	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate dev-content-reset \
 	staging-migrate staging-up staging-down staging-logs staging-build \
-	prod-migrate prod-up prod-down prod-logs prod-build prod-deploy \
+	prod-migrate prod-up prod-down prod-logs prod-build prod-deploy prod-messages \
 	clean clean-dev clean-staging clean-prod
 
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
@@ -126,6 +126,9 @@ prod-deploy: ## Pull, migrate, rebuild, and restart app (run on server)
 
 prod-logs: ## Follow production stack logs
 	$(COMPOSE) $(PROD) logs -f
+
+prod-messages: ## Show last 20 contact messages (production DB)
+	$(COMPOSE) $(PROD) exec db psql -U $${POSTGRES_USER:-werkscode} -d $${POSTGRES_DB:-werkscode} -c "SELECT created_at, name, email, left(message, 80) AS message FROM contact_messages ORDER BY created_at DESC LIMIT 20;"
 
 # --- Cleanup ---
 
