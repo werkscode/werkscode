@@ -11,7 +11,7 @@ Das verberge ich nicht. Wenn du das liest, interessiert dich vermutlich auch Aut
 
 **Ich nutze KI als Werkzeug, nicht als Ghostwriter.**
 
-Cursor ist mein Hauptassistent für Code und Inhalte. Er entwirft, schlägt vor und beschleunigt. Ich entscheide, was live geht, korrigiere, was falsch klingt, und übernehme die Verantwortung für das, was du hier liest.
+[Cursor](https://cursor.com) ist mein Hauptassistent für Code und Inhalte. Er entwirft, schlägt vor und beschleunigt. Ich entscheide, was live geht, korrigiere, was falsch klingt, und übernehme die Verantwortung für das, was du hier liest.
 
 Wenn sich etwas auf dieser Seite nach *mir* anfühlt, dann deshalb, weil ich das bewusst so gemacht habe.
 
@@ -43,7 +43,7 @@ Blog- und Portfolio-Einträge können diese Labels im Frontmatter (`ai_assist`) 
 - **Einbringen** des betrieblichen Kontexts — die Geschichten kommen aus meiner Erfahrung, anonymisiert
 - **Verantwortung übernehmen** für Fehler, Tonfall und dafür, wofür dieses Projekt steht
 
-KI hat meine App nicht für mich geschrieben. Sie hat den Weg verkürzt zwischen „Ich habe eine Idee" und „Mal sehen, ob das funktioniert." Wenn etwas kaputtging, musste ich trotzdem verstehen, warum. Für jemanden, der Schweißen vor JavaScript gelernt hat, macht das einen Unterschied.
+KI hat meine App nicht für mich geschrieben. Sie hat den Weg verkürzt zwischen „Ich habe eine Idee" und „Mal sehen, ob das funktioniert." Wenn etwas kaputtging, musste ich trotzdem verstehen, warum.
 
 ## Datenschutz-Grenzen
 
@@ -51,7 +51,7 @@ Das [GitHub-Repository](https://github.com/werkscode/werkscode) ist [von Tag ein
 
 - Keine echten Firmen-, Kunden- oder Mitarbeiternamen in Git — niemals
 - Keine `.env`-Dateien, Zugangsdaten oder Details interner Systeme
-- Inhalte werden so geschrieben, als würde ein Fremder mitlesen — vielleicht tut er es ja
+- Inhalte werden so geschrieben, als würde ein Fremder mitlesen
 
 KI-Assistenten folgen denselben Regeln über Projektstandards in `.cursor/`. Wenn die Grenzen schriftlich festgehalten sind, improvisieren die Tools weniger bei Datenschutz.
 
@@ -70,7 +70,7 @@ Das ist kein Makel. Es ist eine Gewohnheit — wie Commit-Nachrichten, die man e
 ## Was das nicht ist
 
 - **Nicht** „KI hat meine ganze Seite geschrieben" — hat sie nicht
-- **Nicht** so tun, als wäre jedes Wort ohne Hilfe getippt — manches war es nicht
+- **Nicht** so tun, als wäre jedes Wort ohne Hilfe getippt
 - **Kein** Tutorial, wie man die eigene Persönlichkeit wegautomatisiert
 
 WERKSCODE ist ein kleiner öffentlicher Ort zum Lernen in der Öffentlichkeit. Transparenz gehört zu diesem Versprechen dazu.

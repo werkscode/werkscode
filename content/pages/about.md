@@ -1,6 +1,6 @@
 ---
 title: About
-description: Managing director of a small metal manufacturing company, learning to code in public — with AI tools and without pretending to be someone else.
+description: Managing director of a small metal manufacturing company, learning to code in public — with AI tools.
 ---
 
 I'm the managing director of a small metal manufacturing company in Germany. Most days I'm on the shopfloor — production lists, supplier calls, the usual rhythm of making things that have to hold.
@@ -31,7 +31,7 @@ If a post sounds polished, it's because I edited it until it sounded like me —
 
 Nuxt 4, Vue, TypeScript, Tailwind, Nuxt Content, PostgreSQL for the contact form. Docker for dev. The stack is documented in the [repository README](https://github.com/werkscode/werkscode#readme).
 
-AI tools — mainly Cursor — help with drafting, code, and translation. I decide what ships, verify what matters, and keep the stories personal.
+AI tools — mainly [Cursor](https://cursor.com) — help with drafting, code, and translation. I decide what ships, verify what matters, and keep the stories personal.
 
 For the full picture of how AI is involved, see **[How I use AI on this site](/transparency)**.
 

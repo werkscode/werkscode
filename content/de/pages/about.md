@@ -1,6 +1,6 @@
 ---
 title: Über mich
-description: Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt — mit KI-Tools und ohne vorzugeben, jemand anderes zu sein.
+description: Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt — mit KI-Tools.
 ---
 
 Ich bin Geschäftsführer eines kleinen Metallbauunternehmens in Deutschland. Die meisten Tage bin ich auf dem Shopfloor — Produktionslisten, Lieferantengespräche, der übliche Rhythmus von Dingen, die halten müssen.
@@ -31,7 +31,7 @@ Wenn ein Beitrag poliert klingt, dann deshalb, weil ich ihn bearbeitet habe, bis
 
 Nuxt 4, Vue, TypeScript, Tailwind, Nuxt Content, PostgreSQL für das Kontaktformular. Docker für die Entwicklung. Der Stack steht im [README des Repositories](https://github.com/werkscode/werkscode#readme).
 
-KI-Tools — vor allem Cursor — helfen beim Entwerfen, Programmieren und Übersetzen. Ich entscheide, was live geht, prüfe, was zählt, und halte die Geschichten persönlich.
+KI-Tools — vor allem [Cursor](https://cursor.com) — helfen beim Entwerfen, Programmieren und Übersetzen. Ich entscheide, was live geht, prüfe, was zählt, und halte die Geschichten persönlich.
 
 Das vollständige Bild, wobei KI mitwirkt: **[Wie ich KI auf dieser Seite nutze](/de/transparency)**.
 

@@ -11,7 +11,7 @@ I'm not hiding that. If you're reading this, you probably care about authenticit
 
 **I use AI as a tool, not as a ghostwriter.**
 
-Cursor is my main assistant for code and content. It drafts, suggests, and speeds things up. I decide what goes live, edit what sounds wrong, and take responsibility for what you read here.
+[Cursor](https://cursor.com) is my main assistant for code and content. It drafts, suggests, and speeds things up. I decide what goes live, edit what sounds wrong, and take responsibility for what you read here.
 
 If something on this site feels like *me*, it's because I made it feel that way on purpose.
 
@@ -43,7 +43,7 @@ Blog and portfolio entries can record these labels in frontmatter (`ai_assist`) 
 - **Run** the business context — the stories here come from my experience, anonymized
 - **Take responsibility** for errors, tone, and what this project stands for
 
-AI didn't write my app for me. It shortened the distance between "I have an idea" and "let me see if this works." I still had to understand what broke when it broke. For someone who learned welding before JavaScript, that difference matters.
+AI didn't write my app for me. It shortened the distance between "I have an idea" and "let me see if this works." I still had to understand what broke when it broke.
 
 ## Privacy boundaries
 
@@ -51,7 +51,7 @@ The [GitHub repository](https://github.com/werkscode/werkscode) is [public from 
 
 - No real company, customer, or employee names in git — ever
 - No `.env` files, credentials, or internal system details
-- Content is written as if a stranger will read it — because they might
+- Content is written as if a stranger will read it
 
 AI assistants follow the same rules via project standards in `.cursor/`. When the boundaries are written down, the tools stop improvising privacy mistakes.
 
@@ -70,7 +70,7 @@ That's not a badge of shame. It's a habit — like writing commit messages you'd
 ## What this is not
 
 - **Not** "AI wrote my entire site" — it didn't
-- **Not** pretending every word was typed without help — some weren't
+- **Not** pretending every word was typed without help
 - **Not** a tutorial on how to automate your personality away
 
 WERKSCODE is a small public place to learn in the open. Transparency is part of that promise.

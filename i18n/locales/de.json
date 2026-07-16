@@ -11,7 +11,7 @@
     "menu": "Menü"
   },
   "footer": {
-    "statement": "Werks trifft Software — öffentlich Programmieren lernen, ein ehrlicher Beitrag nach dem anderen.",
+    "statement": "Shopfloor trifft Software — öffentlich Programmieren lernen, ein ehrlicher Beitrag nach dem anderen.",
     "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten.",
     "github": "GitHub"
   },
@@ -27,7 +27,7 @@
     "titleSuffix": "WERKSCODE",
     "home": {
       "title": "WERKSCODE — Persönlicher Blog & Portfolio",
-      "description": "WERKSCODE works — ein Coding-CEO an der Schnittstelle von Werks und Software."
+      "description": "WERKSCODE works — ein Geschäftsführer an der Schnittstelle von Shopfloor und Software."
     },
     "about": {
       "title": "Über mich — WERKSCODE",
@@ -52,7 +52,7 @@
   },
   "home": {
     "title": "WERKSCODE works",
-    "description": "Ein Coding-CEO vom Fertigungsshopfloor. Ein Ort für Texte, Projekte und Experimente, wo Werks auf Code trifft.",
+    "description": "Ein Ort für Texte, Projekte und Experimente, wo Shopfloor auf Code trifft.",
     "readBlog": "Zum Blog",
     "viewPortfolio": "Portfolio ansehen",
     "latest": {
@@ -81,7 +81,7 @@
     },
     "contactStrip": {
       "label": "Kontakt",
-      "text": "Fragen, Ideen oder eure eigene Werks-Geschichte?",
+      "text": "Fragen, Ideen oder eure eigene Shopfloor-Geschichte?",
       "cta": "Nachricht senden"
     }
   },

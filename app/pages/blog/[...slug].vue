@@ -18,8 +18,15 @@ if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: t('blog.notFound') })
 }
 
-const tocLinks = computed(() => {
-  const body = post.value?.body as { toc?: { links?: Array<{ id: string, depth: number, text: string, children?: unknown[] }> } } | undefined
+type TocLink = {
+  id: string
+  depth: number
+  text: string
+  children?: TocLink[]
+}
+
+const tocLinks = computed((): TocLink[] => {
+  const body = post.value?.body as { toc?: { links?: TocLink[] } } | undefined
   return body?.toc?.links ?? []
 })
 
