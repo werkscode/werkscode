@@ -3,29 +3,23 @@ title: Über mich
 description: Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt — mit KI-Tools.
 ---
 
-Ich bin Geschäftsführer eines kleinen Metallbauunternehmens in Deutschland. Die meisten Tage bin ich auf dem Shopfloor — Produktionslisten, Lieferantengespräche, der übliche Rhythmus von Dingen, die halten müssen.
+Ich bin Geschäftsführer eines kleinen Metallbauunternehmens in Deutschland — vierte Generation, die meiste Zeit im Büro. Lieferantengespräche, Entscheidungen, Listen, die irgendwie an drei Orten gleichzeitig leben. Nebenan wird produziert, was halten muss. Ich baue kleine digitale Hilfsmittel für diese Welt — und für die Arbeit, die auf meinem Schreibtisch landet.
 
-Abends und in gestohlenen Stunden lerne ich Programmieren. Nicht, um Entwickler zu werden. Sondern um aufzuhören, auf Erlaubnis zu warten, eigene Probleme anzugehen.
-
-WERKSCODE ist der Ort, an dem diese beiden Welten zusammenkommen.
+Abends und am Wochenende schreibe ich Code. Nicht, um Entwickler zu werden. Sondern um aufzuhören, auf Erlaubnis zu warten, eigene Probleme anzugehen.
 
 ## Warum es diese Seite gibt
 
-Jahrelang war mein digitales Leben geteilt. Im Betrieb: Systeme, die ich nicht einfach verändern kann — teuer, träge, aus einer anderen Zeit. Zu Hause: Ideen für kleine Tools, bessere Dokumentation, ein Ort zum Schreiben über das Lernen, ohne so zu tun, als mache ich das seit zwanzig Jahren.
+Jahrelang blieben die nützlichen Tools privat. Im Betrieb: Systeme, die ich nicht einfach ändern kann — teuer, träge, aus einer anderen Zeit. Daneben: Dinge, die ich selbst gebaut und auf die harte Tour gelernt habe, offline gehalten, bis sie „gut genug“ wirkten.
 
-Jedes Mal schloss ich denselben stillen Deal: *Erst privat, bis es gut genug ist.*
+Für die öffentliche Seite habe ich damit gebrochen. Das [GitHub-Repository](https://github.com/werkscode/werkscode) ist von Tag eins an öffentlich. Werkzeuge für den internen Betrieb bleiben privat. So soll es sein. Diese Seite ist das Notizbuch: Blog und Portfolio, geschrieben neben dem Tagesgeschäft.
 
-Den habe ich gebrochen. Das [GitHub-Repository](https://github.com/werkscode/werkscode) ist von Tag eins an öffentlich. Die Startseite darf noch „Demnächst" sagen, während die Git-History den unordentlichen, ehrlichen Weg schon zeigt. [Diese Entscheidung hatte Gründe](/de/blog/public-repo-from-day-one).
-
-Diese Seite ist Blog und Portfolio zugleich — ein Ort zum öffentlichen Denken. Werkzeuge für den internen Betrieb bleiben privat. So soll es sein.
+Ich schreibe besonders für Selbstständige, die sich fragen, ob Programmieren etwas für sie ist. Du brauchst keinen perfekten Stack. Du brauchst ein echtes Problem und den Mut anzufangen — und manchmal weiterzuliefern auf etwas Alterndem, bevor du daneben modernisierst.
 
 ## Wen du liest
 
-Eine Person. Kein Team, keine Agentur, kein „wir", das größer tut, als ich bin.
+Eine Person. Kein Team, keine Agentur, kein „wir“, das größer tut, als ich bin.
 
-Ich schreibe über Programmierenlernen neben dem Unternehmen führen — besonders für Selbstständige, die sich fragen, ob das etwas für sie ist. Der Ton ist Shopfloor trifft Software: praktisch, ehrlich, manchmal witzig, nie corporate.
-
-Wenn ein Beitrag poliert klingt, dann deshalb, weil ich ihn bearbeitet habe, bis er nach mir klingt — nicht, weil ich das Denken ausgelagert habe.
+Der Ton ist praktisch und ehrlich — Büro, Betrieb und Software — nie corporate. Wenn ein Beitrag poliert klingt, dann deshalb, weil ich ihn bearbeitet habe, bis er nach mir klingt — nicht, weil ich das Denken ausgelagert habe.
 
 ## Wie diese Seite entsteht
 

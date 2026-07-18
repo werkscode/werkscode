@@ -11,7 +11,7 @@
     "menu": "Menü"
   },
   "footer": {
-    "statement": "Shopfloor trifft Software — öffentlich Programmieren lernen, ein ehrlicher Beitrag nach dem anderen.",
+    "statement": "Öffentlich Programmieren lernen neben dem Metallbetrieb — ehrliche Notizen, kein Pitch-Deck.",
     "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten.",
     "github": "GitHub"
   },
@@ -27,11 +27,11 @@
     "titleSuffix": "WERKSCODE",
     "home": {
       "title": "WERKSCODE — Persönlicher Blog & Portfolio",
-      "description": "WERKSCODE works — ein Geschäftsführer an der Schnittstelle von Shopfloor und Software."
+      "description": "Geschäftsführer eines kleinen Metallbetriebs, der öffentlich Programmieren lernt — praktische Notizen zu Tools, Druck und dem Mut anzufangen."
     },
     "about": {
       "title": "Über mich — WERKSCODE",
-      "description": "Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt."
+      "description": "Geschäftsführer eines kleinen Metallbauunternehmens, der vom Büro aus öffentlich Programmieren lernt."
     },
     "transparency": {
       "title": "Transparenz — WERKSCODE",
@@ -52,7 +52,7 @@
   },
   "home": {
     "title": "WERKSCODE works",
-    "description": "Ein Ort für Texte, Projekte und Experimente, wo Shopfloor auf Code trifft.",
+    "description": "Texte und Projekte von einem Geschäftsführer, der neben dem Betrieb Programmieren lernt — nicht statt dessen.",
     "readBlog": "Zum Blog",
     "viewPortfolio": "Portfolio ansehen",
     "latest": {
@@ -61,7 +61,7 @@
     },
     "manifesto": {
       "label": "Worum es geht",
-      "text": "Ein öffentliches Notizbuch aus einem kleinen Metallbetrieb — kein Startup-Pitch. Echte Notizen zum Programmierenlernen neben dem Tagesgeschäft."
+      "text": "Ein öffentliches Notizbuch aus einem kleinen Metallbetrieb. Echte Probleme, gestohlene Stunden und der unordentliche Weg von „irgendwas, das funktioniert“ zu Tools, die Leute wirklich nutzen."
     },
     "paths": {
       "title": "Einstieg",
@@ -70,18 +70,18 @@
     "blogCard": {
       "label": "Texte",
       "title": "Blog",
-      "description": "Gedanken zu Entwicklung, Fertigung und dem Bauen von Dingen.",
+      "description": "Journey-Notizen: falsche Stacks, Commit-Disziplin, erst liefern dann modernisieren — geschrieben neben dem Tagesgeschäft.",
       "cta": "Beiträge lesen →"
     },
     "portfolioCard": {
       "label": "Arbeit",
       "title": "Portfolio",
-      "description": "Ausgewählte Projekte und Fallstudien.",
+      "description": "Ausgewählte Projekte und Experimente — anonymisiert, wo sie privat bleiben müssen.",
       "cta": "Projekte ansehen →"
     },
     "contactStrip": {
       "label": "Kontakt",
-      "text": "Fragen, Ideen oder eure eigene Shopfloor-Geschichte?",
+      "text": "Fragen, Ideen oder dein eigener Weg in den Code?",
       "cta": "Nachricht senden"
     }
   },
@@ -93,7 +93,7 @@
     "title": "Kontakt",
     "description": "Senden Sie eine Nachricht — ich melde mich so schnell wie möglich.",
     "trust": {
-      "who": "Sie schreiben dem Geschäftsführer hinter WERKSCODE — einem kleinen Metallbetrieb, der öffentlich Programmieren lernt.",
+      "who": "Sie schreiben dem Geschäftsführer hinter WERKSCODE — der öffentlich Programmieren lernt und nebenbei einen kleinen Metallbetrieb führt.",
       "response": "Ich antworte in der Regel innerhalb weniger Tage.",
       "privacy": "Ihre Nachricht wird sicher gespeichert und nicht weitergegeben. Wie diese Seite entsteht, steht auf der Transparenz-Seite."
     },
@@ -143,7 +143,7 @@
     "notFound": "Beitrag nicht gefunden",
     "toc": "Auf dieser Seite",
     "endCta": {
-      "text": "Lust auf Shopfloor, Code oder euren eigenen Lernweg?",
+      "text": "Fragen zu Code, Betrieb oder deinem eigenen Lernweg?",
       "contact": "Nachricht senden",
       "transparency": "Wie KI beim Schreiben half"
     },
@@ -159,7 +159,7 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Ausgewählte Projekte und Experimente auf dem Weg vom Shopfloor zum Code.",
+    "description": "Ausgewählte Projekte und Experimente vom Programmierenlernen neben dem Metallbetrieb.",
     "featured": "Hervorgehoben",
     "viewProject": "Projekt ansehen →",
     "visitProject": "Projekt besuchen",

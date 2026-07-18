@@ -63,5 +63,5 @@ Anonymized traits for voice and understanding. Do not turn into a CV or proof-wi
 
 - Private: `author/raw/` (local only; see `author/README.public.md`) — includes `2020-start.md`, `internal-app-journey.md`
 - Tone samples: [`.cursor/skills/write-journey-post/voice-guide.md`](skills/write-journey-post/voice-guide.md)
-- Site bio (present tense): `content/pages/about.md` — do not expand from raw notes unless the author asks
+- Site bio (present tense): `content/pages/about.md` — keep aligned with office-primary MD framing; do not expand from raw notes unless the author asks
 - Local private apps (paths only for agents on this machine; never cite names/schemas in commits or `content/`): see `author/raw/internal-app-journey.md`

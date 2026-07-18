@@ -6,7 +6,7 @@ For biography and recurring themes (scrubbed), see [`.cursor/author-foundation.m
 
 ## Opening hook (EN)
 
-> Last Tuesday I stood on the shopfloor holding a tablet that wouldn't load our production list. Again. My team had work to do. I had a meeting in twenty minutes. That was the moment I stopped waiting for "the IT guy" — because in a company our size, that guy is me.
+> Last Tuesday the production list was wrong again — three versions, none of them trusted. My team needed a clear answer. I had a meeting in twenty minutes. That was the moment I stopped waiting for "the IT guy" — because in a company our size, that guy is often me.
 
 ## Struggle (DE)
 

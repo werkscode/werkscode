@@ -11,7 +11,7 @@
     "menu": "Menu"
   },
   "footer": {
-    "statement": "Shopfloor meets software — learning to code in public, one honest post at a time.",
+    "statement": "Learning to code in public while running a metal shop — honest notes, not a pitch deck.",
     "copyright": "© {year} WERKSCODE. All rights reserved.",
     "github": "GitHub"
   },
@@ -27,11 +27,11 @@
     "titleSuffix": "WERKSCODE",
     "home": {
       "title": "WERKSCODE — Personal Blog & Portfolio",
-      "description": "WERKSCODE works — a coding CEO building at the intersection of shopfloor and software."
+      "description": "A managing director of a small metal shop learning to code in public — practical notes on tools, pressure, and starting anyway."
     },
     "about": {
       "title": "About — WERKSCODE",
-      "description": "Managing director of a small metal manufacturing company, learning to code in public."
+      "description": "Managing director of a small metal manufacturing company, learning to code in public from the office side of the business."
     },
     "transparency": {
       "title": "Transparency — WERKSCODE",
@@ -52,7 +52,7 @@
   },
   "home": {
     "title": "WERKSCODE works",
-    "description": "This is a place for writing, projects, and experiments where shopfloor meets code.",
+    "description": "Writing and projects from a managing director who learns to code beside the business — not instead of it.",
     "readBlog": "Read the blog",
     "viewPortfolio": "View portfolio",
     "latest": {
@@ -61,7 +61,7 @@
     },
     "manifesto": {
       "label": "What this is",
-      "text": "A public notebook from a small metal shop — not a startup pitch deck. Real notes on learning to code while running a business."
+      "text": "A public notebook from a small metal shop. Real problems, stolen hours, and the messy path from “something that works” to tools people actually use."
     },
     "paths": {
       "title": "Where to start",
@@ -70,18 +70,18 @@
     "blogCard": {
       "label": "Writing",
       "title": "Blog",
-      "description": "Thoughts on development, manufacturing, and building things.",
+      "description": "Journey notes: wrong stacks, commit discipline, shipping before modernizing — written while running the company.",
       "cta": "Browse posts →"
     },
     "portfolioCard": {
       "label": "Work",
       "title": "Portfolio",
-      "description": "Selected projects and case studies.",
+      "description": "Selected projects and experiments — anonymized where they need to stay private.",
       "cta": "See projects →"
     },
     "contactStrip": {
       "label": "Get in touch",
-      "text": "Questions, ideas, or your own shopfloor story?",
+      "text": "Questions, ideas, or your own path into code?",
       "cta": "Send a message"
     }
   },
@@ -93,7 +93,7 @@
     "title": "Contact",
     "description": "Send a message — I'll get back to you as soon as I can.",
     "trust": {
-      "who": "You're writing to the managing director behind WERKSCODE — a small metal shop learning to code in public.",
+      "who": "You're writing to the managing director behind WERKSCODE — learning to code in public while running a small metal shop.",
       "response": "I usually reply within a few days.",
       "privacy": "Your message is stored securely and never shared. See how this site is built on the transparency page."
     },
@@ -143,7 +143,7 @@
     "notFound": "Post not found",
     "toc": "On this page",
     "endCta": {
-      "text": "Want to talk shopfloor, code, or your own learning path?",
+      "text": "Questions about code, the business, or your own learning path?",
       "contact": "Send a message",
       "transparency": "How AI helped write this"
     },
@@ -159,7 +159,7 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Selected projects and experiments from the shopfloor-to-code journey.",
+    "description": "Selected projects and experiments from learning to code beside a metal shop.",
     "featured": "Featured",
     "viewProject": "View project →",
     "visitProject": "Visit project",

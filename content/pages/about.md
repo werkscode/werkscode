@@ -3,29 +3,23 @@ title: About
 description: Managing director of a small metal manufacturing company, learning to code in public — with AI tools.
 ---
 
-I'm the managing director of a small metal manufacturing company in Germany. Most days I'm on the shopfloor — production lists, supplier calls, the usual rhythm of making things that have to hold.
+I'm the managing director of a small metal manufacturing company in Germany — fourth generation, mostly in the office. Supplier calls, decisions, lists that live in too many places. Next door, people make things that have to hold. I build small digital tools for that world — and for the work that lands on my desk.
 
-Evenings and stolen hours, I'm learning to code. Not to become a developer. To stop waiting for permission to fix my own problems.
-
-WERKSCODE is where those two worlds meet.
+Evenings and weekends, I write code. Not to become a developer. To stop waiting for permission to fix my own problems.
 
 ## Why this site exists
 
-For years my digital life was split. At work: systems I couldn't easily change — expensive, slow, built for a different era. At home: ideas for small tools, better documentation, a place to write about learning without pretending I'd been doing it for twenty years.
+For years the useful tools stayed private. At work: systems I could not easily change — expensive, slow, built for a different era. Beside them: things I built myself, learned the hard way, kept offline until they felt “good enough.”
 
-Every time I started, I made the same quiet deal: *keep it private until it's good.*
+I broke that habit for the public side. The [GitHub repository](https://github.com/werkscode/werkscode) is public from day one. The manufacturing tools for internal use stay private, as they should. This site is the notebook: blog and portfolio, written while running the business.
 
-I broke that deal. The [GitHub repository](https://github.com/werkscode/werkscode) is public from day one. The homepage can still say "coming soon" while the git history already shows the messy, honest path. [That choice had reasons](/blog/public-repo-from-day-one).
-
-This site is a blog and portfolio — a place to think in public. The manufacturing tools I build for internal use stay private, as they should.
+I write especially for self-employed people who wonder whether coding is for them. You do not need the perfect stack. You need a real problem and the nerve to start — and sometimes to ship on something aging before you modernize beside it.
 
 ## Who you're reading
 
-One person. Not a team, not an agency, not a "we" pretending to be bigger than I am.
+One person. Not a team, not an agency, not a “we” pretending to be bigger than I am.
 
-I write about learning to code while running a business — especially for self-employed people who wonder whether this is for them. The tone is shopfloor meets software: practical, honest, sometimes funny, never corporate.
-
-If a post sounds polished, it's because I edited it until it sounded like me — not because I outsourced the thinking.
+The tone is practical and honest — office, shopfloor, and software — never corporate. If a post sounds polished, it is because I edited it until it sounded like me, not because I outsourced the thinking.
 
 ## How this site is made
 
