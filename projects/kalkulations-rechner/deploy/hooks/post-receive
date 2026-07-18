@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Git post-receive hook — install into the repo on the server:
+#   cp deploy/hooks/post-receive ~/repositories/kalkulations-rechner/.git/hooks/post-receive
+#   chmod +x ~/repositories/kalkulations-rechner/.git/hooks/post-receive
+#
+# Requires: git config receive.denyCurrentBranch updateInstead
+# Or run deploy/bootstrap-remote.sh / deploy/setup-server.sh
+
+set -euo pipefail
+
+REPO_DIR="${REPO_DIR:-$HOME/repositories/kalkulations-rechner}"
+DEPLOY_BRANCH="${DEPLOY_BRANCH:-main}"
+
+while read -r oldrev newrev refname; do
+  branch="${refname#refs/heads/}"
+  if [[ "$branch" != "$DEPLOY_BRANCH" ]]; then
+    echo "Ignoring push to branch $branch (deploy branch: $DEPLOY_BRANCH)"
+    continue
+  fi
+
+  echo "==> Deploying kalkulations-rechner ($newrev) in $REPO_DIR"
+  cd "$REPO_DIR"
+  # updateInstead may not refresh the work tree before this hook runs
+  git checkout -f "$branch"
+  ./deploy/scripts/deploy.sh
+done

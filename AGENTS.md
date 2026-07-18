@@ -13,11 +13,17 @@ Public blog and portfolio for **WERKSCODE** (*WERKSCODE works*). A managing dire
 ## Quick commands
 
 ```bash
-make dev              # Docker dev stack
+make dev              # Docker dev stack (WERKSCODE site)
 make dev-rebuild      # After package.json changes
 pnpm dev              # Host dev (with make db-up)
 pnpm db:migrate       # Apply Drizzle migrations
+
+make kalkulator-dev   # Powder-coating calculator (projects/kalkulations-rechner) on :3100
 ```
+
+## Sub-projects (`projects/`)
+
+Self-contained apps with their own `package.json`, Docker Compose, and deploy story. Not part of the root Nuxt app — intended for subdomain hosting. See [`projects/kalkulations-rechner/README.md`](projects/kalkulations-rechner/README.md).
 
 ## Rules (`.cursor/rules/`)
 

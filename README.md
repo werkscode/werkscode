@@ -93,7 +93,7 @@ Manual deploy on the server: `make prod-deploy`
 ## Project structure
 
 ```
-app/                  # Nuxt 4 app directory
+app/                  # Nuxt 4 app directory (WERKSCODE site)
   assets/css/         # Tailwind + custom theme
   components/         # Layout + shadcn UI components
   pages/              # Routes
@@ -101,11 +101,23 @@ content/              # Blog, portfolio, and editorial pages
   blog/
   portfolio/
   pages/
+projects/             # Self-contained subdomain apps (own package.json + Docker)
+  kalkulations-rechner/
 server/               # Nitro server
   api/                # API routes
   db/                 # Drizzle schema
 drizzle/              # SQL migrations
 ```
+
+### Sub-projects (`projects/`)
+
+Standalone apps that ship with their own dependencies and Docker stack. They are meant to be hosted on a subdomain and are not part of the root Nuxt build.
+
+| Path | What | Dev |
+|------|------|-----|
+| [`projects/kalkulations-rechner/`](projects/kalkulations-rechner/) | Powder-coating quote calculator (Nuxt + Postgres + STEP converter). Online demo saves in the browser (Pinia); clone + `make kalkulator-dev` for Postgres. | `make kalkulator-dev` → [http://localhost:3100](http://localhost:3100) |
+
+See each sub-project’s README for ports, env, and deploy notes.
 
 ## Content
 

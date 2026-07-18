@@ -4,6 +4,7 @@
 	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate dev-content-reset \
 	staging-migrate staging-up staging-down staging-logs staging-build \
 	prod-migrate prod-up prod-down prod-logs prod-build prod-deploy prod-messages \
+	kalkulator-dev kalkulator-up kalkulator-down kalkulator-logs \
 	clean clean-dev clean-staging clean-prod
 
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
@@ -11,6 +12,9 @@ BASE    := -f docker-compose.yml
 DEV     := $(BASE) -f docker-compose.dev.yml
 STAGING := $(BASE) -f docker-compose.staging.yml
 PROD    := $(BASE) -f docker-compose.prod.yml
+
+# Self-contained powder-coating calculator (projects/kalkulations-rechner)
+KALK_DIR := projects/kalkulations-rechner
 
 .DEFAULT_GOAL := help
 
@@ -129,6 +133,20 @@ prod-logs: ## Follow production stack logs
 
 prod-messages: ## Show last 20 contact messages (production DB)
 	$(COMPOSE) $(PROD) exec db psql -U $${POSTGRES_USER:-werkscode} -d $${POSTGRES_DB:-werkscode} -c "SELECT created_at, name, email, left(message, 80) AS message FROM contact_messages ORDER BY created_at DESC LIMIT 20;"
+
+# --- Kalkulations-Rechner (sub-project, own Docker stack) ---
+
+kalkulator-dev: ## Start kalkulator dev stack in foreground (app :3100, db :5433)
+	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml up --build
+
+kalkulator-up: ## Start kalkulator dev stack in background
+	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml up -d --build
+
+kalkulator-down: ## Stop kalkulator dev stack
+	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml down
+
+kalkulator-logs: ## Follow kalkulator dev stack logs
+	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml logs -f
 
 # --- Cleanup ---
 

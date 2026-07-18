@@ -1,0 +1,12 @@
+name: step-converter
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pythonocc-core=7.9.*
+  - pip
+  - pip:
+      - fastapi
+      - uvicorn[standard]
+      - python-multipart
+      - aiofiles

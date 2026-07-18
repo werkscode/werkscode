@@ -1,0 +1,86 @@
+# Production stack (behind an nginx reverse proxy).
+#
+# App binds localhost only — see deploy/nginx/kalkulator.werkscode.example.conf
+#   Nuxt/Nitro: 127.0.0.1:8041
+#
+# Requires .env with POSTGRES_* and DATABASE_URL (see deploy/env.production.example).
+# For a public subdomain keep NUXT_PUBLIC_PERSISTENCE_ENABLED=false so visitors
+# cannot save calculations or edit setup (passed through from .env).
+# Usage on server:
+#   ./deploy/scripts/deploy.sh
+
+services:
+  step-converter:
+    build:
+      context: ./step-converter
+      dockerfile: Dockerfile
+    container_name: kalkulations-rechner-step-converter
+    restart: unless-stopped
+    volumes:
+      - step_uploads:/tmp/uploads
+    environment:
+      MAX_UPLOAD_SIZE_MB: 50
+      LINEAR_DEFLECTION: 0.1
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://127.0.0.1:8000/api/health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    networks:
+      - internal
+
+  db:
+    image: postgres:16-alpine
+    container_name: kalkulations-rechner-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U kalkulation -d kalkulation']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - internal
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kalkulations-rechner-app
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:8041:3000'
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+      NUXT_STEP_CONVERTER_URL: http://step-converter:8000
+    depends_on:
+      db:
+        condition: service_healthy
+      step-converter:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:3000/api/health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    networks:
+      - internal
+
+volumes:
+  postgres_data:
+    name: kalkulations-rechner-postgres
+  step_uploads:
+    name: kalkulations-rechner-step-uploads
+
+networks:
+  internal:
+    name: kalkulations-rechner-internal
