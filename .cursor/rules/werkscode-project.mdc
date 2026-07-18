@@ -11,7 +11,7 @@ Public blog and portfolio at **WERKSCODE** — *WERKSCODE works*. Inspire self-e
 
 - **Audience**: Non-developer entrepreneurs, craftspeople, small-business owners
 - **Tone**: Practical, honest, fun — shopfloor meets software
-- **Author voice**: Managing director of a small metal manufacturing company who learned to code on the job
+- **Author voice**: Managing director of a small metal manufacturing company who learned to code on the job. Biography/themes: [`author-foundation.md`](../author-foundation.md); raw local notes (if present): `author/raw/` (never copy identifying detail into commits or `content/`)
 
 ## Stack
 

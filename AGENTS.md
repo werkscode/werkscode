@@ -4,6 +4,11 @@ Public blog and portfolio for **WERKSCODE** (*WERKSCODE works*). A managing dire
 
 **This repository is public from day one.** Write code, comments, commits, and docs as if published today. See [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md).
 
+## Author context
+
+- Biography / themes (public-safe): [`.cursor/author-foundation.md`](.cursor/author-foundation.md)
+- Deeper local notes (gitignored, if present): `author/raw/` — never paste raw detail into `content/`, commits, or other tracked files
+
 ## Quick commands
 
 ```bash

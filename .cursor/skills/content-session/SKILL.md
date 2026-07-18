@@ -14,6 +14,12 @@ Entry point for collaborating with the author on blog posts and portfolio entrie
 - **Languages:** English first → author approves → then German adaptation (not machine translation)
 - **Repo:** draft in chat only until the author explicitly says to save files
 
+## Before intake / drafting
+
+1. Skim [`.cursor/author-foundation.md`](../../author-foundation.md) for biography and themes.
+2. If `author/raw/` exists locally, treat Ergüsse as **source material only** — not draft posts. Do not copy raw names, hostnames, or identifying detail into site copy.
+3. When the author shares a new Erguss: save under `author/raw/` (gitignored) and propose a small scrubbed update to `author-foundation.md`; only commit the distillate when asked.
+
 ## When to use
 
 Invoke when the user says things like:
