@@ -69,7 +69,7 @@ Das ist kein Makel. Es ist eine Gewohnheit — wie Commit-Nachrichten, die man e
 
 ## Was das nicht ist
 
-- **Nicht** „KI hat meine ganze Seite geschrieben" — hat sie nicht
+- **Nicht** „KI hat meine ganze Seite geschrieben"
 - **Nicht** so tun, als wäre jedes Wort ohne Hilfe getippt
 - **Kein** Tutorial, wie man die eigene Persönlichkeit wegautomatisiert
 

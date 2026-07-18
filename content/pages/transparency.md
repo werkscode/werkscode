@@ -69,7 +69,7 @@ That's not a badge of shame. It's a habit — like writing commit messages you'd
 
 ## What this is not
 
-- **Not** "AI wrote my entire site" — it didn't
+- **Not** "AI wrote my entire site"
 - **Not** pretending every word was typed without help
 - **Not** a tutorial on how to automate your personality away
 
