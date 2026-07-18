@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="WERKSCODE">
+  <style>
+    .plate { fill: #3A6A9C; }
+    .mark { fill: none; stroke: #F6F8FA; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    .rivet { fill: #F6F8FA; opacity: 0.5; }
+    @media (prefers-color-scheme: dark) {
+      .plate { fill: #5687BC; }
+    }
+  </style>
+  <rect class="plate" x="6" y="6" width="88" height="88" rx="20" />
+  <circle class="rivet" cx="22" cy="22" r="3" />
+  <circle class="rivet" cx="78" cy="22" r="3" />
+  <circle class="rivet" cx="22" cy="78" r="3" />
+  <circle class="rivet" cx="78" cy="78" r="3" />
+  <polyline class="mark" points="26,34 38,70 50,48 62,70 74,34" />
+</svg>
