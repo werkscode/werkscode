@@ -7,6 +7,7 @@ Public blog and portfolio for **WERKSCODE** (*WERKSCODE works*). A managing dire
 ## Author context
 
 - Biography / themes (public-safe): [`.cursor/author-foundation.md`](.cursor/author-foundation.md)
+- Planned blog angles: [`.cursor/content-backlog.md`](.cursor/content-backlog.md)
 - Deeper local notes (gitignored, if present): `author/raw/` — never paste raw detail into `content/`, commits, or other tracked files
 
 ## Quick commands

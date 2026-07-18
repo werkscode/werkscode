@@ -17,8 +17,10 @@ Entry point for collaborating with the author on blog posts and portfolio entrie
 ## Before intake / drafting
 
 1. Skim [`.cursor/author-foundation.md`](../../author-foundation.md) for biography and themes.
-2. If `author/raw/` exists locally, treat Ergüsse as **source material only** — not draft posts. Do not copy raw names, hostnames, or identifying detail into site copy.
-3. When the author shares a new Erguss: save under `author/raw/` (gitignored) and propose a small scrubbed update to `author-foundation.md`; only commit the distillate when asked.
+2. Skim [`.cursor/content-backlog.md`](../../content-backlog.md) for planned angles; prefer the next `idea` in writing order unless the author picks another.
+3. If `author/raw/` exists locally, treat Ergüsse as **source material only** — not draft posts. Do not copy raw names, hostnames, or identifying detail into site copy.
+4. When the author shares a new Erguss: save under `author/raw/` (gitignored) and propose a small scrubbed update to `author-foundation.md`; only commit the distillate when asked.
+5. When starting a backlog angle: set its status to `drafting`; after save/publish, update to `saved` / `published`.
 
 ## When to use
 
