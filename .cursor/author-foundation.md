@@ -44,14 +44,17 @@ Anonymized traits for voice and understanding. Do not turn into a CV or proof-wi
 
 ### As a managing director
 
-- Codes in stolen hours: evenings and weekends around running the shop.
-- Backlog driven by real shopfloor and office problems, not by trendy tutorials.
+- Single; no partner or kids in the picture — time for code comes from evenings and weekends around office work, not from a family schedule.
+- Spends most of his time in the office as MD, not as a hands-on shopfloor craftsman. He does not claim welding/machining skill he does not have; respect for the hall, tools built for the people who work there.
+- Codes in stolen hours: evenings and weekends around running the business.
+- Backlog driven by real shopfloor and office problems (relayed from the floor, felt in the office), not by trendy tutorials.
 - Ships value over elegance; can articulate a modernization plan even when bandwidth to execute a big-bang rewrite lags.
 - Treats private factory tools and the public learning story (WERKSCODE) as separate worlds on purpose.
 
 ### As a human
 
 - Honest about the mess — never pretends every commit or experiment was clean.
+- Honest about his role: office MD learning to code, not a shopfloor hero story.
 - Curiosity consistently beats fear of picking the “wrong” or outdated tech.
 - Frustration is visible and relatable (the “why do I have to commit so much?” kind of self-awareness).
 - Self-aware enough to question his own process and still keep going.

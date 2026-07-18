@@ -35,6 +35,7 @@ Themes and voice: [`.cursor/author-foundation.md`](author-foundation.md)
 ## 2. Stolen hours between shopfloor and code
 
 - **Status:** `idea`
+- **Parked:** EN draft attempted 2026-07-18 — author not happy yet; revise later. Office-primary framing (no family/kids storyline; don’t spell out “not a shopfloor craftsman” in the post — keep that as agent background only).
 - **Working title (EN):** Stolen hours between shopfloor and code
 - **Working title (DE rough):** Gestohlene Stunden zwischen Halle und Code
 - **One-sentence lesson:** You don’t need a developer job — stolen hours are enough when the problem is real.
@@ -43,15 +44,17 @@ Themes and voice: [`.cursor/author-foundation.md`](author-foundation.md)
 - **Privacy:** No commit counts or work-hour statistics as proof; no company name.
 - **Notes:**
   - Relatable for Selbstständige who code around the real job.
-  - Contrast “waiting for the IT guy” with becoming that person in a small company.
+  - Office-primary MD: do not invent shopfloor craftsman identity or family/kids; stolen hours from office evenings/weekends.
+  - Contrast “waiting for the IT guy” with becoming that person in a small company — tools for the hall, built from the office.
   - Avoid humble-bragging about volume of work — focus on the texture of stolen time.
 
 ---
 
 ## 3. Why do I have to commit so much?
 
-- **Status:** `idea`
+- **Status:** `saved`
 - **Working title (EN):** Why do I have to commit so much?
+- **File:** `content/blog/why-do-i-have-to-commit-so-much.md` + `content/de/blog/why-do-i-have-to-commit-so-much.md` (`draft: true`)
 - **Working title (DE rough):** Warum muss ich soviel committen?
 - **One-sentence lesson:** Process hygiene follows pressure — admitting that is more honest than performing perfection.
 - **Hook seed:** Self-reflection on messy vs conventional commits; solo builder under feature pressure; discipline that rises and falls.

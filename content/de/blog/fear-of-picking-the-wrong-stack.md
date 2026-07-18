@@ -40,7 +40,7 @@ Softwarefirmen wollen oft planbaren, wiederkehrenden Umsatz. Fair enough. Aber m
 
 Dann kamen die nächsten kleinen Siege: die Seite von `localhost` runter, von einem anderen Gerät erreicbar machen, eine sprecehende URL statt einer IP. Jeder Schritt fühlte sich riesig an. Keiner davon hat vorausgesetzt, dass ich über Nacht Profi-Entwickler werde.
 
-Dann habe ich VS Code entdeckt. Zur Erinnerung Es war 2020. Kein Copilot. Kein Claude. Ich musste alles selber lernen — und im Rückblick war das ein Geschenk. React, Vue und Angular haben um Aufmerksamkeit konkurriert. Nach ein paar YouTube-Videos habe ich mich für Vue entschieden und einfach nachgebaut, was ich dort gesehen habe.
+Dann habe ich VS Code entdeckt. Zur Erinnerung: Es war 2020. Kein Copilot. Kein Claude. Ich musste alles selber lernen — und im Rückblick war das ein Geschenk. React, Vue und Angular haben um Aufmerksamkeit konkurriert. Nach ein paar YouTube-Videos habe ich mich für Vue entschieden und einfach nachgebaut, was ich dort gesehen habe.
 
 Ich glaube immer noch nicht, dass die wichtige Entscheidung Vue war.
 
