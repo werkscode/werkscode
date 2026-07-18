@@ -31,6 +31,8 @@ Replace specifics with: "a small metal manufacturing company", "my shopfloor", "
 4. **What worked** — honest role of AI tools (Cursor, ChatGPT, etc.) as multiplier, not magic
 5. **Takeaway** — one actionable insight for Selbstständige who wonder if coding is for them
 
+Do **not** end posts with a generic “WERKSCODE is where I write…” brand outro. End on the takeaway.
+
 Length: 600–1200 words per language. Conversational, not academic.
 
 ## Frontmatter template

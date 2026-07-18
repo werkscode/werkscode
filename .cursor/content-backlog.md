@@ -52,9 +52,9 @@ Themes and voice: [`.cursor/author-foundation.md`](author-foundation.md)
 
 ## 3. Why do I have to commit so much?
 
-- **Status:** `saved`
+- **Status:** `published`
 - **Working title (EN):** Why do I have to commit so much?
-- **File:** `content/blog/why-do-i-have-to-commit-so-much.md` + `content/de/blog/why-do-i-have-to-commit-so-much.md` (`draft: true`)
+- **File:** `content/blog/why-do-i-have-to-commit-so-much.md` + `content/de/blog/why-do-i-have-to-commit-so-much.md` (`draft: false`)
 - **Working title (DE rough):** Warum muss ich soviel committen?
 - **One-sentence lesson:** Process hygiene follows pressure — admitting that is more honest than performing perfection.
 - **Hook seed:** Self-reflection on messy vs conventional commits; solo builder under feature pressure; discipline that rises and falls.
@@ -69,8 +69,9 @@ Themes and voice: [`.cursor/author-foundation.md`](author-foundation.md)
 
 ## 4. Ship first, modernize later
 
-- **Status:** `idea`
+- **Status:** `published`
 - **Working title (EN):** Ship first, modernize later
+- **File:** `content/blog/ship-first-modernize-later.md` + `content/de/blog/ship-first-modernize-later.md` (`draft: false`)
 - **Working title (DE rough):** Erst liefern, dann modernisieren
 - **One-sentence lesson:** Years of value on an aging stack aren’t failure; a deliberate successor beside the old system beats a big-bang rewrite.
 - **Hook seed:** Stack frozen while features grew; later a parallel rewrite with redesign doctrine — not a 1:1 copy; platform first, cutover in chunks.

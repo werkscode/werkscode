@@ -5,7 +5,7 @@ date: 2026-07-18
 tags:
   - learning
   - entrepreneurship
-draft: true
+draft: false
 ai_assist:
   - drafting
 ---
@@ -31,5 +31,3 @@ I still think clear commits are useful. They help me when I look back later. But
 If you code while running a business, you may know this: you learn the “right” way — and drop it again as soon as things get loud. Both belong. The history is not the product.
 
 AI makes it weirder. It can write a polished commit message for a change I barely understand. That does not help me. I want to know what broke — even if the message is just `ok`.
-
-WERKSCODE is where I write this kind of thing down. Shopfloor meets software. Without pretending every commit was a masterpiece.

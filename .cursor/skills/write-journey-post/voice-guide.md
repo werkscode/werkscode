@@ -18,7 +18,7 @@ For biography and recurring themes (scrubbed), see [`.cursor/author-foundation.m
 
 ## Takeaway for Selbstständige (DE)
 
-> Du musst kein Entwickler werden. Du musst nur neugierig genug sein, um eine Sache nach der anderen auszuprobieren. WERKSCODE ist mein Versuch, zu zeigen, dass Werkstatt und Code zusammenpassen — nicht weil es einfach ist, sondern weil es sich lohnt.
+> Du musst kein Entwickler werden. Du musst nur neugierig genug sein, um eine Sache nach der anderen auszuprobieren. Werkstatt und Code passen zusammen — nicht weil es einfach ist, sondern weil es sich lohnt.
 
 ## What to avoid
 

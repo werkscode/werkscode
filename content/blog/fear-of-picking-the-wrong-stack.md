@@ -46,5 +46,3 @@ I still do not think the important decision was Vue.
 The important decision was to start — knowing the choice might be “wrong,” and doing it anyway.
 
 If you run a business and wonder whether coding is for you: you do not need the perfect stack. You need one real problem, one afternoon, and the nerve to follow a tutorial until something loads in the browser. The fear of wasting time on the wrong tool is real. So is the cost of waiting for permission to try.
-
-WERKSCODE is where I write about that path — shopfloor meets software — without pretending I started with a clean architecture diagram.

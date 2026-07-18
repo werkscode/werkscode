@@ -47,5 +47,3 @@ Ich glaube immer noch nicht, dass die wichtige Entscheidung Vue war.
 Die wichtige Entscheidung war überhaupt anzufangen — im Wissen, dass die Wahl „falsch“ sein könnte, und es trotzdem zu tun.
 
 Wenn du einen Betrieb führst und dich fragst, ob Programmieren etwas für dich ist: Du brauchst keinen perfekten Stack. Du brauchst ein echtes Problem, einen Nachmittag und den Mut, einer Anleitung zu folgen, bis im Browser etwas lädt. Die Angst, Zeit an das falsche Tool zu verlieren, ist real. Genauso real ist der Preis, wenn du darauf wartest, dass dir jemand die Erlaubnis zum Ausprobieren gibt.
-
-WERKSCODE ist der Ort, an dem ich diesen Weg aufschreibe — Werkstatt trifft Software — ohne so zu tun, als hätte ich mit einem sauberen Architekturdiagramm angefangen.

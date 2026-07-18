@@ -5,7 +5,7 @@ date: 2026-07-18
 tags:
   - learning
   - entrepreneurship
-draft: true
+draft: false
 ai_assist:
   - drafting
   - translation
@@ -32,5 +32,3 @@ Ordentliche Commits finde ich trotzdem sinnvoll. Mir selbst helfen sie, wenn ich
 Wenn du neben dem Betrieb codest, kennst du das vielleicht: Du lernst die „richtige“ Art — und wirfst sie wieder über Bord, sobald’s brennt. Beides gehört dazu. Die History ist nicht das Produkt.
 
 Mit KI wird’s nochmal komisch. Die kann eine polierte Commit-Message für eine Änderung schreiben, die ich selbst kaum durchblicke. Das hilft mir nicht. Ich will wissen, was kaputtging — auch wenn die Message nur `ok` heißt.
-
-WERKSCODE ist der Ort, an dem ich solchen Kram aufschreibe. Werkstatt trifft Software. Ohne so zu tun, als wäre jeder Commit ein Meisterwerk gewesen.
