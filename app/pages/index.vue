@@ -61,37 +61,35 @@ const localePath = useLocalePath()
       <p class="font-mono-label mb-4 text-primary">
         {{ t('home.latest.label') }}
       </p>
-      <Card class="group border-2 border-border/80 transition-[border-color,box-shadow] hover:border-primary/40 hover:shadow-sm">
-        <CardHeader class="gap-3">
-          <CardTitle class="font-heading text-2xl font-normal group-hover:text-primary transition-colors">
-            <NuxtLink
-              :to="latestPost.path"
-              class="outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
+      <NuxtLink
+        :to="latestPost.path"
+        class="group block rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <Card class="border-2 border-border/80 transition-[border-color,box-shadow] group-hover:border-primary/40 group-hover:shadow-sm">
+          <CardHeader class="gap-3">
+            <CardTitle class="font-heading text-2xl font-normal transition-colors group-hover:text-primary">
               {{ latestPost.title }}
-            </NuxtLink>
-          </CardTitle>
-          <CardDescription
-            v-if="latestPost.description"
-            class="text-base leading-relaxed"
-          >
-            {{ latestPost.description }}
-          </CardDescription>
-        </CardHeader>
-        <CardContent class="flex flex-wrap items-center gap-2">
-          <time
-            v-if="latestPost.date"
-            class="font-mono-label normal-case tracking-normal text-muted-foreground"
-          >
-            {{ formatDate(latestPost.date) }}
-          </time>
-          <Button variant="link" class="h-auto px-0 text-base" as-child>
-            <NuxtLink :to="latestPost.path">
+            </CardTitle>
+            <CardDescription
+              v-if="latestPost.description"
+              class="text-base leading-relaxed"
+            >
+              {{ latestPost.description }}
+            </CardDescription>
+          </CardHeader>
+          <CardContent class="flex flex-wrap items-center gap-2">
+            <time
+              v-if="latestPost.date"
+              class="font-mono-label normal-case tracking-normal text-muted-foreground"
+            >
+              {{ formatDate(latestPost.date) }}
+            </time>
+            <span class="inline-flex h-auto items-center text-base font-medium text-primary underline-offset-4 group-hover:underline">
               {{ t('home.latest.cta') }}
-            </NuxtLink>
-          </Button>
-        </CardContent>
-      </Card>
+            </span>
+          </CardContent>
+        </Card>
+      </NuxtLink>
     </section>
 
     <section class="mb-14 sm:mb-16">
@@ -105,47 +103,53 @@ const localePath = useLocalePath()
       </div>
 
       <div class="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <Card class="group border-2 border-border/80 transition-[border-color,box-shadow] hover:border-primary/40 hover:shadow-sm">
-          <CardHeader class="gap-3">
-            <p class="font-mono-label text-primary">
-              {{ t('home.blogCard.label') }}
-            </p>
-            <CardTitle class="font-heading text-2xl font-normal">
-              {{ t('home.blogCard.title') }}
-            </CardTitle>
-            <CardDescription class="text-base leading-relaxed">
-              {{ t('home.blogCard.description') }}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button variant="link" class="h-auto px-0 text-base" as-child>
-              <NuxtLink :to="localePath('/blog')">
+        <NuxtLink
+          :to="localePath('/blog')"
+          class="group block rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <Card class="border-2 border-border/80 transition-[border-color,box-shadow] group-hover:border-primary/40 group-hover:shadow-sm">
+            <CardHeader class="gap-3">
+              <p class="font-mono-label text-primary">
+                {{ t('home.blogCard.label') }}
+              </p>
+              <CardTitle class="font-heading text-2xl font-normal">
+                {{ t('home.blogCard.title') }}
+              </CardTitle>
+              <CardDescription class="text-base leading-relaxed">
+                {{ t('home.blogCard.description') }}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <span class="inline-flex h-auto items-center text-base font-medium text-primary underline-offset-4 group-hover:underline">
                 {{ t('home.blogCard.cta') }}
-              </NuxtLink>
-            </Button>
-          </CardContent>
-        </Card>
+              </span>
+            </CardContent>
+          </Card>
+        </NuxtLink>
 
-        <Card class="group border-2 border-border/80 transition-[border-color,box-shadow] hover:border-primary/40 hover:shadow-sm">
-          <CardHeader class="gap-3">
-            <p class="font-mono-label text-primary">
-              {{ t('home.portfolioCard.label') }}
-            </p>
-            <CardTitle class="font-heading text-2xl font-normal">
-              {{ t('home.portfolioCard.title') }}
-            </CardTitle>
-            <CardDescription class="text-base leading-relaxed">
-              {{ t('home.portfolioCard.description') }}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button variant="link" class="h-auto px-0 text-base" as-child>
-              <NuxtLink :to="localePath('/portfolio')">
+        <NuxtLink
+          :to="localePath('/portfolio')"
+          class="group block rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <Card class="border-2 border-border/80 transition-[border-color,box-shadow] group-hover:border-primary/40 group-hover:shadow-sm">
+            <CardHeader class="gap-3">
+              <p class="font-mono-label text-primary">
+                {{ t('home.portfolioCard.label') }}
+              </p>
+              <CardTitle class="font-heading text-2xl font-normal">
+                {{ t('home.portfolioCard.title') }}
+              </CardTitle>
+              <CardDescription class="text-base leading-relaxed">
+                {{ t('home.portfolioCard.description') }}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <span class="inline-flex h-auto items-center text-base font-medium text-primary underline-offset-4 group-hover:underline">
                 {{ t('home.portfolioCard.cta') }}
-              </NuxtLink>
-            </Button>
-          </CardContent>
-        </Card>
+              </span>
+            </CardContent>
+          </Card>
+        </NuxtLink>
       </div>
     </section>
 

@@ -24,7 +24,7 @@ I wanted one place where those numbers come from the same rules every time — n
 
 ## Constraints
 
-Evenings only. No vendor project. The tool had to survive real shopfloor inputs: weight and thickness for sheet metal, optional STEP files from CAD, and cart dimensions that change when the line runs differently. And it had to be honest about uncertainty — overspray, minimum charge, partial last carts — instead of pretending every quote is a perfect science.
+No vendor project. The tool had to survive real shopfloor inputs: weight and thickness for sheet metal, optional STEP files from CAD, and cart dimensions that change when the line runs differently. And it had to be honest about uncertainty — overspray, minimum charge, partial last carts — instead of pretending every quote is a perfect science.
 
 ## Approach
 
