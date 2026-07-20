@@ -16,7 +16,7 @@ export function usePowderCoatingSetup() {
 
     try {
       if (!persistenceEnabled.value) {
-        setup.value = await setupStore.ensureHydrated()
+        setup.value = setupStore.ensureHydrated()
         return
       }
       setup.value = await $fetch<PowderCoatingSetup>('/api/powder-coating/setup')

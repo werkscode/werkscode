@@ -1,6 +1,7 @@
 import type { CartPassStepCost, CartPassWorkStep } from '#shared/lib/cart-pass-work-steps'
 import type { Dimensions3D } from '#shared/lib/dimensions'
 import type { HangingMode, OrientationMode, PartOrientation } from '#shared/lib/part-orientations'
+import { calculatePowderCoatingQuote } from '#shared/lib/powder-coating-quote'
 import { usePowderCoatingSetupStore } from '@/stores/powder-coating-setup'
 
 export interface CatalogOption {
@@ -89,7 +90,7 @@ export function usePowderCoatingQuote() {
   async function loadCatalog() {
     if (!persistenceEnabled.value) {
       const setupStore = usePowderCoatingSetupStore()
-      catalog.value = await setupStore.ensureHydrated()
+      catalog.value = setupStore.ensureHydrated()
       return
     }
     catalog.value = await $fetch<PowderCoatingCatalog>('/api/powder-coating/catalog')
@@ -100,6 +101,11 @@ export function usePowderCoatingQuote() {
     error.value = null
 
     try {
+      if (!persistenceEnabled.value) {
+        const setupStore = usePowderCoatingSetupStore()
+        quote.value = calculatePowderCoatingQuote(input, setupStore.ensureHydrated())
+        return
+      }
       quote.value = await $fetch<PowderCoatingQuote>('/api/powder-coating/quote', {
         method: 'POST',
         body: input,

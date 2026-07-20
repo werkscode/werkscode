@@ -10,8 +10,8 @@ Controlled by **`NUXT_PUBLIC_PERSISTENCE_ENABLED`**.
 
 | Mode | Flag | Where data lives |
 |------|------|------------------|
-| **Public demo** (production subdomain) | unset / `false` (default) | Save, setup, and history work in the **browser** via **Pinia + localStorage**. Server write APIs stay **403** — nothing is written to Postgres. Seeded catalog is still **read** from the DB. |
-| **Local clone** | `true` | Same UI, but save/setup/history go to **PostgreSQL**. |
+| **Public demo** (production subdomain) | unset / `false` (default) | Save, setup, catalog, quotes, and history work in the **browser** via **Pinia + localStorage** (seeded from shared defaults). Server write APIs stay **403**; setup/quote no longer require a working Postgres. |
+| **Local clone** | `true` | Same UI, but save/setup/history/catalog/quote go to **PostgreSQL**. |
 
 ### Public demo
 
@@ -43,8 +43,8 @@ Without the flag, a local run uses the same browser (Pinia) storage as the publi
 ## Tech Stack
 
 - Nuxt 4 (full-stack with Nitro)
-- PostgreSQL (seeded catalog; optional save/setup when persistence is enabled)
-- Pinia + localStorage (browser save/setup when persistence is off)
+- PostgreSQL (optional; used when `NUXT_PUBLIC_PERSISTENCE_ENABLED=true`)
+- Pinia + localStorage (browser save/setup/catalog when persistence is off)
 - shadcn-vue + Tailwind CSS v4
 - Three.js (3D hanging-cart layout + STEP preview)
 - Zod (API validation)
@@ -80,13 +80,21 @@ make kalkulator-dev
 
 ### Production (on a server)
 
+Preferred path: deploy from the **monorepo** on the same VPS as WERKSCODE (GitHub Actions runs [`scripts/deploy-prod.sh`](../../scripts/deploy-prod.sh)).
+
 ```bash
+# One-time on the VPS
 cp deploy/env.production.example .env
-# set a strong POSTGRES_PASSWORD (and matching DATABASE_URL)
-./deploy/scripts/deploy.sh
+# set a strong POSTGRES_PASSWORD (and matching DATABASE_URL with host "db")
+
+# From monorepo root — also runs on every push to main via Actions:
+make kalkulator-prod-deploy
+# or: make prod-deploy
 ```
 
-App binds to `127.0.0.1:8041`. Point nginx at it with [`deploy/nginx/kalkulator.werkscode.example.conf`](deploy/nginx/kalkulator.werkscode.example.conf) (adjust `server_name` and SSL paths).
+App binds to `127.0.0.1:8041`. Caddy site: [`deploy/caddy/sites/kalkulator.caddy`](../../deploy/caddy/sites/kalkulator.caddy). See [deploy/README.md](../../deploy/README.md).
+
+Standalone git-push deploy (legacy): `./deploy/scripts/deploy.sh` with nginx template [`deploy/nginx/kalkulator.werkscode.example.conf`](deploy/nginx/kalkulator.werkscode.example.conf).
 
 Healthcheck: `GET /api/health`
 

@@ -5,7 +5,7 @@
 #
 # Requires .env with POSTGRES_* and DATABASE_URL (see deploy/env.production.example).
 # For a public subdomain keep NUXT_PUBLIC_PERSISTENCE_ENABLED=false so visitors
-# cannot save calculations or edit setup (passed through from .env).
+# use Pinia + localStorage (setup/quotes/history never hit Postgres writes).
 # Usage on server:
 #   ./deploy/scripts/deploy.sh
 
@@ -61,6 +61,8 @@ services:
       NUXT_HOST: 0.0.0.0
       NUXT_PORT: 3000
       NUXT_STEP_CONVERTER_URL: http://step-converter:8000
+      # Public demo: browser storage only (overrides .env if set true by mistake)
+      NUXT_PUBLIC_PERSISTENCE_ENABLED: 'false'
     depends_on:
       db:
         condition: service_healthy

@@ -1,5 +1,6 @@
 import type { Pool } from 'pg'
 import {
+  DEFAULT_CART_DIMENSIONS_MM,
   DEFAULT_CART_PASS_WORK_STEPS,
   DEFAULT_PART_SPACING_MM,
   GLOBAL_OVERSPRAY,
@@ -27,9 +28,9 @@ export async function seedIfEmpty(pool: Pool): Promise<void> {
         DEFAULT_PART_SPACING_MM.z,
         MINIMUM_CHARGE_EUR,
         THREAD_SEALING_RATE_EUR,
-        2000,
-        1500,
-        1800,
+        DEFAULT_CART_DIMENSIONS_MM.x,
+        DEFAULT_CART_DIMENSIONS_MM.y,
+        DEFAULT_CART_DIMENSIONS_MM.z,
       ],
     )
   }

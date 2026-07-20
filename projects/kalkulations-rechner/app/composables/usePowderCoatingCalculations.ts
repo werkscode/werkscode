@@ -74,7 +74,7 @@ export function usePowderCoatingCalculations() {
 
     try {
       if (!persistenceEnabled.value) {
-        const catalog = await setupStore.ensureHydrated()
+        const catalog = setupStore.ensureHydrated()
         const result = id
           ? calculationsStore.update(id, payload, catalog)
           : calculationsStore.create(payload, catalog)

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { createDefaultPowderCoatingSetup } from '#shared/lib/powder-coating-defaults'
 import type { PowderCoatingSetup } from '@/composables/usePowderCoatingQuote'
 
 function cloneSetup(value: PowderCoatingSetup): PowderCoatingSetup {
@@ -7,7 +8,7 @@ function cloneSetup(value: PowderCoatingSetup): PowderCoatingSetup {
 
 /**
  * Browser-local setup when Postgres persistence is off (public demo / production).
- * Hydrates once from the read-only API seed, then saves only in this store (+ localStorage).
+ * Seeds from shared defaults once, then saves only in this store (+ localStorage).
  */
 export const usePowderCoatingSetupStore = defineStore('powder-coating-setup', {
   state: () => ({
@@ -15,12 +16,11 @@ export const usePowderCoatingSetupStore = defineStore('powder-coating-setup', {
   }),
 
   actions: {
-    async ensureHydrated(): Promise<PowderCoatingSetup> {
+    ensureHydrated(): PowderCoatingSetup {
       if (this.setup) {
         return this.setup
       }
-      const fromApi = await $fetch<PowderCoatingSetup>('/api/powder-coating/setup')
-      this.setup = cloneSetup(fromApi)
+      this.setup = cloneSetup(createDefaultPowderCoatingSetup())
       return this.setup
     },
 
