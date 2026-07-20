@@ -74,9 +74,9 @@ Caddy configs live in [`deploy/caddy/`](deploy/caddy/).
 
 ## Deployment
 
-Pushes to `main` deploy automatically via GitHub Actions (build + SSH to VPS). Setup: **[deploy/README.md](deploy/README.md)** § GitHub Actions.
+Pushes to `main` deploy automatically via GitHub Actions (build WERKSCODE + kalkulator, then SSH to VPS). Setup: **[deploy/README.md](deploy/README.md)** § GitHub Actions.
 
-Manual deploy on the server: `make prod-deploy`
+Manual deploy on the server: `make prod-deploy` (main site + kalkulator when `projects/kalkulations-rechner/.env` exists)
 
 ## Scripts
 

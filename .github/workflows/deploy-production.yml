@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   verify-build:
+    name: Build WERKSCODE
     runs-on: ubuntu-latest
     env:
       NUXT_PUBLIC_APP_URL: https://werkscode.de
@@ -38,9 +39,41 @@ jobs:
       - name: Build
         run: pnpm build
 
+  verify-build-kalkulator:
+    name: Build kalkulations-rechner
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/kalkulations-rechner
+    env:
+      NUXT_PUBLIC_PERSISTENCE_ENABLED: 'false'
+      DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.19.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: projects/kalkulations-rechner/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
   deploy:
     name: Deploy to VPS
-    needs: verify-build
+    needs: [verify-build, verify-build-kalkulator]
     runs-on: ubuntu-latest
     environment: production
 

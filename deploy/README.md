@@ -12,16 +12,18 @@ The same VPS can host other sites: each app binds a unique `127.0.0.1` port; Cad
 ```
 Internet :80/:443
     → Caddy (host, /etc/caddy/)
-        → werkscode.de     → 127.0.0.1:3000 (this repo)
-        → other-domain.com → 127.0.0.1:3001 (future project)
-    → werkscode Postgres (Docker internal only)
+        → werkscode.de              → 127.0.0.1:3000 (this repo root)
+        → kalkulator.werkscode.de   → 127.0.0.1:8041 (projects/kalkulations-rechner)
+        → other-domain.com          → 127.0.0.1:3001 (future project)
+    → Postgres containers (Docker internal only)
 ```
 
-### Port allocation (document on server in `/opt/README-ports.md`)
+### Port allocation (document on the server in `/opt/README-ports.md`)
 
 | Port | Service |
 |------|---------|
 | `3000` | WERKSCODE |
+| `8041` | Kalkulations-Rechner (`kalkulator.werkscode.de`) |
 | `3001+` | Next sites |
 | `5432` | Not exposed on host in prod |
 
@@ -39,6 +41,8 @@ Point all WERKSCODE domains to your VPS **public IPv4** (add AAAA if you use IPv
 | `www` on werkscode.com | A | `<VPS_IP>` |
 | `@` on werkscode.dev | A | `<VPS_IP>` |
 | `www` on werkscode.dev | A | `<VPS_IP>` |
+| `kalkulator` on werkscode.de | A | `<VPS_IP>` |
+| `www.kalkulator` on werkscode.de | A | `<VPS_IP>` (optional) |
 
 Verify propagation before starting Caddy:
 
@@ -197,7 +201,12 @@ Blog/portfolio content is **baked into the Docker image** at build time.
 
 ### Automatic (GitHub Actions)
 
-Pushes to `main` run [`.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml): build in CI, then SSH to the VPS and run [`scripts/deploy-prod.sh`](../scripts/deploy-prod.sh).
+Pushes to `main` run [`.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml):
+
+1. Build **WERKSCODE** and **kalkulations-rechner** in CI
+2. SSH to the VPS and run [`scripts/deploy-prod.sh`](../scripts/deploy-prod.sh)
+
+That script pulls the monorepo, deploys the main site, then deploys `projects/kalkulations-rechner` when `$DEPLOY_PATH/projects/kalkulations-rechner/.env` exists.
 
 **One-time GitHub setup** (repo → Settings → Secrets and variables → Actions):
 
@@ -230,6 +239,26 @@ cd /opt/werkscode && git remote -v   # should point at github.com/werkscode/werk
 chmod +x scripts/deploy-prod.sh
 ```
 
+### One-time: enable kalkulator on the same VPS
+
+```bash
+# Env (password must match DATABASE_URL host "db")
+cp /opt/werkscode/projects/kalkulations-rechner/deploy/env.production.example \
+   /opt/werkscode/projects/kalkulations-rechner/.env
+# edit POSTGRES_PASSWORD + DATABASE_URL
+
+# Caddy site
+sudo cp /opt/werkscode/deploy/caddy/sites/kalkulator.caddy /etc/caddy/sites/
+sudo systemctl reload caddy
+
+# First deploy (or wait for the next push to main)
+cd /opt/werkscode
+make kalkulator-prod-deploy
+# or: make prod-deploy   # deploys main site + kalkulator
+```
+
+DNS: `kalkulator.werkscode.de` → same VPS IP (see §1).
+
 Test manually before relying on Actions:
 
 ```bash
@@ -252,6 +281,7 @@ Or step by step:
 git pull
 make prod-build
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate app
+make kalkulator-prod-deploy   # if projects/kalkulations-rechner/.env exists
 ```
 
 Caddy config only changes when domains or ports change.
@@ -300,7 +330,9 @@ sudo systemctl reload caddy
 |------|---------|
 | [`caddy/Caddyfile`](caddy/Caddyfile) | Main config — `import sites/*.caddy` |
 | [`caddy/sites/werkscode.caddy`](caddy/sites/werkscode.caddy) | WERKSCODE proxy + domain redirects |
-| [`../scripts/deploy-prod.sh`](../scripts/deploy-prod.sh) | Production deploy script (GitHub Actions + `make prod-deploy`) |
+| [`caddy/sites/kalkulator.caddy`](caddy/sites/kalkulator.caddy) | Kalkulator subdomain → `:8041` |
+| [`../scripts/deploy-prod.sh`](../scripts/deploy-prod.sh) | Production deploy (main site + sub-projects) |
 | [`../.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml) | CI build + SSH deploy on push to `main` |
-| [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) | PR build check |
+| [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) | PR build check (WERKSCODE + kalkulator) |
 | [`../docker-compose.prod.yml`](../docker-compose.prod.yml) | Prod stack — app on `127.0.0.1:3000` |
+| [`../projects/kalkulations-rechner/`](../projects/kalkulations-rechner/) | Powder-coating calculator (own Docker stack on `:8041`) |

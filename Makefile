@@ -4,7 +4,7 @@
 	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate dev-content-reset \
 	staging-migrate staging-up staging-down staging-logs staging-build \
 	prod-migrate prod-up prod-down prod-logs prod-build prod-deploy prod-messages \
-	kalkulator-dev kalkulator-up kalkulator-down kalkulator-logs \
+	kalkulator-dev kalkulator-up kalkulator-down kalkulator-logs kalkulator-prod-deploy \
 	clean clean-dev clean-staging clean-prod
 
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
@@ -147,6 +147,9 @@ kalkulator-down: ## Stop kalkulator dev stack
 
 kalkulator-logs: ## Follow kalkulator dev stack logs
 	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml logs -f
+
+kalkulator-prod-deploy: ## Rebuild kalkulator production stack (run on server; needs projects/.../.env)
+	cd $(KALK_DIR) && ./deploy/scripts/deploy.sh
 
 # --- Cleanup ---
 

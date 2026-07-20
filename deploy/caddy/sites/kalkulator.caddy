@@ -1,0 +1,11 @@
+# Kalkulations-Rechner — https://kalkulator.werkscode.de
+# Backend: Docker prod stack on 127.0.0.1:8041
+# (projects/kalkulations-rechner/docker-compose.prod.yml)
+
+kalkulator.werkscode.de {
+	reverse_proxy 127.0.0.1:8041
+}
+
+www.kalkulator.werkscode.de {
+	redir https://kalkulator.werkscode.de{uri} permanent
+}
