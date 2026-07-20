@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Kalkulations-Tool WERKSCODE">
+  <rect width="1200" height="630" fill="#F4F6F9" />
+  <g stroke="#D9E0E8" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157" />
+    <line x1="0" y1="472" x2="1200" y2="472" />
+  </g>
+
+  <g transform="translate(520,95)">
+    <rect x="0" y="0" width="160" height="160" rx="34" fill="#3A6A9C" />
+    <rect x="48" y="42" width="64" height="76" rx="8" fill="none" stroke="#F6F8FA" stroke-width="10" />
+    <line x1="62" y1="68" x2="98" y2="68" stroke="#F6F8FA" stroke-width="8" stroke-linecap="round" />
+    <circle cx="68" cy="90" r="5" fill="#F6F8FA" />
+    <circle cx="92" cy="90" r="5" fill="#F6F8FA" />
+    <circle cx="68" cy="108" r="5" fill="#F6F8FA" />
+    <circle cx="92" cy="108" r="5" fill="#F6F8FA" />
+  </g>
+
+  <text x="600" y="360" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="64" fill="#1E2A3A">
+    Kalkulations-Tool
+  </text>
+  <text x="600" y="420" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="400" font-size="28" letter-spacing="2" fill="#5A6B7E">
+    Pulverbeschichtung &#183; WERKSCODE
+  </text>
+
+  <rect x="0" y="618" width="1200" height="12" fill="#3A6A9C" />
+</svg>

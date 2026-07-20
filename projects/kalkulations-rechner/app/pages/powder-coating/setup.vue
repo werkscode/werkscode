@@ -9,6 +9,13 @@ import type { PowderCoatingSetup } from '@/composables/usePowderCoatingQuote'
 const { setup, pending, saving, error, loadSetup, saveSetup } = usePowderCoatingSetup()
 const { persistenceEnabled } = usePersistenceEnabled()
 
+usePageSeo({
+  title: 'Einstellungen Pulverbeschichtung',
+  description: 'Kosten, Wagenmaße, Vorbehandlungen und Pulversorten für die Pulverbeschichtungs-Kalkulation anpassen.',
+  path: '/powder-coating/setup',
+  robots: 'noindex, nofollow',
+})
+
 const showSaveSuccess = ref(false)
 let saveSuccessTimer: ReturnType<typeof setTimeout> | undefined
 

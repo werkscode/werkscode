@@ -23,6 +23,14 @@ import { formatCalculationDateTime } from '#shared/lib/date-format'
 import { formatCalculationLabel } from '#shared/types/powder-coating-calculation'
 
 const router = useRouter()
+
+usePageSeo({
+  title: 'Gespeicherte Kalkulationen',
+  description: 'Gespeicherte Pulverbeschichtungs-Kalkulationen durchsuchen und bearbeiten.',
+  path: '/powder-coating/calculations',
+  robots: 'noindex, nofollow',
+})
+
 const { calculations, pending, saving, error, loadList, deleteCalculation } = usePowderCoatingCalculations()
 const {
   searchQuery,

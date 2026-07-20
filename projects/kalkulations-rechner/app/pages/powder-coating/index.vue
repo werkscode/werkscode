@@ -1,17 +1,87 @@
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
 import PowderCoatingWizard from '@/components/powder-coating/PowderCoatingWizard.vue'
+import SeoFaq from '@/components/SeoFaq.vue'
 import type {
   CalculationMetadata,
   PowderCoatingCalculationInput,
 } from '#shared/types/powder-coating-calculation'
 import { emptyCalculationMetadataForm } from '#shared/types/powder-coating-calculation'
+import {
+  DEFAULT_SITE_URL,
+  ORG_NAME,
+  ORG_URL,
+  SITE_NAME,
+  absoluteUrl,
+  faqToSchemaMainEntity,
+  powderCoatingFaq,
+  powderCoatingHowToSteps,
+  powderCoatingSeo,
+} from '@/utils/seo'
 
 const router = useRouter()
 const { catalog, quote, loadCatalog } = usePowderCoatingQuote()
 const { saving, saveCalculation } = usePowderCoatingCalculations()
 const { persistenceEnabled } = usePersistenceEnabled()
 const { public: publicConfig } = useRuntimeConfig()
+const siteUrl = computed(() => (publicConfig.appUrl as string) || DEFAULT_SITE_URL)
+
+usePageSeo({
+  title: powderCoatingSeo.title,
+  description: powderCoatingSeo.description,
+  path: powderCoatingSeo.path,
+})
+
+useJsonLd(() => {
+  const base = siteUrl.value
+  const pageUrl = absoluteUrl(base, '/powder-coating')
+  const ogImage = absoluteUrl(base, '/og.png')
+  const orgId = `${ORG_URL}/#organization`
+  const appId = `${pageUrl}#software`
+
+  return [
+    {
+      '@type': 'SoftwareApplication',
+      '@id': appId,
+      name: `${SITE_NAME} — Pulverbeschichtung`,
+      description: powderCoatingSeo.description,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      inLanguage: 'de',
+      url: pageUrl,
+      image: ogImage,
+      creator: {
+        '@type': 'Organization',
+        '@id': orgId,
+        name: ORG_NAME,
+        url: ORG_URL,
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+      },
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${pageUrl}#howto`,
+      name: 'Pulverbeschichtung kalkulieren',
+      description: powderCoatingSeo.description,
+      inLanguage: 'de',
+      step: powderCoatingHowToSteps.map((step, index) => ({
+        '@type': 'HowToStep',
+        position: index + 1,
+        name: step.name,
+        text: step.text,
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      mainEntity: faqToSchemaMainEntity(powderCoatingFaq),
+    },
+  ]
+})
 
 const saveMetadata = ref(emptyCalculationMetadataForm())
 
@@ -82,5 +152,7 @@ async function onSave(metadata: CalculationMetadata, input: PowderCoatingCalcula
       :saving="saving"
       @save="onSave"
     />
+
+    <SeoFaq :items="powderCoatingFaq" />
   </div>
 </template>

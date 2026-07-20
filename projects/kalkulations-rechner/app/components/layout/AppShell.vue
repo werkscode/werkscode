@@ -98,7 +98,15 @@ const { public: publicConfig } = useRuntimeConfig()
 
     <footer class="mt-auto border-t">
       <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 text-xs text-muted-foreground">
-        <span>Kalkulations-Tool · WERKSCODE</span>
+        <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+          <span>Kalkulations-Tool ·</span>
+          <a
+            href="https://werkscode.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition-colors hover:text-foreground"
+          >WERKSCODE</a>
+        </p>
         <a
           :href="publicConfig.githubUrl"
           target="_blank"

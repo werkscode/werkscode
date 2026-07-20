@@ -28,6 +28,13 @@ const pageLabel = computed(() => {
   return formatCalculationLabel(current.value)
 })
 
+usePageSeo({
+  title: () => pageLabel.value,
+  description: 'Gespeicherte Pulverbeschichtungs-Kalkulation bearbeiten.',
+  path: () => `/powder-coating/calculations/${id.value}`,
+  robots: 'noindex, nofollow',
+})
+
 await loadCatalog()
 
 try {

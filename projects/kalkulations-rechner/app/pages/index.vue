@@ -5,10 +5,22 @@ import {
   PaintbrushIcon,
 } from '@lucide/vue'
 import { GithubIcon } from 'lucide-vue-next'
+import SeoFaq from '@/components/SeoFaq.vue'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import {
+  DEFAULT_SITE_URL,
+  GITHUB_URL,
+  ORG_NAME,
+  ORG_URL,
+  SITE_NAME,
+  absoluteUrl,
+  faqToSchemaMainEntity,
+  homeFaq,
+  homeSeo,
+} from '@/utils/seo'
 
 interface ProcessCard {
   title: string
@@ -19,6 +31,63 @@ interface ProcessCard {
 }
 
 const { public: publicConfig } = useRuntimeConfig()
+const siteUrl = computed(() => (publicConfig.appUrl as string) || DEFAULT_SITE_URL)
+
+usePageSeo({
+  title: homeSeo.title,
+  description: homeSeo.description,
+  path: homeSeo.path,
+})
+
+useJsonLd(() => {
+  const base = siteUrl.value
+  const pageUrl = absoluteUrl(base, '/')
+  const ogImage = absoluteUrl(base, '/og.png')
+  const orgId = `${ORG_URL}/#organization`
+  const websiteId = `${pageUrl}#website`
+  const appId = `${pageUrl}#software`
+
+  return [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: ORG_NAME,
+      url: ORG_URL,
+      sameAs: [GITHUB_URL],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      name: SITE_NAME,
+      url: pageUrl,
+      inLanguage: 'de',
+      publisher: { '@id': orgId },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': appId,
+      name: SITE_NAME,
+      description: homeSeo.description,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      inLanguage: 'de',
+      url: pageUrl,
+      image: ogImage,
+      isPartOf: { '@id': websiteId },
+      creator: { '@id': orgId },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      mainEntity: faqToSchemaMainEntity(homeFaq),
+    },
+  ]
+})
 
 const processes: ProcessCard[] = [
   {
@@ -103,5 +172,7 @@ const processes: ProcessCard[] = [
         </CardContent>
       </Card>
     </section>
+
+    <SeoFaq :items="homeFaq" />
   </div>
 </template>

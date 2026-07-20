@@ -13,11 +13,24 @@ export default defineNuxtConfig({
     public: {
       // NUXT_PUBLIC_PERSISTENCE_ENABLED=true enables DB save/setup/history (local only by default)
       persistenceEnabled: false,
+      appUrl: 'https://kalkulator.werkscode.de',
       githubUrl: 'https://github.com/werkscode/werkscode/tree/main/projects/kalkulations-rechner',
     },
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'de',
+      },
+      title: 'Kalkulations-Tool',
+      titleTemplate: '%s · Kalkulations-Tool',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Proof of Concept für die Kalkulation metallverarbeitender Prozesse. Aktuell: Pulverbeschichtung mit Oberfläche, Vorbehandlung und Kosten.',
+        },
+      ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', href: '/icon-32.png', sizes: '32x32' },
