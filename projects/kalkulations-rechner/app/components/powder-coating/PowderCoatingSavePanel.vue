@@ -7,9 +7,11 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 
-defineProps<{
+const props = defineProps<{
   calculationId?: string
   saving?: boolean
+  /** When true, save is blocked (e.g. quote still incomplete). */
+  disabled?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -17,6 +19,18 @@ const emit = defineEmits<{
 }>()
 
 const metadata = defineModel<CalculationMetadataForm>('metadata', { required: true })
+
+const { persistenceEnabled } = usePersistenceEnabled()
+
+const description = computed(() => {
+  if (props.calculationId) {
+    return 'Änderungen in der gespeicherten Kalkulation aktualisieren.'
+  }
+  if (persistenceEnabled.value) {
+    return 'Kalkulation für späteren Zugriff in der Datenbank ablegen.'
+  }
+  return 'Kalkulation für späteren Zugriff in diesem Browser speichern.'
+})
 
 const imageInputRef = ref<HTMLInputElement | null>(null)
 const imageError = ref<string | null>(null)
@@ -62,6 +76,9 @@ function removeImage() {
 }
 
 function onSave() {
+  if (props.disabled || props.saving) {
+    return
+  }
   emit('save', formToStored(metadata.value))
 }
 </script>
@@ -73,7 +90,10 @@ function onSave() {
         Kalkulation speichern
       </h3>
       <p class="text-sm text-muted-foreground">
-        {{ calculationId ? 'Änderungen in der gespeicherten Kalkulation aktualisieren.' : 'Kalkulation für späteren Zugriff in der Datenbank ablegen.' }}
+        {{ description }}
+      </p>
+      <p v-if="disabled" class="text-sm text-amber-700 dark:text-amber-300">
+        Speichern ist erst möglich, wenn die Kalkulation vollständig ist.
       </p>
     </div>
 
@@ -86,7 +106,7 @@ function onSave() {
       <div class="space-y-2">
         <Label for="calculation-artikel-number">Artikel-Nr.</Label>
         <Input id="calculation-artikel-number" v-model="metadata.artikelNumber" type="text" maxlength="100"
-          placeholder="z. B. 00001545" />
+          placeholder="z. B. 100001234" />
       </div>
       <div class="space-y-2">
         <Label for="calculation-customer">Kunde</Label>
@@ -135,7 +155,7 @@ function onSave() {
       </div>
     </div>
 
-    <Button type="button" :disabled="saving" @click="onSave">
+    <Button type="button" :disabled="saving || disabled" @click="onSave">
       <SaveIcon class="size-4" />
       {{ calculationId ? 'Aktualisieren' : 'Speichern' }}
     </Button>

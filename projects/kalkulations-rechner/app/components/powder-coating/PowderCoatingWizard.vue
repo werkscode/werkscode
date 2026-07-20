@@ -65,8 +65,6 @@ const props = defineProps<{
   initialMetadata?: CalculationMetadata
   initialInput?: PowderCoatingCalculationInput
   saving?: boolean
-  /** When false (public demo), hide the save panel. Default true for edit flows. */
-  allowSave?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -77,8 +75,6 @@ const quote = defineModel<PowderCoatingQuote | null>('quote', { default: null })
 const saveMetadata = defineModel<CalculationMetadataForm>('saveMetadata', {
   default: () => emptyCalculationMetadataForm(),
 })
-
-const showSavePanel = computed(() => props.allowSave !== false)
 
 const steps = [
   { id: 'surface', label: 'Blechoberfläche' },
@@ -711,75 +707,45 @@ onMounted(() => {
             </RadioGroup>
           </fieldset>
 
-          <SheetMetalSurfaceCalculator
-            v-if="surfaceInputMode === 'sheet-metal'"
-            v-model:material-id="materialId"
-            v-model:thickness-mm="thicknessMm"
-            v-model:weight-kg="weightKg"
-            v-model:include-edges="includeEdges"
-            v-model:surface-area-m2="surfaceAreaM2"
-            :show-details="false"
-          />
+          <SheetMetalSurfaceCalculator v-if="surfaceInputMode === 'sheet-metal'" v-model:material-id="materialId"
+            v-model:thickness-mm="thicknessMm" v-model:weight-kg="weightKg" v-model:include-edges="includeEdges"
+            v-model:surface-area-m2="surfaceAreaM2" :show-details="false" />
 
           <template v-else>
-            <StepFileUpload
-              @converted="onStepConverted"
-              @error="onStepUploadError"
-            />
+            <StepFileUpload @converted="onStepConverted" @error="onStepUploadError" />
 
-            <p
-              v-if="stepUploadError"
-              class="text-sm text-destructive"
-            >
+            <p v-if="stepUploadError" class="text-sm text-destructive">
               {{ stepUploadError }}
             </p>
 
-            <p
-              v-if="stepPreviewUnavailable"
-              class="text-sm text-amber-600 dark:text-amber-500"
-            >
+            <p v-if="stepPreviewUnavailable" class="text-sm text-amber-600 dark:text-amber-500">
               STEP-Datei erneut hochladen für 3D-Vorschau.
             </p>
 
-            <div
-              v-if="effectiveSurfaceResult"
-              class="space-y-2 rounded-md border bg-background p-4"
-            >
+            <div v-if="effectiveSurfaceResult" class="space-y-2 rounded-md border bg-background p-4">
               <p class="text-sm font-medium">
                 Oberfläche aus STEP-Datei
               </p>
               <p class="text-sm">
                 Pulverbeschichtbare Außenfläche:
                 <span class="font-semibold">{{ areaFormatter.format(effectiveSurfaceResult.totalAreaM2) }} m²</span>
-                <span
-                  v-if="stepSurfaceAreaManuallyAdjusted"
-                  class="ml-2 text-xs font-normal text-amber-600 dark:text-amber-500"
-                >
+                <span v-if="stepSurfaceAreaManuallyAdjusted"
+                  class="ml-2 text-xs font-normal text-amber-600 dark:text-amber-500">
                   (manuell angepasst)
                 </span>
               </p>
-              <p
-                v-if="stepTotalSurfaceAreaM2 != null"
-                class="text-sm text-muted-foreground"
-              >
+              <p v-if="stepTotalSurfaceAreaM2 != null" class="text-sm text-muted-foreground">
                 Gesamtfläche (alle Flächen):
                 <span class="font-medium text-foreground">{{ areaFormatter.format(stepTotalSurfaceAreaM2) }} m²</span>
               </p>
-              <p
-                v-if="stepFileName"
-                class="text-xs text-muted-foreground"
-              >
+              <p v-if="stepFileName" class="text-xs text-muted-foreground">
                 Datei: {{ stepFileName }}
               </p>
             </div>
 
             <ClientOnly>
-              <PartModelViewer
-                v-if="stepModelGlbUrl && !stepPreviewUnavailable"
-                :model-url="stepModelGlbUrl"
-                :faces="stepFaces"
-                @face-area-changed="onFaceAreaChanged"
-              />
+              <PartModelViewer v-if="stepModelGlbUrl && !stepPreviewUnavailable" :model-url="stepModelGlbUrl"
+                :faces="stepFaces" @face-area-changed="onFaceAreaChanged" />
             </ClientOnly>
           </template>
         </div>
@@ -811,23 +777,14 @@ onMounted(() => {
             </div>
             <div class="space-y-2">
               <Label for="threads-per-part">Anzahl Gewinde pro Bauteil</Label>
-              <Input
-                id="threads-per-part"
-                v-model="threadsPerPart"
-                type="number"
-                min="0"
-                step="1"
-                required
-              />
+              <Input id="threads-per-part" v-model="threadsPerPart" type="number" min="0" step="1" required />
               <p class="text-xs text-muted-foreground">
                 Gewinde werden vor dem Beschichten abgedeckt. Aufschlag:
-                {{ catalog.threadSealingRateEur.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }}/Gewinde
+                {{ catalog.threadSealingRateEur.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
+                }}/Gewinde
                 (aus Einstellungen).
               </p>
-              <p
-                v-if="threadSealingCostPreview > 0"
-                class="text-xs text-muted-foreground"
-              >
+              <p v-if="threadSealingCostPreview > 0" class="text-xs text-muted-foreground">
                 Vorschau Gewindekosten:
                 <span class="font-medium text-foreground">
                   {{ threadSealingCostPreview.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }}
@@ -923,10 +880,8 @@ onMounted(() => {
           </p>
 
           <ClientOnly>
-            <HangingCartScene
-              :layout="cartLayout"
-              :part-model-url="surfaceInputMode === 'step' ? stepModelGlbUrl : null"
-            />
+            <HangingCartScene :layout="cartLayout"
+              :part-model-url="surfaceInputMode === 'step' ? stepModelGlbUrl : null" />
           </ClientOnly>
         </div>
 
@@ -945,60 +900,48 @@ onMounted(() => {
           </div>
 
           <div class="rounded-lg border bg-muted/40 p-4">
-            <CartPassCostInfo
-              :cart-pass-step-costs="liveQuote?.breakdown.cartPassStepCosts ?? []"
+            <CartPassCostInfo :cart-pass-step-costs="liveQuote?.breakdown.cartPassStepCosts ?? []"
               :cart-pass-work-steps="catalog.cartPassWorkSteps"
               :cost-per-cart-pass-eur="liveQuote?.breakdown.costPerCartPassEur"
               :minutes-per-cart-pass="liveQuote?.breakdown.minutesPerCartPass"
-              :total-cart-pass-minutes="liveQuote?.breakdown.totalCartPassMinutes"
-              label-class="text-sm"
-              value-class="text-sm"
-            />
+              :total-cart-pass-minutes="liveQuote?.breakdown.totalCartPassMinutes" label-class="text-sm"
+              value-class="text-sm" />
           </div>
 
-          <div
-            v-if="lastCartLoad?.isPartial && capacityResult"
-            class="rounded-lg border bg-muted/40 p-4 space-y-3"
-          >
+          <div v-if="lastCartLoad?.isPartial && capacityResult" class="rounded-lg border bg-muted/40 p-4 space-y-3">
             <label class="flex items-start gap-3 cursor-pointer">
-              <input
-                v-model="partialLastCart"
-                type="checkbox"
-                class="mt-0.5 size-4 shrink-0 rounded border accent-primary"
-              >
-              <span class="space-y-1">
-                <span class="block text-sm font-medium">
-                  Letzter Wagen nicht voll beladen
-                </span>
-                <span class="block text-sm text-muted-foreground">
-                  Der letzte Wagen enthält nur {{ lastCartLoad.partsOnLastCart }} von
-                  {{ capacityResult.partsPerCart }} Teilen
-                  ({{ Math.round(lastCartLoad.loadFraction * 100) }}%).
-                  Wagenkosten und Arbeitszeit werden anteilig berechnet.
-                </span>
-                <span
-                  v-if="cartRunCostPreview"
-                  class="block text-sm text-muted-foreground"
-                >
-                  Wagenkosten:
-                  {{ cartRunCostPreview.full.cost.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }}
-                  →
-                  <span class="font-medium text-foreground">
-                    {{ (partialLastCart ? cartRunCostPreview.partial : cartRunCostPreview.full).cost.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }}
+              <input v-model="partialLastCart" type="checkbox"
+                class="mt-0.5 size-4 shrink-0 rounded border accent-primary">
+                <span class="space-y-1">
+                  <span class="block text-sm font-medium">
+                    Letzter Wagen nicht voll beladen
+                  </span>
+                  <span class="block text-sm text-muted-foreground">
+                    Der letzte Wagen enthält nur {{ lastCartLoad.partsOnLastCart }} von
+                    {{ capacityResult.partsPerCart }} Teilen
+                    ({{ Math.round(lastCartLoad.loadFraction * 100) }}%).
+                    Wagenkosten und Arbeitszeit werden anteilig berechnet.
+                  </span>
+                  <span v-if="cartRunCostPreview" class="block text-sm text-muted-foreground">
+                    Wagenkosten:
+                    {{ cartRunCostPreview.full.cost.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }}
+                    →
+                    <span class="font-medium text-foreground">
+                      {{ (partialLastCart ? cartRunCostPreview.partial :
+                        cartRunCostPreview.full).cost.toLocaleString('de-DE', {
+                      style: 'currency', currency: 'EUR' }) }}
+                    </span>
+                  </span>
+                  <span v-if="cartRunCostPreview?.fullTime.totalMinutes" class="block text-sm text-muted-foreground">
+                    Arbeitszeit:
+                    {{ formatDurationMinutes(cartRunCostPreview.fullTime.totalMinutes) }}
+                    →
+                    <span class="font-medium text-foreground">
+                      {{ formatDurationMinutes((partialLastCart ? cartRunCostPreview.partialTime :
+                        cartRunCostPreview.fullTime).totalMinutes) }}
+                    </span>
                   </span>
                 </span>
-                <span
-                  v-if="cartRunCostPreview?.fullTime.totalMinutes"
-                  class="block text-sm text-muted-foreground"
-                >
-                  Arbeitszeit:
-                  {{ formatDurationMinutes(cartRunCostPreview.fullTime.totalMinutes) }}
-                  →
-                  <span class="font-medium text-foreground">
-                    {{ formatDurationMinutes((partialLastCart ? cartRunCostPreview.partialTime : cartRunCostPreview.fullTime).totalMinutes) }}
-                  </span>
-                </span>
-              </span>
             </label>
           </div>
 
@@ -1006,21 +949,14 @@ onMounted(() => {
             <div class="space-y-2">
               <Label>Vorbehandlung</Label>
               <Select v-model="pretreatmentId">
-                <SelectTrigger
-                  class="w-full"
-                  :class="pretreatmentId === NO_PRETREATMENT_ID && 'text-muted-foreground'"
-                >
+                <SelectTrigger class="w-full" :class="pretreatmentId === NO_PRETREATMENT_ID && 'text-muted-foreground'">
                   <SelectValue placeholder="Keine Vorbehandlung" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem :value="NO_PRETREATMENT_ID">
                     Keine Vorbehandlung
                   </SelectItem>
-                  <SelectItem
-                    v-for="option in catalog.pretreatments"
-                    :key="option.id"
-                    :value="option.id"
-                  >
+                  <SelectItem v-for="option in catalog.pretreatments" :key="option.id" :value="option.id">
                     {{ option.label }}
                   </SelectItem>
                 </SelectContent>
@@ -1041,10 +977,8 @@ onMounted(() => {
             </div>
           </div>
 
-          <div
-            v-if="powderPreview && effectiveSurfaceResult"
-            class="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground"
-          >
+          <div v-if="powderPreview && effectiveSurfaceResult"
+            class="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
             <p class="font-medium text-foreground">
               Pulververbrauch
             </p>
@@ -1053,45 +987,42 @@ onMounted(() => {
               × {{ POWDER_GRAMS_PER_M2 }} g/m²
               × Overspray {{ Number(catalog.globalOverspray).toLocaleString('de-DE') }}
               × {{ Number(quantity).toLocaleString('de-DE') }} Stück
-              = {{ powderPreview.powderKgTotal.toLocaleString('de-DE', { minimumFractionDigits: 3, maximumFractionDigits: 3 }) }} kg
+              = {{ powderPreview.powderKgTotal.toLocaleString('de-DE', {
+                minimumFractionDigits: 3,
+              maximumFractionDigits: 3 })
+              }} kg
             </p>
             <p v-if="selectedPowderType" class="mt-2">
               Pulverkosten:
-              {{ powderPreview.powderKgTotal.toLocaleString('de-DE', { minimumFractionDigits: 3, maximumFractionDigits: 3 }) }} kg
+              {{ powderPreview.powderKgTotal.toLocaleString('de-DE', {
+                minimumFractionDigits: 3, maximumFractionDigits:
+              3 }) }}
+              kg
               × {{ selectedPowderType.costEurPerKg.toLocaleString('de-DE') }} €/kg
-              = {{ (powderPreview.powderKgTotal * selectedPowderType.costEurPerKg).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }}
+              = {{ (powderPreview.powderKgTotal * selectedPowderType.costEurPerKg).toLocaleString('de-DE', {
+                style:
+                  'currency',
+              currency: 'EUR' }) }}
             </p>
           </div>
         </div>
 
         <!-- Step 4: Result -->
         <div v-else-if="currentStep === 3" class="space-y-6">
-          <PowderCoatingResume
-            :surface-input-mode="surfaceInputMode"
-            :step-file-name="stepFileName"
-            :step-total-surface-area-m2="stepTotalSurfaceAreaM2"
-            :material-label="sheetMaterials[materialId].label"
-            :thickness-mm="Number(thicknessMm)"
-            :weight-kg="Number(weightKg)"
-            :include-edges="includeEdges"
-            :surface-result="effectiveSurfaceResult"
-            :part-dimensions="partDimensions"
-            :cart-dimensions="cartDimensions"
-            :hanging-mode="hangingMode"
-            :part-spacing-mm="partSpacingMm"
-            :capacity-result="capacityResult"
-            :quantity="Number(quantity)"
-            :pretreatment="selectedPretreatment"
-            :powder-type="selectedPowderType"
-            :powder-preview="powderPreview"
-            :overspray-factor="catalog.globalOverspray"
-            :quote="hasCalculatedOnce ? liveQuote : null"
-          />
+          <PowderCoatingResume :surface-input-mode="surfaceInputMode" :step-file-name="stepFileName"
+            :step-total-surface-area-m2="stepTotalSurfaceAreaM2" :material-label="sheetMaterials[materialId].label"
+            :thickness-mm="Number(thicknessMm)" :weight-kg="Number(weightKg)" :include-edges="includeEdges"
+            :surface-result="effectiveSurfaceResult" :part-dimensions="partDimensions" :cart-dimensions="cartDimensions"
+            :hanging-mode="hangingMode" :part-spacing-mm="partSpacingMm" :capacity-result="capacityResult"
+            :quantity="Number(quantity)" :pretreatment="selectedPretreatment" :powder-type="selectedPowderType"
+            :powder-preview="powderPreview" :overspray-factor="catalog.globalOverspray"
+            :quote="hasCalculatedOnce ? liveQuote : null" />
           <PowderCoatingSavePanel
-            v-if="showSavePanel && hasCalculatedOnce && liveQuote"
+            v-if="hasCalculatedOnce"
             v-model:metadata="saveMetadata"
             :calculation-id="calculationId"
             :saving="saving"
+            :disabled="!liveQuote"
             @save="onSave"
           />
         </div>
@@ -1109,22 +1040,15 @@ onMounted(() => {
         </div>
       </div>
 
-      <PowderCoatingStepSidebar
-        :current-step="currentStep"
-        :surface-input-mode="surfaceInputMode"
-        :step-file-name="stepFileName"
-        :step-total-surface-area-m2="stepTotalSurfaceAreaM2"
-        :material-label="sheetMaterials[materialId].label"
-        :thickness-mm="Number(thicknessMm)"
-        :weight-kg="Number(weightKg)"
-        :include-edges="includeEdges"
-        :surface-result="effectiveSurfaceResult" :part-dimensions="partDimensions" :cart-dimensions="cartDimensions"
-        :hanging-mode="hangingMode" :part-spacing-mm="partSpacingMm" :orientation-mode="orientationMode"
-        :capacity-result="capacityResult" :quantity="Number(quantity)" :pretreatment="selectedPretreatment"
-        :powder-type="selectedPowderType" :powder-preview="powderPreview"
-        :cart-pass-work-steps="catalog.cartPassWorkSteps"
-        :overspray-factor="catalog.globalOverspray" :quote="liveQuote"
-        :partial-last-cart="partialLastCart"
+      <PowderCoatingStepSidebar :current-step="currentStep" :surface-input-mode="surfaceInputMode"
+        :step-file-name="stepFileName" :step-total-surface-area-m2="stepTotalSurfaceAreaM2"
+        :material-label="sheetMaterials[materialId].label" :thickness-mm="Number(thicknessMm)"
+        :weight-kg="Number(weightKg)" :include-edges="includeEdges" :surface-result="effectiveSurfaceResult"
+        :part-dimensions="partDimensions" :cart-dimensions="cartDimensions" :hanging-mode="hangingMode"
+        :part-spacing-mm="partSpacingMm" :orientation-mode="orientationMode" :capacity-result="capacityResult"
+        :quantity="Number(quantity)" :pretreatment="selectedPretreatment" :powder-type="selectedPowderType"
+        :powder-preview="powderPreview" :cart-pass-work-steps="catalog.cartPassWorkSteps"
+        :overspray-factor="catalog.globalOverspray" :quote="liveQuote" :partial-last-cart="partialLastCart"
         :quote-input-incomplete="quoteInputIncomplete" />
     </div>
   </div>
