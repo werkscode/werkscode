@@ -84,6 +84,24 @@ Themes and voice: [`.cursor/author-foundation.md`](author-foundation.md)
 
 ---
 
+## 5. Curiosity without a backlog ticket
+
+- **Status:** `published`
+- **Working title (EN):** Curiosity without a backlog ticket
+- **File:** `content/blog/curiosity-without-a-ticket.md` + `content/de/blog/curiosity-without-a-ticket.md` (`draft: false`)
+- **Working title (DE):** Neugier ohne Backlog-Ticket
+- **One-sentence lesson:** Most evenings are for useful tools; a side experiment with no business case can still belong in a public notebook — without dressing it up as wisdom.
+- **Hook seed:** Concrete shop/office problems vs. a ticket-free evening of 3D cellular automata.
+- **Themes:** Learn in the product tree; AI lowers the barrier to try; useful tools still rank higher.
+- **Exhibit:** Client-only lab at `/lab/morph` (Morph field) — not a portfolio peer to Kalkulator; discovery via this post.
+- **Privacy:** No private app names, internal paths, or “test environment” framing; public rename Morph field / Morphfeld only.
+- **Notes:**
+  - Keep portfolio free of this experiment — notebook, not product.
+  - Say plainly: no business use. Avoid “living organism / breathe / play” metaphors.
+  - CTA links to the lab; lab page links back to the post.
+
+---
+
 ## Workflow reminder
 
 1. Set the chosen entry to `drafting`.

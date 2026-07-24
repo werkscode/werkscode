@@ -48,6 +48,10 @@
     "portfolio": {
       "title": "Portfolio — WERKSCODE",
       "description": "Ausgewählte Projekte und Arbeiten."
+    },
+    "labMorph": {
+      "title": "Morphfeld — Lab — WERKSCODE",
+      "description": "Eine 3D-Demo mit zellulärem Automaten. Kein Geschäftsnutzen — ein Seitenexperiment auf dieser Seite."
     }
   },
   "home": {
@@ -169,6 +173,22 @@
     "emptyContact": "Kontakt aufnehmen",
     "back": "← Zurück zum Portfolio",
     "notFound": "Projekt nicht gefunden"
+  },
+  "lab": {
+    "morph": {
+      "eyebrow": "Lab",
+      "title": "Morphfeld",
+      "intro": "Ein 3D-Zellularautomat mit morphenden Formen. Kein Nutzen für die Halle — gebaut, weil mich die Mathematik interessiert hat.",
+      "hint": "Ziehen zum Drehen. Radieren und Säen ändern das Gitter. Ton startet nach dem ersten Klick.",
+      "backToPost": "← Zurück zum Blogbeitrag",
+      "loading": "Laden…",
+      "erase": "Radieren",
+      "seed": "Säen",
+      "species": "Art {n}",
+      "soundOn": "Ton an",
+      "soundOff": "Ton aus",
+      "webglError": "WebGL wird in deinem Browser nicht unterstützt. Probiere einen anderen Browser oder aktiviere WebGL."
+    }
   },
   "errors": {
     "invalidForm": "Ungültige Formulardaten",

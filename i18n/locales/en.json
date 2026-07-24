@@ -48,6 +48,10 @@
     "portfolio": {
       "title": "Portfolio — WERKSCODE",
       "description": "Selected projects and work."
+    },
+    "labMorph": {
+      "title": "Morph field — Lab — WERKSCODE",
+      "description": "A 3D cellular automaton demo. No business use — a side experiment on this site."
     }
   },
   "home": {
@@ -169,6 +173,22 @@
     "emptyContact": "Get in touch",
     "back": "← Back to portfolio",
     "notFound": "Project not found"
+  },
+  "lab": {
+    "morph": {
+      "eyebrow": "Lab",
+      "title": "Morph field",
+      "intro": "A 3D cellular automaton with morphing shapes. No shopfloor use — I built it because the math interested me.",
+      "hint": "Drag to orbit. Erase and seed change the grid. Sound starts after the first click.",
+      "backToPost": "← Back to the blog post",
+      "loading": "Loading…",
+      "erase": "Erase",
+      "seed": "Seed",
+      "species": "Species {n}",
+      "soundOn": "Sound on",
+      "soundOff": "Sound off",
+      "webglError": "WebGL is not supported in your browser. Try a different browser or enable WebGL."
+    }
   },
   "errors": {
     "invalidForm": "Invalid form data",
