@@ -1,14 +1,28 @@
 ---
-title: Platzhalter-Projekt
-description: Dies ist ein Platzhalter-Portfolio-Projekt. Später durch echte Inhalte ersetzen.
+title: Portfolio-Eintrag-Vorlage
+description: 
 date: 2026-01-01
-tech:
-  - Nuxt
-  - TypeScript
+tech: []
 featured: false
 draft: true
 ---
 
-# Platzhalter-Projekt
+<!-- write here -->
 
-Dies ist Platzhalterinhalt für das Portfolio-Gerüst.
+# 
+
+## Vorgaben
+
+<!-- write here -->
+
+## Vorgehen
+
+<!-- write here -->
+
+## Ergebnis
+
+<!-- write here -->
+
+## Lesson
+
+<!-- write here -->

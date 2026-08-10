@@ -1,12 +1,15 @@
 ---
-title: Platzhalter-Beitrag
-description: Dies ist ein Platzhalter-Blogbeitrag. Später durch echte Inhalte ersetzen.
+title: Blogbeitrag-Vorlage
+description: 
 date: 2026-01-01
-tags:
-  - platzhalter
+tags: []
 draft: true
 ---
 
-# Platzhalter
+<!-- write here -->
 
-Dies ist Platzhalterinhalt für das Blog-Gerüst.
+# 
+
+## 
+
+<!-- write here -->

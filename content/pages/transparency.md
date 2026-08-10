@@ -1,80 +1,48 @@
 ---
 title: How I use AI on this site
-description: What AI tools help with, what I still do myself, and how I keep this project honest and personal.
+description: Code with AI. Text by hand. What that means on WERKSCODE.
 ---
 
-This site is personal. I want it to stay that way — even though AI tools helped me build it.
+<!-- rewrite in my own words -->
 
-I'm not hiding that. If you're reading this, you probably care about authenticity too. So here is how I work, in plain language.
+# How I use AI on this site
 
-## The short version
+## Rule
 
-**I use AI as a tool, not as a ghostwriter.**
+- **Text** (blog, portfolio, about, page copy, translations): written by the author. No AI drafting, editing, or translation.
+- **Code** (app, config, scaffolding, technical docs): built with AI tools, mainly [Cursor](https://cursor.com).
 
-[Cursor](https://cursor.com) is my main assistant for code and content. It drafts, suggests, and speeds things up. I decide what goes live, edit what sounds wrong, and take responsibility for what you read here.
+## Tools
 
-If something on this site feels like *me*, it's because I made it feel that way on purpose.
-
-## What I use
-
-- **Cursor** — coding, refactoring, debugging, and content drafting in this repo
-- **Large language models** (via Cursor) — research, wording, translation EN → DE
-
-That's it for now. No secret stack. When that changes, this page gets updated.
-
-## What AI typically helps with
-
-| Label | What it means |
-|-------|----------------|
-| **drafting** | First versions of blog posts, portfolio text, or page copy |
-| **editing** | Grammar, structure, tightening sentences, tone checks |
-| **translation** | German versions based on an English draft I have already approved |
-| **code** | Scaffolding, boilerplate, refactors, and "why is this broken?" sessions |
-| **research** | Looking up APIs, framework docs, or patterns I haven't used yet |
-| **images** | AI-generated or assisted visuals — only when noted on a specific piece |
-
-Blog and portfolio entries can record these labels in frontmatter (`ai_assist`) as structured metadata. You won't see badges on every post yet — but the record exists in the [GitHub repository](https://github.com/werkscode/werkscode) for anyone who wants to check.
+- Cursor — coding, refactoring, debugging, scaffolding in this repo
+- Large language models via Cursor — for code and technical docs only
 
 ## What I still do myself
 
-- **Decide** what to publish and what stays draft
-- **Edit** until the voice sounds like a shopfloor CEO, not a marketing bot
-- **Verify** facts, links, and that nothing private slipped in
-- **Run** the business context — the stories here come from my experience, anonymized
-- **Take responsibility** for errors, tone, and what this project stands for
+- Write every first-person word on the site
+- Decide what to publish
+- Verify facts, links, and privacy
+- Take responsibility for errors and tone
 
-AI didn't write my app for me. It shortened the distance between "I have an idea" and "let me see if this works." I still had to understand what broke when it broke.
+## Privacy
 
-## Privacy boundaries
-
-The [GitHub repository](https://github.com/werkscode/werkscode) is [public from day one](/blog/public-repo-from-day-one). That means discipline:
-
-- No real company, customer, or employee names in git — ever
+- No real company, customer, or employee names in git
 - No `.env` files, credentials, or internal system details
 - Content is written as if a stranger will read it
+- AI assistants follow the same rules via `.cursor/`
 
-AI assistants follow the same rules via project standards in `.cursor/`. When the boundaries are written down, the tools stop improvising privacy mistakes.
+Full policy: [AI-USAGE.md](https://github.com/werkscode/werkscode/blob/main/AI-USAGE.md)
 
-See also [AI-USAGE.md](https://github.com/werkscode/werkscode/blob/main/AI-USAGE.md) in the repository for the full policy.
+## Commits
 
-## Commits and code
-
-When AI helped with a commit in a meaningful way, I may add an optional trailer:
+When AI meaningfully helped with a **code** commit:
 
 ```
 Assisted-by: Cursor
 ```
 
-That's not a badge of shame. It's a habit — like writing commit messages you'd show an employee.
+Not used for commits that only change author-written prose.
 
-## What this is not
+## Questions
 
-- **Not** "AI wrote my entire site"
-- **Not** pretending every word was typed without help
-- **Not** a tutorial on how to automate your personality away
-
-WERKSCODE is a small public place to learn in the open. Transparency is part of that promise.
-
-## Questions?
-
-If something here is unclear or you think I missed a disclosure, [get in touch](/contact). I'd rather fix it than hide behind vague wording.
+[Contact](/contact)

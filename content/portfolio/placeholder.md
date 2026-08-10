@@ -1,14 +1,28 @@
 ---
-title: Placeholder Project
-description: This is a placeholder portfolio project. Replace with real content later.
+title: Portfolio entry template
+description: 
 date: 2026-01-01
-tech:
-  - Nuxt
-  - TypeScript
+tech: []
 featured: false
 draft: true
 ---
 
-# Placeholder Project
+<!-- write here -->
 
-This is placeholder content for the portfolio scaffold.
+# 
+
+## Constraints
+
+<!-- write here -->
+
+## Approach
+
+<!-- write here -->
+
+## Result
+
+<!-- write here -->
+
+## Lesson
+
+<!-- write here -->

@@ -1,77 +1,69 @@
 ---
 name: add-portfolio-entry
-description: Creates bilingual portfolio markdown files in the correct content paths with valid frontmatter. Use when the user asks to add a portfolio entry, project write-up, or save a portfolio case study to the site.
+description: Creates empty bilingual portfolio markdown scaffolds with valid frontmatter. Does not write body prose. Use when the user asks to scaffold a new portfolio entry file.
 disable-model-invocation: true
 ---
 
-# Add Portfolio Entry
+# Add Portfolio Entry (scaffold only)
+
+**Hard rule:** Create files, frontmatter, and section headings. Do **not** write body sentences. Hand the empty scaffold back to the author. See [`human-prose.mdc`](../../rules/human-prose.mdc).
 
 ## Checklist
 
 ```
-- [ ] Choose slug (kebab-case, e.g. shopfloor-status-board)
+- [ ] Choose slug (kebab-case)
 - [ ] Create EN file: content/portfolio/<slug>.md
-- [ ] Create DE file: content/de/portfolio/<slug>.md (only after EN approved and author asks)
-- [ ] Set draft: true unless author says publish
-- [ ] Verify listing filters drafts
+- [ ] Create DE file: content/de/portfolio/<slug>.md (only if author asks for DE scaffold)
+- [ ] Set draft: true
+- [ ] Leave body as headings + <!-- write here --> only
+- [ ] Stop — do not draft prose
 ```
 
 ## Frontmatter (portfolio collection)
 
 ```yaml
 ---
-title: Project Title
-description: One-line summary for listings and SEO
-date: 2026-07-13
-tech:
-  - Nuxt
-  - TypeScript
+title: 
+description: 
+date: 2026-08-10
+tech: []
 featured: false
 draft: true
-link: https://example.com
 ---
 ```
 
-Required fields per `content.config.ts`: `date`. Optional: `description`, `tech`, `featured`, `link`, `draft`.
+Required: `date`. Optional: `description`, `cover`, `tech`, `featured`, `link`, `draft`.
 
-`link` must be a valid URL if present — omit for internal-only projects.
+Omit `link` unless the author provides a public URL.
 
-## Filename
+## Body template (EN)
 
-Prefer `slug.md` or `YYYY-MM-DD-slug.md`. Use the same basename in EN and DE.
+```markdown
+<!-- write here -->
+
+# 
+
+## Constraints
+
+<!-- write here -->
+
+## Approach
+
+<!-- write here -->
+
+## Result
+
+<!-- write here -->
+
+## Lesson
+
+<!-- write here -->
+```
 
 ## Draft behavior
 
-`app/pages/portfolio/index.vue` filters with `.where('draft', '<>', true)`. Entries with `draft: true` are hidden from the listing. Always set `draft: true` for work-in-progress; set `draft: false` or remove the field to publish.
-
-## Content queries
-
-Listing uses `useLocalizedContentPath()`:
-
-- EN entries live under `/portfolio/...`
-- DE entries live under `/de/portfolio/...`
-
-## Author workflow
-
-Per [`content-session`](../content-session/SKILL.md):
-
-1. Save EN only when author explicitly approves
-2. Save DE only after German adaptation is approved
-3. Publish only when author says "publish"
-
-## After creating files
-
-- Journey-style voice? → use [`write-portfolio-entry`](../write-portfolio-entry/SKILL.md)
-- New UI strings needed? → use `add-i18n-strings` skill
-
-## Verify
-
-```bash
-make dev
-# Visit /portfolio and /de/portfolio — draft entries should not appear
-# Direct URL to draft file may still work; listing hides drafts
-```
+`app/pages/portfolio/index.vue` hides `draft: true`. Always scaffold as draft.
 
 ## Public repo
 
-Never commit entries with real names or private business details — even with `draft: true`. Content in git is public-facing. See [`.cursor/public-repo-standards.md`](../../public-repo-standards.md).
+Never put real names or private business details in files — even drafts. See [`.cursor/public-repo-standards.md`](../../public-repo-standards.md).

@@ -6,24 +6,17 @@ type TocLink = {
   children?: TocLink[]
 }
 
-type AiAssistKey = 'drafting' | 'editing' | 'translation' | 'code' | 'research' | 'images'
-
 const props = defineProps<{
   title: string
   backTo: string
   backLabel: string
   tocLinks?: TocLink[]
   tocLabel?: string
-  aiAssist?: AiAssistKey[]
   showEndCta?: boolean
 }>()
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-
-const aiAssistLabels = computed(() =>
-  (props.aiAssist ?? []).map(key => t(`blog.aiAssist.${key}`)),
-)
 
 const hasToc = computed(() => Boolean(props.tocLinks?.length && props.tocLabel))
 </script>
@@ -46,18 +39,6 @@ const hasToc = computed(() => Boolean(props.tocLinks?.length && props.tocLabel))
         >
           <slot name="meta" />
         </div>
-        <p
-          v-if="aiAssistLabels.length"
-          class="text-sm text-muted-foreground"
-        >
-          {{ t('blog.aiAssist.label') }}: {{ aiAssistLabels.join(', ') }}.
-          <NuxtLink
-            :to="localePath('/transparency')"
-            class="text-primary hover:underline focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {{ t('blog.endCta.transparency') }}
-          </NuxtLink>
-        </p>
       </header>
 
       <div
@@ -89,11 +70,6 @@ const hasToc = computed(() => Boolean(props.tocLinks?.length && props.tocLabel))
               <Button size="lg" as-child>
                 <NuxtLink :to="localePath('/contact')">
                   {{ t('blog.endCta.contact') }}
-                </NuxtLink>
-              </Button>
-              <Button variant="outline" size="lg" as-child>
-                <NuxtLink :to="localePath('/transparency')">
-                  {{ t('blog.endCta.transparency') }}
                 </NuxtLink>
               </Button>
             </div>

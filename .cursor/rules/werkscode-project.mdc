@@ -5,13 +5,13 @@ alwaysApply: true
 
 # WERKSCODE — Project Overview
 
-Public blog and portfolio at **WERKSCODE** — *WERKSCODE works*. Inspire self-employed people (especially in Germany) to learn coding with modern AI tools while running a business.
+Public blog and portfolio at **WERKSCODE** — *WERKSCODE works*. Inspire self-employed people (especially in Germany) to learn coding with modern AI tools while running a business. Site **prose is human-written**; **code is AI-built**.
 
 ## Audience & tone
 
 - **Audience**: Non-developer entrepreneurs, craftspeople, small-business owners
-- **Tone**: Practical, honest, fun — shopfloor meets software
-- **Author voice**: Managing director of a small metal manufacturing company who learned to code on the job. Biography/themes: [`author-foundation.md`](../author-foundation.md); raw local notes (if present): `author/raw/` (never copy identifying detail into commits or `content/`)
+- **Tone**: Practical, honest, fun — shopfloor meets software (author writes this; agents do not imitate it in `content/`)
+- **Author**: Managing director of a small metal manufacturing company who learned to code on the job. Writing queue: [`WRITING.md`](../../WRITING.md). Raw local notes (if present): `author/raw/` (never copy identifying detail into commits or `content/`)
 
 ## Stack
 
@@ -39,3 +39,4 @@ This repo is **public from day one** — write code, comments, commits, and docs
 - Minimal diffs; no over-engineering
 - Match conventions in `nuxt.config.ts`, `Makefile`, and existing pages
 - UI strings in locale files; routes via `localePath()`; content via `useLocalizedContentPath()`
+- Never draft site prose — see [`human-prose.mdc`](human-prose.mdc)

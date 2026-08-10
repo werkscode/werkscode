@@ -1,14 +1,15 @@
 # WERKSCODE — Agent Guide
 
-Public blog and portfolio for **WERKSCODE** (*WERKSCODE works*). A managing director of a small metal manufacturing company shares the journey of learning to code on the job — with AI tools — to inspire self-employed people in Germany and beyond.
+Public blog and portfolio for **WERKSCODE** (*WERKSCODE works*). A managing director of a small metal manufacturing company shares learning to code on the job — using AI for **code**, writing every site word by hand — to inspire self-employed people in Germany and beyond.
 
 **This repository is public from day one.** Write code, comments, commits, and docs as if published today. See [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md).
 
-## Author context
+## Human prose / AI code
 
-- Biography / themes (public-safe): [`.cursor/author-foundation.md`](.cursor/author-foundation.md)
-- Planned blog angles: [`.cursor/content-backlog.md`](.cursor/content-backlog.md)
-- Deeper local notes (gitignored, if present): `author/raw/` — never paste raw detail into `content/`, commits, or other tracked files
+- **Prose** (blog, portfolio, about, translations, first-person UI copy): author only. See [`.cursor/rules/human-prose.mdc`](.cursor/rules/human-prose.mdc).
+- **Code**: AI-assisted. Optional `Assisted-by: Cursor` on code commits.
+- Author writing queue: [`WRITING.md`](WRITING.md)
+- Local private notes (gitignored, if present): `author/raw/` — never paste raw detail into `content/`, commits, or other tracked files
 
 ## Quick commands
 
@@ -30,8 +31,9 @@ Self-contained apps with their own `package.json`, Docker Compose, and deploy st
 | Rule | When it applies |
 |------|-----------------|
 | `werkscode-project.mdc` | Always — mission, stack, privacy, public posture |
+| `human-prose.mdc` | Always — agents never write site prose |
 | `frontend.mdc` | `app/**` — i18n, routing, components |
-| `content-privacy.mdc` | `content/**` — blog/portfolio + anonymization |
+| `content-privacy.mdc` | `content/**` — layout + anonymization |
 | `server-api.mdc` | `server/**`, `drizzle/**` — API + DB patterns |
 | `docker.mdc` | Docker/Makefile files |
 
@@ -41,19 +43,16 @@ Invoke by name when starting a task:
 
 | Skill | Use for |
 |-------|---------|
-| `content-session` | Start blog/portfolio collaboration — intake, EN-first, chat before files |
-| `write-journey-post` | Draft blog posts in author voice |
-| `write-portfolio-entry` | Draft portfolio case studies (anonymized projects) |
-| `add-blog-post` | Create blog markdown files in content paths |
-| `add-portfolio-entry` | Create portfolio markdown files in content paths |
-| `add-i18n-strings` | Add EN/DE UI translations |
+| `add-blog-post` | Empty blog markdown scaffolds (no body prose) |
+| `add-portfolio-entry` | Empty portfolio markdown scaffolds (no body prose) |
+| `add-i18n-strings` | Add EN/DE UI keys (functional labels only unless author provides copy) |
 | `add-shadcn-component` | Add shadcn-vue UI components |
 | `add-api-route` | New Nitro API endpoints |
 | `git-commit` | Conventional Commits, privacy-safe messages |
 
 ## Key conventions
 
-- UI copy → `i18n/locales/en.json` + `de.json`
+- UI copy → `i18n/locales/en.json` + `de.json` (author owns voice-bearing strings)
 - Links → `localePath()`; content paths → `useLocalizedContentPath()`
 - Blog EN: `content/blog/`; DE: `content/de/blog/`
 - Portfolio EN: `content/portfolio/`; DE: `content/de/portfolio/`

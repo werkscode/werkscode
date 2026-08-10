@@ -11,6 +11,9 @@ const { public: publicConfig } = useRuntimeConfig()
       <p class="max-w-2xl font-heading text-2xl leading-snug text-foreground sm:text-3xl">
         {{ t('footer.statement') }}
       </p>
+      <p class="mt-3 max-w-2xl text-sm text-muted-foreground">
+        {{ t('footer.authorship') }}
+      </p>
 
       <div class="mt-10 flex flex-col gap-6 border-t border-border/60 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p class="text-sm text-muted-foreground">

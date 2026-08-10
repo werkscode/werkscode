@@ -1,34 +1,36 @@
 ---
 title: About
-description: Managing director of a small metal manufacturing company, learning to code in public — with AI tools.
+description: Managing director of a small metal manufacturing company. Learning to code in public.
 ---
 
-I'm the managing director of a small metal manufacturing company in Germany — fourth generation, mostly in the office. Supplier calls, decisions, lists that live in too many places. Next door, people make things that have to hold. I build small digital tools for that world — and for the work that lands on my desk.
+<!-- rewrite in my own words -->
 
-Evenings and weekends, I write code. Not to become a developer. To stop waiting for permission to fix my own problems.
+# About
 
-## Why this site exists
+## Facts
 
-For years the useful tools stayed private. At work: systems I could not easily change — expensive, slow, built for a different era. Beside them: things I built myself, learned the hard way, kept offline until they felt “good enough.”
+- Managing director of a small metal manufacturing company in Germany (fourth generation)
+- Codes evenings and weekends for own tools and this public site
+- Audience: self-employed people who wonder whether coding is for them
 
-I broke that habit for the public side. The [GitHub repository](https://github.com/werkscode/werkscode) is public from day one. The manufacturing tools for internal use stay private, as they should. This site is the notebook: blog and portfolio, written while running the business.
+## This site
 
-I write especially for self-employed people who wonder whether coding is for them. You do not need the perfect stack. You need a real problem and the nerve to start — and sometimes to ship on something aging before you modernize beside it.
+- Public notebook: blog and portfolio
+- GitHub repository public from day one
+- Internal manufacturing tools stay private
 
-## Who you're reading
+## Stack
 
-One person. Not a team, not an agency, not a “we” pretending to be bigger than I am.
+- Nuxt 4, Vue, TypeScript, Tailwind, Nuxt Content
+- PostgreSQL for the contact form
+- Docker for development
 
-The tone is practical and honest — office, shopfloor, and software — never corporate. If a post sounds polished, it is because I edited it until it sounded like me, not because I outsourced the thinking.
+## AI on this site
 
-## How this site is made
+- Code: built with AI tools (mainly Cursor)
+- Text: written by the author — no AI drafting, no AI translation
+- Details: [How I use AI on this site](/transparency)
 
-Nuxt 4, Vue, TypeScript, Tailwind, Nuxt Content, PostgreSQL for the contact form. Docker for dev. The stack is documented in the [repository README](https://github.com/werkscode/werkscode#readme).
+## Contact
 
-AI tools — mainly [Cursor](https://cursor.com) — help with drafting, code, and translation. I decide what ships, verify what matters, and keep the stories personal.
-
-For the full picture of how AI is involved, see **[How I use AI on this site](/transparency)**.
-
-## Get in touch
-
-Questions, corrections, or just saying hello — [contact me](/contact). I read everything that comes through the form.
+- [Contact form](/contact)

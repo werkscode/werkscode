@@ -33,12 +33,12 @@ If secrets ever land in history: stop, warn the author, and use `git filter-repo
 
 ## AI transparency
 
-AI tools (mainly Cursor) assist with code and content in this repository. The author edits, verifies, and takes responsibility for what ships.
+AI tools (mainly Cursor) assist with **code** in this repository. Site prose is written by the author only — no AI drafting, editing, or translation.
 
-- **Policy:** [`AI-USAGE.md`](../AI-USAGE.md) — tools, principles, structured disclosure
+- **Policy:** [`AI-USAGE.md`](../AI-USAGE.md) — tools, principles, the prose/code split
 - **Site:** `/transparency` — reader-facing summary (EN + DE)
-- **Content metadata:** optional `ai_assist` frontmatter on blog/portfolio entries (see `content.config.ts`)
-- **Commits:** optional `Assisted-by: Cursor` trailer when AI assistance was substantial
+- **Writing queue:** [`WRITING.md`](../WRITING.md) — author-owned checklist
+- **Commits:** optional `Assisted-by: Cursor` trailer when AI assistance on **code** was substantial — never on prose-only commits under `content/`
 
 Never paste secrets, customer names, or internal system details into AI chat. Project rules in `.cursor/` apply to assistants too.
 

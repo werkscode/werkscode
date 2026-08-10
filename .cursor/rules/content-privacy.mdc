@@ -6,6 +6,10 @@ alwaysApply: false
 
 # Content & Privacy
 
+## Human prose rule
+
+Body text under `content/` is written by the author only. Agents may create empty scaffolds (frontmatter, headings, `<!-- write here -->` markers). Agents must not draft, edit, polish, or translate sentences. See [`human-prose.mdc`](human-prose.mdc).
+
 ## File layout
 
 | Locale | Blog | Portfolio | Pages |
@@ -17,15 +21,11 @@ Schema defined in `content.config.ts`. Blog posts support `draft: true` (hidden 
 
 ## Frontmatter
 
-**Blog**: `title`, `description`, `date`, `tags`, `draft`, `ai_assist` (optional)
-**Portfolio**: `title`, `description`, `date`, `cover`, `tech`, `featured`, `link`, `draft`, `ai_assist` (optional)
+**Blog**: `title`, `description`, `date`, `tags`, `draft`
+**Portfolio**: `title`, `description`, `date`, `cover`, `tech`, `featured`, `link`, `draft`
 **Pages**: `title`, `description`, `draft`
 
 Set `draft: true` until the author confirms publish. Both blog and portfolio listings hide drafts.
-
-### AI disclosure (`ai_assist`)
-
-Record honestly how AI helped: `drafting`, `editing`, `translation`, `code`, `research`, `images`. See [`AI-USAGE.md`](../AI-USAGE.md) for definitions. Not rendered on posts yet — metadata for transparency in git.
 
 ## Privacy — never commit
 
@@ -40,6 +40,6 @@ See [`.cursor/public-repo-standards.md`](../public-repo-standards.md).
 ## Safe storytelling
 
 - "A small metal manufacturing company" / "my shopfloor"
-- Abstract lessons: learning to code while running a business, AI as a multiplier
+- Abstract lessons: learning to code while running a business
 - WERKSCODE as the public brand; anonymized composites instead of real incidents
 - When unsure, ask the author before including a detail

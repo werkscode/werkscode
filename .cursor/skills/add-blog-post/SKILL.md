@@ -1,63 +1,54 @@
 ---
 name: add-blog-post
-description: Creates bilingual blog markdown files in the correct content paths with valid frontmatter. Use when the user asks to add a blog post, new article, or publish a post to the site.
+description: Creates empty bilingual blog markdown scaffolds with valid frontmatter. Does not write body prose. Use when the user asks to scaffold a new blog post file.
 disable-model-invocation: true
 ---
 
-# Add Blog Post
+# Add Blog Post (scaffold only)
+
+**Hard rule:** Create files, frontmatter, and section headings. Do **not** write body sentences. Hand the empty scaffold back to the author. See [`human-prose.mdc`](../../rules/human-prose.mdc).
 
 ## Checklist
 
 ```
-- [ ] Choose slug (kebab-case, e.g. learning-docker-on-the-shopfloor)
+- [ ] Choose slug (kebab-case)
 - [ ] Create EN file: content/blog/<slug>.md
-- [ ] Create DE file: content/de/blog/<slug>.md
-- [ ] Set draft: true unless author says publish
-- [ ] Verify listing filters drafts
+- [ ] Create DE file: content/de/blog/<slug>.md (only if author asks for DE scaffold)
+- [ ] Set draft: true
+- [ ] Leave body as headings + <!-- write here --> only
+- [ ] Stop — do not draft prose
 ```
 
 ## Frontmatter (blog collection)
 
 ```yaml
 ---
-title: Post Title
-description: One-line summary for listings and SEO
-date: 2026-07-13
-tags:
-  - learning
-  - ai-tools
+title: 
+description: 
+date: 2026-08-10
+tags: []
 draft: true
 ---
 ```
 
-Required fields per `content.config.ts`: `date`. Optional: `description`, `tags`, `draft`.
+Required: `date`. Optional: `description`, `tags`, `draft`.
 
-## Filename
+## Body template
 
-Prefer `YYYY-MM-DD-slug.md` or `slug.md`. Use the same basename in EN and DE.
+```markdown
+<!-- write here -->
+
+# 
+
+## 
+
+<!-- write here -->
+```
 
 ## Draft behavior
 
-`app/pages/blog/index.vue` filters with `.where('draft', '<>', true)`. Only posts with `draft: true` are hidden. Always set `draft: true` for work-in-progress; remove or set `draft: false` to publish.
-
-## Content queries
-
-Listing uses `useLocalizedContentPath()`:
-- EN posts live under `/blog/...`
-- DE posts live under `/de/blog/...`
-
-## After creating files
-
-- New UI strings needed? → use `add-i18n-strings` skill
-- Journey-style content? → use `write-journey-post` skill for voice/privacy
-
-## Verify
-
-```bash
-pnpm dev
-# Visit /blog and /de/blog — draft posts should not appear
-```
+`app/pages/blog/index.vue` hides `draft: true`. Always scaffold as draft.
 
 ## Public repo
 
-Never commit posts with real names or private business details — even with `draft: true`. Content in git is public-facing. See [`.cursor/public-repo-standards.md`](../../public-repo-standards.md).
+Never put real names or private business details in files — even drafts. See [`.cursor/public-repo-standards.md`](../../public-repo-standards.md).

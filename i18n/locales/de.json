@@ -12,6 +12,7 @@
   },
   "footer": {
     "statement": "Öffentlich Programmieren lernen neben dem Metallbetrieb — ehrliche Notizen, kein Pitch-Deck.",
+    "authorship": "Text vom Autor. Code mit KI gebaut.",
     "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten.",
     "github": "GitHub"
   },
@@ -35,7 +36,7 @@
     },
     "transparency": {
       "title": "Transparenz — WERKSCODE",
-      "description": "Wie KI-Tools beim Aufbau dieser Seite helfen, was menschlich bleibt und wie ich ehrlich bleibe."
+      "description": "Code mit KI. Text von Hand. Was das auf WERKSCODE heißt."
     },
     "contact": {
       "title": "Kontakt — WERKSCODE",
@@ -148,17 +149,7 @@
     "toc": "Auf dieser Seite",
     "endCta": {
       "text": "Fragen zu Code, Betrieb oder deinem eigenen Lernweg?",
-      "contact": "Nachricht senden",
-      "transparency": "Wie KI beim Schreiben half"
-    },
-    "aiAssist": {
-      "label": "KI half bei",
-      "drafting": "Entwurf",
-      "editing": "Überarbeitung",
-      "translation": "Übersetzung",
-      "code": "Code",
-      "research": "Recherche",
-      "images": "Bilder"
+      "contact": "Nachricht senden"
     }
   },
   "portfolio": {

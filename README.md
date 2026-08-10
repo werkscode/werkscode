@@ -125,27 +125,18 @@ See each sub-project’s README for ports, env, and deploy notes.
 - **Portfolio** — markdown in `content/portfolio/` and `content/de/portfolio/`
 - **Editorial pages** — About and Transparency in `content/pages/` and `content/de/pages/`
 - Set `draft: true` in frontmatter until ready to publish; listings hide drafts
-- Placeholder files are included; replace with real content later
+- Placeholder / scaffold files are included; the author fills them in by hand
 
 ### AI transparency
 
-This project uses AI tools (mainly Cursor) for code and content. The author edits, verifies, and takes responsibility for what ships.
+**Code** is built with AI tools (mainly Cursor). **Text** (blog, portfolio, page copy, translations) is written by the author only — no AI drafting or translation.
 
 - **Site:** [/transparency](https://werkscode.de/transparency) — reader-facing summary (EN + DE)
-- **Policy:** [AI-USAGE.md](AI-USAGE.md) — tools, principles, structured `ai_assist` metadata
-- **Standards:** [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md) — privacy + optional `Assisted-by: Cursor` commit trailer
-
-### Writing content with Cursor
+- **Policy:** [AI-USAGE.md](AI-USAGE.md) — the prose/code split
+- **Writing queue:** [WRITING.md](WRITING.md) — what the author still needs to write
+- **Standards:** [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md) — privacy + optional `Assisted-by: Cursor` on code commits
 
 This repo is **public from day one** — never commit real company, customer, or employee names, even in drafts.
-
-1. Start a chat with **"content session"** or **"new blog post"** / **"new portfolio entry"**
-2. Answer intake questions; the assistant drafts **English in chat first**
-3. Say **"save EN"** when happy → files land in `content/` with `draft: true`
-4. Preview with `make dev`, then **"draft German"** → **"save DE"** when approved
-5. Say **"publish"** to remove drafts from listings; **"commit"** when ready to git
-
-See [`.cursor/skills/content-session/SKILL.md`](.cursor/skills/content-session/SKILL.md) for the full workflow.
 
 ## API
 

@@ -1,12 +1,15 @@
 ---
-title: Placeholder Post
-description: This is a placeholder blog post. Replace with real content later.
+title: Blog post template
+description: 
 date: 2026-01-01
-tags:
-  - placeholder
+tags: []
 draft: true
 ---
 
-# Placeholder
+<!-- write here -->
 
-This is placeholder content for the blog scaffold.
+# 
+
+## 
+
+<!-- write here -->

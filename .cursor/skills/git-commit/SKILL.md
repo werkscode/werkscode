@@ -70,7 +70,8 @@ Rules:
 - English only; imperative mood ("add" not "added")
 - Subject ≤ 72 chars; body explains **why**, not a file list
 - One logical change per commit — suggest splitting mixed diffs
-- Optional trailer `Assisted-by: Cursor` when AI meaningfully assisted (see [`AI-USAGE.md`](../../AI-USAGE.md))
+- Optional trailer `Assisted-by: Cursor` when AI meaningfully assisted with **code** (see [`AI-USAGE.md`](../../AI-USAGE.md))
+- **Never** add `Assisted-by: Cursor` when the commit only changes author-written prose under `content/` or first-person UI copy the author wrote — those words are not AI-authored
 
 ## Step 5 — Commit
 

@@ -1,78 +1,61 @@
 # AI Usage Policy
 
-This repository is **public from day one**. This document explains how AI tools are used on WERKSCODE — honestly, without pretending every word or line was written without help.
+This repository is **public from day one**. This document explains how AI tools are used on WERKSCODE.
 
 The live summary for readers is on the site: **[/transparency](https://werkscode.de/transparency)** (German: `/de/transparency`).
 
 Source code: **[github.com/werkscode/werkscode](https://github.com/werkscode/werkscode)**
 
+## The split
+
+| Domain | Who |
+|--------|-----|
+| **Prose** — blog posts, portfolio case studies, about/transparency body text, first-person UI copy, translations | The author only. No AI drafting, editing, polish, or translation. |
+| **Code** — app, config, scaffolding, Docker, technical docs in this repo (including this file) | Built with AI tools, mainly Cursor. |
+
+That split is the point of the public project: a CEO using AI for software, while the words stay human.
+
 ## Tools
 
 | Tool | Role |
 |------|------|
-| **Cursor** | Primary assistant for code, refactoring, debugging, and content drafting in this repo |
-| **Large language models** (via Cursor) | Research, wording suggestions, EN → DE translation |
+| **Cursor** | Coding, refactoring, debugging, scaffolding, and maintaining technical docs |
+| **Large language models** (via Cursor) | Code and technical documentation only — not site prose |
 
 When this list changes, update this file and the Transparency page content.
 
 ## Principles
 
-1. **AI is a tool, not a ghostwriter.** The author decides what ships, edits for voice, and takes responsibility for published content.
-2. **Personal and authentic.** AI drafts are rewritten until they sound like a shopfloor CEO — not generic marketing copy.
+1. **AI builds code, not voice.** The author writes every first-person sentence a reader sees.
+2. **Agents may scaffold content files** (frontmatter, headings, empty markers). They must not fill in body prose.
 3. **Same privacy rules as everything else.** AI assistants follow [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md). Never paste secrets, customer names, or internal system details into chat.
-4. **Transparency by default.** Structured metadata records how AI helped; significant AI-assisted commits may include an `Assisted-by:` trailer.
-
-## What AI typically helps with
-
-| Label | Meaning |
-|-------|---------|
-| `drafting` | First versions of blog posts, portfolio text, or page copy |
-| `editing` | Grammar, structure, tightening sentences, tone checks |
-| `translation` | German versions based on an approved English draft |
-| `code` | Scaffolding, boilerplate, refactors, debugging sessions |
-| `research` | API docs, framework patterns, unfamiliar tooling |
-| `images` | AI-generated or assisted visuals — only when noted on a specific piece |
+4. **Transparency by default.** This policy and the Transparency page state the rule. Significant AI-assisted **code** commits may include an `Assisted-by:` trailer.
 
 ## What the author still does
 
+- Writes all site prose by hand (EN and DE)
 - Decides what to publish and what stays draft
-- Edits until the voice is personal and accurate
 - Verifies facts, links, and privacy boundaries
-- Provides the business context behind stories (anonymized)
 - Takes responsibility for errors and tone
-
-## Structured disclosure in content
-
-Blog and portfolio markdown may include optional frontmatter:
-
-```yaml
-ai_assist:
-  - drafting
-  - editing
-```
-
-Allowed values: `drafting`, `editing`, `translation`, `code`, `research`, `images`.
-
-Validated in [`content.config.ts`](content.config.ts). Not rendered on every post yet — but recorded in git for anyone who wants to check.
 
 ## Git commits
 
-When AI meaningfully assisted with a commit, add an optional trailer:
+When AI meaningfully assisted with a **code** commit, add an optional trailer:
 
 ```
-feat(content): add transparency page
-
-Document how Cursor assists with code and copy.
+feat(api): add contact form rate limiting
 
 Assisted-by: Cursor
 ```
 
-This is optional, not mandatory for every AI touch — use it when the assistance was substantial (e.g. scaffolding a feature, drafting a long post).
+Do **not** add `Assisted-by: Cursor` on commits that only change author-written prose under `content/` or first-person UI copy the author wrote.
 
 See the [`git-commit`](.cursor/skills/git-commit/SKILL.md) skill for the full workflow.
 
 ## Related documents
 
+- [`WRITING.md`](WRITING.md) — author-owned writing queue and doctrine
+- [`.cursor/rules/human-prose.mdc`](.cursor/rules/human-prose.mdc) — agent guardrail: no prose generation
 - [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md) — privacy, git hygiene, commit format
 - [`.cursor/rules/content-privacy.mdc`](.cursor/rules/content-privacy.mdc) — content anonymization rules
 - [`content/pages/transparency.md`](content/pages/transparency.md) — reader-facing transparency page (EN)

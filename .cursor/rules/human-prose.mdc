@@ -1,0 +1,35 @@
+---
+description: Human prose only — agents must never draft, edit, polish, or translate site text
+alwaysApply: true
+---
+
+# Human prose / AI code
+
+## Doctrine
+
+1. Every word a reader sees in a first-person voice is written by the author. No AI drafting, no AI translation, no AI "polish".
+2. Code, config, scaffolding and technical docs stay AI-built. That is the story the site exists to tell.
+
+## Agents may
+
+- Create empty content scaffolds: frontmatter, headings, `<!-- write here -->` / `<!-- rewrite in my own words -->` markers
+- Fix broken links, markdown syntax, and schema/frontmatter field names
+- Write **functional** UI labels (nav items, button labels, form errors, loading states)
+- Maintain technical docs (`AI-USAGE.md`, README stack sections, Docker notes, this rule)
+
+## Agents must never
+
+- Write body sentences under `content/**` (blog, portfolio, pages)
+- Draft, rewrite, "improve", or translate first-person or narrative UI copy
+- Invent German (or any locale) adaptations of author prose
+- Fill in scaffolds "to be helpful" without an explicit author request to write prose (which you must refuse)
+
+## If asked to write or polish prose
+
+Stop. Say that site prose is author-only. Offer to scaffold an empty file or list keys in [`WRITING.md`](../../WRITING.md) instead.
+
+## Related
+
+- [`AI-USAGE.md`](../../AI-USAGE.md)
+- [`WRITING.md`](../../WRITING.md)
+- [`content-privacy.mdc`](content-privacy.mdc)

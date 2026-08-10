@@ -12,6 +12,7 @@
   },
   "footer": {
     "statement": "Learning to code in public while running a metal shop — honest notes, not a pitch deck.",
+    "authorship": "Text by the author. Code built with AI.",
     "copyright": "© {year} WERKSCODE. All rights reserved.",
     "github": "GitHub"
   },
@@ -35,7 +36,7 @@
     },
     "transparency": {
       "title": "Transparency — WERKSCODE",
-      "description": "How AI tools help build this site, what stays human, and how I keep it honest."
+      "description": "Code with AI. Text by hand. What that means on WERKSCODE."
     },
     "contact": {
       "title": "Contact — WERKSCODE",
@@ -148,17 +149,7 @@
     "toc": "On this page",
     "endCta": {
       "text": "Questions about code, the business, or your own learning path?",
-      "contact": "Send a message",
-      "transparency": "How AI helped write this"
-    },
-    "aiAssist": {
-      "label": "AI assisted with",
-      "drafting": "drafting",
-      "editing": "editing",
-      "translation": "translation",
-      "code": "code",
-      "research": "research",
-      "images": "images"
+      "contact": "Send a message"
     }
   },
   "portfolio": {

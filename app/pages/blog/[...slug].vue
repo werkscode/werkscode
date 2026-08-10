@@ -44,7 +44,6 @@ useSeoMeta({
     :back-label="t('blog.back')"
     :toc-links="tocLinks"
     :toc-label="t('blog.toc')"
-    :ai-assist="post.ai_assist"
     show-end-cta
   >
     <template v-if="post.date || post.tags?.length" #meta>
