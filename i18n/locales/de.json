@@ -3,7 +3,6 @@
   "nav": {
     "home": "Start",
     "blog": "Blog",
-    "portfolio": "Portfolio",
     "about": "Über mich",
     "contact": "Kontakt",
     "transparency": "Transparenz",
@@ -11,8 +10,8 @@
     "menu": "Menü"
   },
   "footer": {
-    "statement": "Öffentlich Programmieren lernen neben dem Metallbetrieb — ehrliche Notizen, kein Pitch-Deck.",
-    "authorship": "Text vom Autor. Code mit KI gebaut.",
+    "statement": "",
+    "authorship": "",
     "copyright": "© {year} WERKSCODE. Alle Rechte vorbehalten.",
     "github": "GitHub"
   },
@@ -27,16 +26,16 @@
   "seo": {
     "titleSuffix": "WERKSCODE",
     "home": {
-      "title": "WERKSCODE — Persönlicher Blog & Portfolio",
-      "description": "Geschäftsführer eines kleinen Metallbetriebs, der öffentlich Programmieren lernt — praktische Notizen zu Tools, Druck und dem Mut anzufangen."
+      "title": "Start — WERKSCODE",
+      "description": ""
     },
     "about": {
       "title": "Über mich — WERKSCODE",
-      "description": "Geschäftsführer eines kleinen Metallbauunternehmens, der vom Büro aus öffentlich Programmieren lernt."
+      "description": ""
     },
     "transparency": {
       "title": "Transparenz — WERKSCODE",
-      "description": "Code mit KI. Text von Hand. Was das auf WERKSCODE heißt."
+      "description": ""
     },
     "contact": {
       "title": "Kontakt — WERKSCODE",
@@ -45,62 +44,43 @@
     "blog": {
       "title": "Blog — WERKSCODE",
       "description": "Blogbeiträge und Texte."
-    },
-    "portfolio": {
-      "title": "Portfolio — WERKSCODE",
-      "description": "Ausgewählte Projekte und Arbeiten."
-    },
-    "labMorph": {
-      "title": "Morphfeld — Lab — WERKSCODE",
-      "description": "Eine 3D-Demo mit zellulärem Automaten. Kein Geschäftsnutzen — ein Seitenexperiment auf dieser Seite."
     }
   },
   "home": {
-    "title": "WERKSCODE works",
-    "description": "Texte und Projekte von einem Geschäftsführer, der neben dem Betrieb Programmieren lernt — nicht statt dessen.",
+    "title": "WERKSCODE",
+    "description": "",
     "readBlog": "Zum Blog",
-    "viewPortfolio": "Portfolio ansehen",
     "latest": {
       "label": "Neuester Beitrag",
       "cta": "Beitrag lesen →"
     },
     "manifesto": {
       "label": "Worum es geht",
-      "text": "Ein öffentliches Notizbuch aus einem kleinen Metallbetrieb. Echte Probleme, gestohlene Stunden und der unordentliche Weg von „irgendwas, das funktioniert“ zu Tools, die Leute wirklich nutzen."
-    },
-    "paths": {
-      "title": "Einstieg",
-      "count": "02 Wege"
+      "text": ""
     },
     "blogCard": {
       "label": "Texte",
       "title": "Blog",
-      "description": "Journey-Notizen: falsche Stacks, Commit-Disziplin, erst liefern dann modernisieren — geschrieben neben dem Tagesgeschäft.",
+      "description": "",
       "cta": "Beiträge lesen →"
-    },
-    "portfolioCard": {
-      "label": "Arbeit",
-      "title": "Portfolio",
-      "description": "Ausgewählte Projekte und Experimente — anonymisiert, wo sie privat bleiben müssen.",
-      "cta": "Projekte ansehen →"
     },
     "contactStrip": {
       "label": "Kontakt",
-      "text": "Fragen, Ideen oder dein eigener Weg in den Code?",
+      "text": "",
       "cta": "Nachricht senden"
     }
   },
   "about": {
     "title": "Über mich",
-    "description": "Geschäftsführer eines kleinen Metallbauunternehmens, der öffentlich Programmieren lernt."
+    "description": ""
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Senden Sie eine Nachricht — ich melde mich so schnell wie möglich.",
+    "description": "",
     "trust": {
-      "who": "Sie schreiben dem Geschäftsführer hinter WERKSCODE — der öffentlich Programmieren lernt und nebenbei einen kleinen Metallbetrieb führt.",
-      "response": "Ich antworte in der Regel innerhalb weniger Tage.",
-      "privacy": "Ihre Nachricht wird sicher gespeichert und nicht weitergegeben. Wie diese Seite entsteht, steht auf der Transparenz-Seite."
+      "who": "",
+      "response": "",
+      "privacy": ""
     },
     "links": {
       "about": "Über mich",
@@ -118,7 +98,7 @@
     "submitting": "Wird gesendet...",
     "toast": {
       "successTitle": "Nachricht gesendet",
-      "successDescription": "Vielen Dank für Ihre Nachricht. Ich antworte so schnell wie möglich.",
+      "successDescription": "",
       "errorTitle": "Senden fehlgeschlagen",
       "errorDescription": "Bitte versuchen Sie es in Kürze erneut."
     }
@@ -141,44 +121,15 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Notizen zum Programmierenlernen neben dem Tagesgeschäft in einem kleinen Fertigungsbetrieb.",
+    "description": "",
     "featured": "Neueste",
     "empty": "Noch keine Beiträge.",
     "back": "← Zurück zum Blog",
     "notFound": "Beitrag nicht gefunden",
     "toc": "Auf dieser Seite",
     "endCta": {
-      "text": "Fragen zu Code, Betrieb oder deinem eigenen Lernweg?",
+      "text": "",
       "contact": "Nachricht senden"
-    }
-  },
-  "portfolio": {
-    "title": "Portfolio",
-    "description": "Ausgewählte Projekte und Experimente vom Programmierenlernen neben dem Metallbetrieb.",
-    "featured": "Hervorgehoben",
-    "viewProject": "Projekt ansehen →",
-    "visitProject": "Projekt besuchen",
-    "empty": "Noch keine Projekte.",
-    "emptyHint": "Fallstudien kommen hier hin, sobald Projekte fertig sind. Bis dahin:",
-    "emptyBlog": "Zum Blog",
-    "emptyContact": "Kontakt aufnehmen",
-    "back": "← Zurück zum Portfolio",
-    "notFound": "Projekt nicht gefunden"
-  },
-  "lab": {
-    "morph": {
-      "eyebrow": "Lab",
-      "title": "Morphfeld",
-      "intro": "Ein 3D-Zellularautomat mit morphenden Formen. Kein Nutzen für die Halle — gebaut, weil mich die Mathematik interessiert hat.",
-      "hint": "Ziehen zum Drehen. Radieren und Säen ändern das Gitter. Ton startet nach dem ersten Klick.",
-      "backToPost": "← Zurück zum Blogbeitrag",
-      "loading": "Laden…",
-      "erase": "Radieren",
-      "seed": "Säen",
-      "species": "Art {n}",
-      "soundOn": "Ton an",
-      "soundOff": "Ton aus",
-      "webglError": "WebGL wird in deinem Browser nicht unterstützt. Probiere einen anderen Browser oder aktiviere WebGL."
     }
   },
   "errors": {

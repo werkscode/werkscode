@@ -8,7 +8,6 @@ const localePath = useLocalePath()
 const navItems = computed(() => [
   { label: t('nav.home'), to: localePath('/') },
   { label: t('nav.blog'), to: localePath('/blog') },
-  { label: t('nav.portfolio'), to: localePath('/portfolio') },
   { label: t('nav.about'), to: localePath('/about') },
   { label: t('nav.transparency'), to: localePath('/transparency') },
   { label: t('nav.contact'), to: localePath('/contact') },

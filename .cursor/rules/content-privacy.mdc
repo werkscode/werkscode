@@ -1,45 +1,41 @@
 ---
-description: Blog/portfolio content layout, frontmatter, and privacy guardrails
+description: Blog and page content layout, frontmatter, and privacy guardrails
 globs: content/**
 alwaysApply: false
 ---
 
 # Content & Privacy
 
-## Human prose rule
+## Writing rule
 
-Body text under `content/` is written by the author only. Agents may create empty scaffolds (frontmatter, headings, `<!-- write here -->` markers). Agents must not draft, edit, polish, or translate sentences. See [`human-prose.mdc`](human-prose.mdc).
+Reader-facing text under `content/` is typed by the author. Agents may create empty scaffolds (frontmatter, title, `<!-- write here -->`). They must not draft, edit, polish, or translate sentences, and must not fill a scaffold because a page looks bare. A `description` longer than two sentences or twenty words stays empty. See [`human-prose.mdc`](human-prose.mdc).
 
 ## File layout
 
-| Locale | Blog | Portfolio | Pages |
-|--------|------|-----------|-------|
-| EN | `content/blog/*.md` | `content/portfolio/*.md` | `content/pages/*.md` |
-| DE | `content/de/blog/*.md` | `content/de/portfolio/*.md` | `content/de/pages/*.md` |
+| Locale | Blog | Pages |
+|--------|------|-------|
+| EN | `content/blog/*.md` | `content/pages/*.md` |
+| DE | `content/de/blog/*.md` | `content/de/pages/*.md` |
 
 Schema defined in `content.config.ts`. Blog posts support `draft: true` (hidden from listing).
 
 ## Frontmatter
 
 **Blog**: `title`, `description`, `date`, `tags`, `draft`
-**Portfolio**: `title`, `description`, `date`, `cover`, `tech`, `featured`, `link`, `draft`
 **Pages**: `title`, `description`, `draft`
 
-Set `draft: true` until the author confirms publish. Both blog and portfolio listings hide drafts.
+Set `draft: true` until the author confirms publish. Blog listings hide drafts.
 
 ## Privacy — never commit
 
-Content in git is public-facing — including `draft: true` posts. Same rules apply to portfolio items and all markdown in the repo.
+Content in git is public-facing — including `draft: true` posts. The same rules apply to every markdown file in the repo.
 
 - Real company name, address, employees, customers, suppliers
 - Private manufacturing app names, ERP/RPS data, production figures
-- Anything identifying a specific German manufacturing business
+- Anything identifying a specific business or person
 
 See [`.cursor/public-repo-standards.md`](../public-repo-standards.md).
 
-## Safe storytelling
+## When unsure
 
-- "A small metal manufacturing company" / "my shopfloor"
-- Abstract lessons: learning to code while running a business
-- WERKSCODE as the public brand; anonymized composites instead of real incidents
-- When unsure, ask the author before including a detail
+Ask the author before including a detail that could identify a person or a business. **WERKSCODE** may appear as the public name.

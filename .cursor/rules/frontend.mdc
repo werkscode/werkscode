@@ -10,7 +10,9 @@ alwaysApply: false
 
 - All UI strings in `i18n/locales/en.json` and `i18n/locales/de.json` — never hardcode copy in `.vue` files
 - Use `t('key')` or `$t('key')`; SEO meta via `seo.*` keys
-- German copy: informal "du", professional but approachable
+- `seo.*` descriptions, and any reader-facing string longer than two sentences or twenty words, are author-owned. Leave them empty. Do not draft them.
+- Agents do not translate. An empty German string stays empty.
+- Short functional German labels use informal **du**. Do not rewrite existing sentences to change Sie or du.
 
 ## Routing
 

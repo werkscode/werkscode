@@ -2,15 +2,12 @@
 # Run on the production VPS from /opt/werkscode (or $DEPLOY_PATH).
 # Used by GitHub Actions and manual deploys — see deploy/README.md.
 #
-# Deploys:
-#   1. Main WERKSCODE site (Docker compose at repo root)
-#   2. Sub-projects under projects/ (e.g. kalkulations-rechner) when .env exists
+# Deploys the main WERKSCODE site (Docker compose at repo root).
 set -e
 
 DEPLOY_PATH="${DEPLOY_PATH:-/opt/werkscode}"
 BRANCH="${DEPLOY_BRANCH:-main}"
 HEALTH_URL="http://127.0.0.1:3000/api/health"
-KALK_DIR="${DEPLOY_PATH}/projects/kalkulations-rechner"
 
 cd "$DEPLOY_PATH"
 
@@ -71,17 +68,3 @@ if [ "$health_ok" -ne 1 ]; then
 fi
 
 echo "WERKSCODE deploy OK"
-
-# --- Sub-projects (monorepo) ---
-
-if [ -f "$KALK_DIR/.env" ]; then
-  echo "==> Deploy kalkulations-rechner"
-  chmod +x "$KALK_DIR/deploy/scripts/deploy.sh"
-  (cd "$KALK_DIR" && ./deploy/scripts/deploy.sh)
-else
-  echo "==> Skipping kalkulations-rechner (no $KALK_DIR/.env)"
-  echo "    One-time: cp $KALK_DIR/deploy/env.production.example $KALK_DIR/.env"
-  echo "    Then set POSTGRES_PASSWORD / DATABASE_URL and re-run deploy."
-fi
-
-echo "Deploy OK"

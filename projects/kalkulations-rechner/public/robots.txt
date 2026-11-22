@@ -1,6 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /powder-coating/setup
-Disallow: /powder-coating/calculations
-
-Sitemap: https://kalkulator.werkscode.de/sitemap.xml

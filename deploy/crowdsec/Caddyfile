@@ -1,0 +1,39 @@
+# Local stand-in for the host Caddy bouncer. Published on 127.0.0.1:8088 only.
+# Not used on the server. See Caddyfile.production for the VPS.
+{
+	auto_https off
+	servers {
+		# The Docker bridge is a private address, so a localhost client can
+		# present a documentation IP in X-Forwarded-For. Do not copy this
+		# block to the public Caddyfile: that Caddy is the edge.
+		trusted_proxies static private_ranges
+		client_ip_headers X-Forwarded-For
+	}
+	crowdsec {
+		api_url http://crowdsec:8080
+		api_key {$CROWDSEC_BOUNCER_KEY}
+		ticker_interval 2s
+	}
+}
+
+:8080 {
+	log {
+		output file /var/log/caddy/access.log {
+			mode 0644
+			roll_size 10MiB
+			roll_keep 2
+		}
+		format json
+	}
+
+	route {
+		crowdsec
+		@ok path / /api/health
+		handle @ok {
+			respond "ok" 200
+		}
+		handle {
+			respond "not found" 404
+		}
+	}
+}

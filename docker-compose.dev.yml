@@ -1,7 +1,8 @@
 services:
   db:
+    # Host port only. Postgres inside the container still listens on 5432.
     ports:
-      - '5432:5432'
+      - '${DEV_DB_PORT:-5433}:5432'
     volumes:
       - postgres_dev_data:/var/lib/postgresql/data
 
@@ -9,8 +10,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    ports:
-      - '3000:3000'
+    # !override replaces the base 3000:3000 publish. Nuxt inside the container still listens on 3000.
+    ports: !override
+      - '${DEV_APP_PORT:-3010}:3000'
     environment:
       NODE_ENV: development
       CHOKIDAR_USEPOLLING: 'true'
@@ -18,7 +20,7 @@ services:
       NUXT_PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
       NUXT_DATABASE_URL: postgresql://${POSTGRES_USER:-werkscode}:${POSTGRES_PASSWORD:-werkscode}@db:5432/${POSTGRES_DB:-werkscode}
-      NUXT_PUBLIC_APP_URL: http://localhost:3000
+      NUXT_PUBLIC_APP_URL: http://localhost:${DEV_APP_PORT:-3010}
     volumes:
       - .:/app
       - /app/node_modules

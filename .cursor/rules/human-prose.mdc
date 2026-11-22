@@ -1,32 +1,38 @@
 ---
-description: Human prose only — agents must never draft, edit, polish, or translate site text
+description: Reader-facing copy is author-typed — agents suggest in chat, they do not land those words in the repo
 alwaysApply: true
 ---
 
-# Human prose / AI code
+# Author-typed site copy
 
 ## Doctrine
 
-1. Every word a reader sees in a first-person voice is written by the author. No AI drafting, no AI translation, no AI "polish".
-2. Code, config, scaffolding and technical docs stay AI-built. That is the story the site exists to tell.
+AI may suggest wording in chat. The author types every word that lands in the repo as reader-facing copy.
+
+Exceptions: titles, and functional UI only (nav items, button labels, form labels, placeholders, errors, loading states, short status labels).
+
+A reader-facing string longer than two sentences or twenty words is manual. That includes meta descriptions, alt text, empty states, footer lines, card blurbs, trust copy, about text, and SEO descriptions. A short manifesto is still narrative. If it is not a title and not a functional control, the author writes it. Leave it empty.
+
+Agents do not translate. An empty German string stays empty. Agents do not rewrite existing sentences to change voice or form of address.
+
+Agents do not fill a scaffold because a page looks bare.
 
 ## Agents may
 
-- Create empty content scaffolds: frontmatter, headings, `<!-- write here -->` / `<!-- rewrite in my own words -->` markers
+- Create empty content scaffolds: frontmatter, the existing or author-supplied title, `<!-- write here -->` markers
 - Fix broken links, markdown syntax, and schema/frontmatter field names
-- Write **functional** UI labels (nav items, button labels, form errors, loading states)
+- Write titles and functional UI labels within the length gate
 - Maintain technical docs (`AI-USAGE.md`, README stack sections, Docker notes, this rule)
 
 ## Agents must never
 
-- Write body sentences under `content/**` (blog, portfolio, pages)
-- Draft, rewrite, "improve", or translate first-person or narrative UI copy
-- Invent German (or any locale) adaptations of author prose
-- Fill in scaffolds "to be helpful" without an explicit author request to write prose (which you must refuse)
+- Draft, rewrite, polish, or translate reader-facing copy into the repo
+- Invent locale adaptations of author prose
+- Fill scaffolds, empty states, or bare pages with narrative text
 
 ## If asked to write or polish prose
 
-Stop. Say that site prose is author-only. Offer to scaffold an empty file or list keys in [`WRITING.md`](../../WRITING.md) instead.
+Stop. Say that site copy is author-typed. Offer to scaffold an empty file or list keys in [`WRITING.md`](../../WRITING.md). Suggestions in chat are fine; do not write them into the repo.
 
 ## Related
 

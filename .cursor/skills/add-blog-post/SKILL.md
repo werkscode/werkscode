@@ -6,7 +6,9 @@ disable-model-invocation: true
 
 # Add Blog Post (scaffold only)
 
-**Hard rule:** Create files, frontmatter, and section headings. Do **not** write body sentences. Hand the empty scaffold back to the author. See [`human-prose.mdc`](../../rules/human-prose.mdc).
+**Hard rule:** Create files, frontmatter, and section headings. Do **not** write body sentences, descriptions, or translations. Hand the empty scaffold back to the author. Do not fill a scaffold because the page looks bare. See [`human-prose.mdc`](../../rules/human-prose.mdc).
+
+A reader-facing string longer than two sentences or twenty words is manual. Leave `description` empty unless the author supplied the text. Agents do not translate. Create a German file only when the author asks, and leave its body empty.
 
 ## Checklist
 

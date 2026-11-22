@@ -1,2 +1,0 @@
--- Schema is applied by the app on startup (server/db/migrate.ts).
--- This file is reserved for optional manual initialization.

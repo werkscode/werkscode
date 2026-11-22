@@ -28,9 +28,10 @@ pnpm db:migrate   # Migrations on host
 
 - Dev image is **Debian-based** (not Alpine) — required for native modules
 - Container startup runs `nuxt prepare` — do not remove
+- The dev entrypoint drops to the host uid that owns the repo (the image `node` user when that uid exists) so `.nuxt` stays writable by host `pnpm`
 - After adding npm packages in Docker: `make dev-rebuild` (refreshes the anonymous `node_modules` volume)
 - Production binds `127.0.0.1:3000` for reverse proxy use
-- `@nuxt/content` SQLite cache lives in the `nuxt_content_cache` Docker volume (not on the host `.data/`). If you see `no such table: _content_*`, run `make dev-content-reset` and wait for the log line `Processed … collections` before opening portfolio/blog pages
+- `@nuxt/content` SQLite cache lives in the `nuxt_content_cache` Docker volume (not on the host `.data/`). If you see `no such table: _content_*`, run `make dev-content-reset` and wait for the log line `Processed … collections` before opening blog pages
 - Host-only dev (`pnpm dev`): delete `.data/content` and restart if content collections were added or queries fail with missing `_content_*` tables
 
 ## Staging / production
@@ -41,5 +42,13 @@ make prod-migrate && make prod-up
 ```
 
 Production HTTPS and multi-site VPS: [deploy/README.md](../deploy/README.md).
+
+CrowdSec is optional. `make dev` and `make prod-up` do not start it.
+
+```bash
+make crowdsec-up        # Engine + local Caddy bouncer (127.0.0.1:8088)
+make crowdsec-down
+make crowdsec-prod-up   # Engine only, on the VPS (host Caddy is the bouncer)
+```
 
 See `Makefile` for full target list (`make help`).

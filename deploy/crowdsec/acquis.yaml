@@ -1,0 +1,7 @@
+# Caddy JSON access logs (local test file or host /var/log/caddy/*.log).
+# The "caddy" label becomes the program name via crowdsecurity/syslog-logs,
+# which crowdsecurity/caddy-logs requires.
+filenames:
+  - /var/log/caddy/*.log
+labels:
+  type: caddy

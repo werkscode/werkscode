@@ -1,0 +1,71 @@
+# CrowdSec for the WERKSCODE edge. Not started by `make dev` or `make prod-up`.
+#
+# Local (engine + Caddy bouncer on 127.0.0.1:8088):
+#   make crowdsec-up
+#
+# Server (engine only; host Caddy is the bouncer):
+#   make crowdsec-prod-up
+#
+# LAPI is published on 127.0.0.1:8080. Do not open 8080 in the firewall.
+
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec:v1.8.2
+    container_name: werkscode-crowdsec
+    restart: unless-stopped
+    environment:
+      COLLECTIONS: crowdsecurity/linux crowdsecurity/caddy
+      DISABLE_ONLINE_API: "true"
+      BOUNCER_KEY_CADDY: ${CROWDSEC_BOUNCER_KEY}
+      CUSTOM_HOSTNAME: werkscode
+    volumes:
+      - crowdsec_config:/etc/crowdsec
+      - crowdsec_data:/var/lib/crowdsec/data
+      - ./deploy/crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml:ro
+      - ./deploy/crowdsec/profiles.yaml:/etc/crowdsec/profiles.yaml:ro
+      - ./deploy/crowdsec/config.yaml.local:/etc/crowdsec/config.yaml.local:ro
+      - ${CROWDSEC_CADDY_LOGS:-caddy_logs}:/var/log/caddy:ro
+    ports:
+      - "127.0.0.1:8080:8080"
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/cscli", "lapi", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 120s
+    networks:
+      - crowdsec
+
+  caddy:
+    profiles:
+      - local
+    build:
+      context: ./deploy/crowdsec
+      dockerfile: Dockerfile
+    image: werkscode-caddy-crowdsec:local
+    container_name: werkscode-caddy-crowdsec
+    restart: unless-stopped
+    environment:
+      CROWDSEC_BOUNCER_KEY: ${CROWDSEC_BOUNCER_KEY}
+    ports:
+      - "127.0.0.1:8088:8080"
+    volumes:
+      - ./deploy/crowdsec/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${CROWDSEC_CADDY_LOGS:-caddy_logs}:/var/log/caddy
+    depends_on:
+      crowdsec:
+        condition: service_healthy
+    networks:
+      - crowdsec
+
+networks:
+  crowdsec:
+    name: werkscode-crowdsec
+
+volumes:
+  crowdsec_config:
+    name: werkscode-crowdsec-config
+  crowdsec_data:
+    name: werkscode-crowdsec-data
+  caddy_logs:
+    name: werkscode-caddy-logs

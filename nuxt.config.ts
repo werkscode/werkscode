@@ -12,7 +12,6 @@ const optimizeDepsInclude = [
   'lucide-vue-next',
   'reka-ui',
   'tailwind-merge',
-  'three',
   'vue-sonner',
 ]
 
@@ -104,10 +103,6 @@ export default defineNuxtConfig({
       },
     },
     watch: { enabled: true },
-  },
-
-  build: {
-    transpile: ['three'],
   },
 
   devServer: {

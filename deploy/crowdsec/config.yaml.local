@@ -1,0 +1,8 @@
+# Merged over the image config. LAPI stays on 0.0.0.0:8080 inside the
+# container so the bouncer can reach it. Compose publishes that port on
+# 127.0.0.1 only. Prometheus stays on container loopback and is not published.
+prometheus:
+  enabled: true
+  level: full
+  listen_addr: 127.0.0.1
+  listen_port: 6060

@@ -1,6 +1,6 @@
 ---
 name: add-i18n-strings
-description: Adds matching translation keys to en.json and de.json for UI copy and SEO meta. Use when adding new UI text, translations, or editing Vue pages with user-facing strings.
+description: Adds matching keys to en.json and de.json for titles and functional UI. Stops at the length gate. Does not translate or draft narrative copy. Use when adding nav, buttons, form labels, placeholders, errors, loading states, or short status labels.
 disable-model-invocation: true
 ---
 
@@ -12,7 +12,7 @@ disable-model-invocation: true
 - [ ] Add key to i18n/locales/en.json
 - [ ] Add same nested key to i18n/locales/de.json
 - [ ] Use t('key') in Vue (never hardcode copy)
-- [ ] Add seo.* keys if it's page meta
+- [ ] Add seo.* title keys if it's page meta; leave narrative seo descriptions empty
 ```
 
 ## Key structure
@@ -48,11 +48,17 @@ useSeoMeta({
 })
 ```
 
-## German style
+## Length gate
 
-- Informal **du** for blog/audience-facing copy
-- Professional but approachable — not stiff corporate German
-- Keep key names in English; only values are translated
+Stop at titles and functional labels: nav, buttons, form labels, placeholders, errors, loading, short status labels.
+
+If a string is longer than two sentences or twenty words, do not write it. Leave the value as `""` in both locales. That includes `seo.*.description`, alt text, empty states, footer lines, card blurbs, trust copy, and about text.
+
+Do not translate. Write a German value only when the author supplied the words. An empty German string stays empty.
+
+Short functional German labels use informal **du**. Do not rewrite existing sentences to change Sie or du.
+
+Keep key names in English.
 
 ## Routing
 
@@ -71,4 +77,4 @@ const localePath = useLocalePath()
 
 ## Public repo
 
-No private business names in locale values. Use WERKSCODE or anonymized phrasing. See [`.cursor/public-repo-standards.md`](../../public-repo-standards.md).
+No private business names in locale values. The name WERKSCODE may appear. Narrative values stay empty until the author writes them. See [`.cursor/public-repo-standards.md`](../../public-repo-standards.md).

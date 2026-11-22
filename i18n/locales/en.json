@@ -3,7 +3,6 @@
   "nav": {
     "home": "Home",
     "blog": "Blog",
-    "portfolio": "Portfolio",
     "about": "About",
     "contact": "Contact",
     "transparency": "Transparency",
@@ -11,8 +10,8 @@
     "menu": "Menu"
   },
   "footer": {
-    "statement": "Learning to code in public while running a metal shop — honest notes, not a pitch deck.",
-    "authorship": "Text by the author. Code built with AI.",
+    "statement": "",
+    "authorship": "",
     "copyright": "© {year} WERKSCODE. All rights reserved.",
     "github": "GitHub"
   },
@@ -27,16 +26,16 @@
   "seo": {
     "titleSuffix": "WERKSCODE",
     "home": {
-      "title": "WERKSCODE — Personal Blog & Portfolio",
-      "description": "A managing director of a small metal shop learning to code in public — practical notes on tools, pressure, and starting anyway."
+      "title": "Home — WERKSCODE",
+      "description": ""
     },
     "about": {
       "title": "About — WERKSCODE",
-      "description": "Managing director of a small metal manufacturing company, learning to code in public from the office side of the business."
+      "description": ""
     },
     "transparency": {
       "title": "Transparency — WERKSCODE",
-      "description": "Code with AI. Text by hand. What that means on WERKSCODE."
+      "description": ""
     },
     "contact": {
       "title": "Contact — WERKSCODE",
@@ -45,62 +44,43 @@
     "blog": {
       "title": "Blog — WERKSCODE",
       "description": "Blog posts and writing."
-    },
-    "portfolio": {
-      "title": "Portfolio — WERKSCODE",
-      "description": "Selected projects and work."
-    },
-    "labMorph": {
-      "title": "Morph field — Lab — WERKSCODE",
-      "description": "A 3D cellular automaton demo. No business use — a side experiment on this site."
     }
   },
   "home": {
-    "title": "WERKSCODE works",
-    "description": "Writing and projects from a managing director who learns to code beside the business — not instead of it.",
+    "title": "WERKSCODE",
+    "description": "",
     "readBlog": "Read the blog",
-    "viewPortfolio": "View portfolio",
     "latest": {
       "label": "Latest writing",
       "cta": "Read post →"
     },
     "manifesto": {
       "label": "What this is",
-      "text": "A public notebook from a small metal shop. Real problems, stolen hours, and the messy path from “something that works” to tools people actually use."
-    },
-    "paths": {
-      "title": "Where to start",
-      "count": "02 paths"
+      "text": ""
     },
     "blogCard": {
       "label": "Writing",
       "title": "Blog",
-      "description": "Journey notes: wrong stacks, commit discipline, shipping before modernizing — written while running the company.",
+      "description": "",
       "cta": "Browse posts →"
-    },
-    "portfolioCard": {
-      "label": "Work",
-      "title": "Portfolio",
-      "description": "Selected projects and experiments — anonymized where they need to stay private.",
-      "cta": "See projects →"
     },
     "contactStrip": {
       "label": "Get in touch",
-      "text": "Questions, ideas, or your own path into code?",
+      "text": "",
       "cta": "Send a message"
     }
   },
   "about": {
     "title": "About",
-    "description": "Managing director of a small metal manufacturing company, learning to code in public."
+    "description": ""
   },
   "contact": {
     "title": "Contact",
-    "description": "Send a message — I'll get back to you as soon as I can.",
+    "description": "",
     "trust": {
-      "who": "You're writing to the managing director behind WERKSCODE — learning to code in public while running a small metal shop.",
-      "response": "I usually reply within a few days.",
-      "privacy": "Your message is stored securely and never shared. See how this site is built on the transparency page."
+      "who": "",
+      "response": "",
+      "privacy": ""
     },
     "links": {
       "about": "About me",
@@ -118,7 +98,7 @@
     "submitting": "Sending...",
     "toast": {
       "successTitle": "Message sent",
-      "successDescription": "Thanks for reaching out. I'll reply as soon as I can.",
+      "successDescription": "",
       "errorTitle": "Failed to send message",
       "errorDescription": "Please try again in a moment."
     }
@@ -141,44 +121,15 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Notes on learning to code while running a small manufacturing business.",
+    "description": "",
     "featured": "Latest",
     "empty": "No posts yet.",
     "back": "← Back to blog",
     "notFound": "Post not found",
     "toc": "On this page",
     "endCta": {
-      "text": "Questions about code, the business, or your own learning path?",
+      "text": "",
       "contact": "Send a message"
-    }
-  },
-  "portfolio": {
-    "title": "Portfolio",
-    "description": "Selected projects and experiments from learning to code beside a metal shop.",
-    "featured": "Featured",
-    "viewProject": "View project →",
-    "visitProject": "Visit project",
-    "empty": "No projects yet.",
-    "emptyHint": "Case studies land here as projects ship. Meanwhile:",
-    "emptyBlog": "Read the blog",
-    "emptyContact": "Get in touch",
-    "back": "← Back to portfolio",
-    "notFound": "Project not found"
-  },
-  "lab": {
-    "morph": {
-      "eyebrow": "Lab",
-      "title": "Morph field",
-      "intro": "A 3D cellular automaton with morphing shapes. No shopfloor use — I built it because the math interested me.",
-      "hint": "Drag to orbit. Erase and seed change the grid. Sound starts after the first click.",
-      "backToPost": "← Back to the blog post",
-      "loading": "Loading…",
-      "erase": "Erase",
-      "seed": "Seed",
-      "species": "Species {n}",
-      "soundOn": "Sound on",
-      "soundOff": "Sound off",
-      "webglError": "WebGL is not supported in your browser. Try a different browser or enable WebGL."
     }
   },
   "errors": {

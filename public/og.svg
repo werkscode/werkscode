@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="WERKSCODE works">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="WERKSCODE">
   <rect width="1200" height="630" fill="#F4F6F9" />
   <g stroke="#D9E0E8" stroke-width="1">
     <line x1="0" y1="157" x2="1200" y2="157" />
@@ -17,8 +17,6 @@
   <text x="600" y="400" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="92" letter-spacing="2">
     <tspan fill="#1E2A3A">WERKS</tspan><tspan fill="#3A6A9C">CODE</tspan>
   </text>
-
-  <text x="600" y="452" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="400" font-size="30" letter-spacing="6" fill="#5A6B7E">SHOPFLOOR MEETS SOFTWARE</text>
 
   <rect x="0" y="618" width="1200" height="12" fill="#3A6A9C" />
 </svg>

@@ -1,0 +1,32 @@
+# Host Caddy fragment. Not loaded automatically.
+# Copy the global block into /etc/caddy/Caddyfile and the site block into
+# /etc/caddy/sites/werkscode.caddy after installing a Caddy binary that
+# includes github.com/hslatman/caddy-crowdsec-bouncer/http@v0.15.0.
+# Stock Caddy will refuse to start if the crowdsec directive is present.
+#
+# This process is the edge. Do not set trusted_proxies: the TCP client
+# address is the visitor. The bouncer key comes from the systemd
+# EnvironmentFile (/etc/caddy/crowdsec.env), not from this file.
+
+{
+	crowdsec {
+		api_url http://127.0.0.1:8080
+		api_key {$CROWDSEC_BOUNCER_KEY}
+		ticker_interval 15s
+	}
+}
+
+werkscode.de {
+	log {
+		output file /var/log/caddy/werkscode.log {
+			mode 0640
+			roll_size 30MiB
+			roll_keep 5
+		}
+		format json
+	}
+	route {
+		crowdsec
+		reverse_proxy 127.0.0.1:3000
+	}
+}

@@ -63,7 +63,10 @@ const hasToc = computed(() => Boolean(props.tocLinks?.length && props.tocLabel))
             v-if="showEndCta"
             class="mt-12 flex flex-col gap-4 border-2 border-foreground/10 bg-card px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
-            <p class="font-heading text-lg leading-snug sm:text-xl">
+            <p
+              v-if="t('blog.endCta.text')"
+              class="font-heading text-lg leading-snug sm:text-xl"
+            >
               {{ t('blog.endCta.text') }}
             </p>
             <div class="flex shrink-0 flex-wrap gap-3">

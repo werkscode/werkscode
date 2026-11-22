@@ -4,7 +4,7 @@
 	dev dev-up dev-down dev-build dev-rebuild dev-logs dev-shell dev-migrate dev-content-reset \
 	staging-migrate staging-up staging-down staging-logs staging-build \
 	prod-migrate prod-up prod-down prod-logs prod-build prod-deploy prod-messages \
-	kalkulator-dev kalkulator-up kalkulator-down kalkulator-logs kalkulator-prod-deploy \
+	crowdsec-env crowdsec-up crowdsec-down crowdsec-logs crowdsec-prod-up crowdsec-prod-down \
 	clean clean-dev clean-staging clean-prod
 
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
@@ -12,9 +12,12 @@ BASE    := -f docker-compose.yml
 DEV     := $(BASE) -f docker-compose.dev.yml
 STAGING := $(BASE) -f docker-compose.staging.yml
 PROD    := $(BASE) -f docker-compose.prod.yml
+CROWDSEC := -f docker-compose.crowdsec.yml
 
-# Self-contained powder-coating calculator (projects/kalkulations-rechner)
-KALK_DIR := projects/kalkulations-rechner
+# Dev host publish only. Container listeners stay Nuxt 3000 and Postgres 5432.
+DEV_APP_PORT ?= 3010
+DEV_DB_PORT  ?= 5433
+export DEV_APP_PORT DEV_DB_PORT
 
 .DEFAULT_GOAL := help
 
@@ -62,7 +65,7 @@ migrate: ## Run database migrations (default stack)
 
 # --- Development (hot reload) ---
 
-dev: ## Start dev stack in foreground
+dev: ## Start dev stack in foreground (host 3010->3000, 5433->5432)
 	$(COMPOSE) $(DEV) up
 
 dev-up: ## Start dev stack in background
@@ -134,22 +137,35 @@ prod-logs: ## Follow production stack logs
 prod-messages: ## Show last 20 contact messages (production DB)
 	$(COMPOSE) $(PROD) exec db psql -U $${POSTGRES_USER:-werkscode} -d $${POSTGRES_DB:-werkscode} -c "SELECT created_at, name, email, left(message, 80) AS message FROM contact_messages ORDER BY created_at DESC LIMIT 20;"
 
-# --- Kalkulations-Rechner (sub-project, own Docker stack) ---
+# --- CrowdSec (optional; not part of dev or prod-up) ---
 
-kalkulator-dev: ## Start kalkulator dev stack in foreground (app :3100, db :5433)
-	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml up --build
+crowdsec-env: ## Write a gitignored local bouncer key if missing
+	@if [ ! -f .env.crowdsec ]; then \
+		umask 077; \
+		key=$$(openssl rand -hex 32 2>/dev/null || python3 -c 'import secrets; print(secrets.token_hex(32))'); \
+		printf '%s\n' '# Local CrowdSec bouncer key. Gitignored. Do not commit.' "CROWDSEC_BOUNCER_KEY=$$key" > .env.crowdsec; \
+		echo "Wrote .env.crowdsec (gitignored)."; \
+	fi
 
-kalkulator-up: ## Start kalkulator dev stack in background
-	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml up -d --build
+crowdsec-up: crowdsec-env ## Start CrowdSec and the local Caddy bouncer
+	$(COMPOSE) --env-file .env.crowdsec $(CROWDSEC) --profile local up -d --build
 
-kalkulator-down: ## Stop kalkulator dev stack
-	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml down
+crowdsec-down: ## Stop the local CrowdSec stack
+	$(COMPOSE) $(CROWDSEC) --profile local down
 
-kalkulator-logs: ## Follow kalkulator dev stack logs
-	cd $(KALK_DIR) && $(COMPOSE) -f docker-compose.dev.yml logs -f
+crowdsec-logs: ## Follow CrowdSec and local bouncer logs
+	$(COMPOSE) $(CROWDSEC) --profile local logs -f
 
-kalkulator-prod-deploy: ## Rebuild kalkulator production stack (run on server; needs projects/.../.env)
-	cd $(KALK_DIR) && ./deploy/scripts/deploy.sh
+crowdsec-prod-up: ## Start the CrowdSec engine on the production stack
+	@test -f .env || { echo "Missing .env — copy .env.production.example and set CROWDSEC_BOUNCER_KEY."; exit 1; }
+	@if [ -z "$$CROWDSEC_BOUNCER_KEY" ]; then \
+		grep -q '^CROWDSEC_BOUNCER_KEY=.\+' .env \
+			|| { echo "Set CROWDSEC_BOUNCER_KEY in .env (openssl rand -hex 32). Do not commit it."; exit 1; }; \
+	fi
+	$(COMPOSE) --env-file .env $(PROD) $(CROWDSEC) up -d crowdsec
+
+crowdsec-prod-down: ## Stop the production CrowdSec engine
+	$(COMPOSE) $(PROD) $(CROWDSEC) stop crowdsec
 
 # --- Cleanup ---
 

@@ -3,7 +3,7 @@ const { t } = useI18n()
 
 useSeoMeta({
   title: () => t('seo.transparency.title'),
-  description: () => t('seo.transparency.description'),
+  description: () => t('seo.transparency.description') || undefined,
 })
 </script>
 

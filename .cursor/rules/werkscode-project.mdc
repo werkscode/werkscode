@@ -1,23 +1,19 @@
 ---
-description: WERKSCODE mission, stack, privacy boundaries, and scope discipline
+description: WERKSCODE stack, privacy boundaries, and scope discipline
 alwaysApply: true
 ---
 
 # WERKSCODE — Project Overview
 
-Public blog and portfolio at **WERKSCODE** — *WERKSCODE works*. Inspire self-employed people (especially in Germany) to learn coding with modern AI tools while running a business. Site **prose is human-written**; **code is AI-built**.
+Personal site under the name **WERKSCODE**. English at `/`, German at `/de`.
 
-## Audience & tone
-
-- **Audience**: Non-developer entrepreneurs, craftspeople, small-business owners
-- **Tone**: Practical, honest, fun — shopfloor meets software (author writes this; agents do not imitate it in `content/`)
-- **Author**: Managing director of a small metal manufacturing company who learned to code on the job. Writing queue: [`WRITING.md`](../../WRITING.md). Raw local notes (if present): `author/raw/` (never copy identifying detail into commits or `content/`)
+Reader-facing copy is author-typed. See [`human-prose.mdc`](human-prose.mdc). Writing queue: [`WRITING.md`](../../WRITING.md). Raw local notes (if present): `author/raw/` (never copy identifying detail into commits or `content/`).
 
 ## Stack
 
 - Nuxt 4, Vue 3, TypeScript, pnpm
 - shadcn-vue, Tailwind v4
-- @nuxt/content (blog + portfolio), @nuxtjs/i18n (en/de)
+- @nuxt/content (blog and editorial pages), @nuxtjs/i18n (en/de)
 - Drizzle ORM + PostgreSQL
 - Docker + Makefile
 

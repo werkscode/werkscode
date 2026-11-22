@@ -11,8 +11,7 @@ This repository is **public from day one**. Every file, comment, commit message,
 
 ## Always safe
 
-- **WERKSCODE** as the public brand
-- "A small metal manufacturing company" / "my shopfloor" (anonymized)
+- **WERKSCODE** as the public name
 - Placeholder values in `.env.example` files only
 - English in commit messages and code comments (German OK in `i18n/` and `content/de/`)
 
@@ -33,10 +32,10 @@ If secrets ever land in history: stop, warn the author, and use `git filter-repo
 
 ## AI transparency
 
-AI tools (mainly Cursor) assist with **code** in this repository. Site prose is written by the author only — no AI drafting, editing, or translation.
+AI tools (mainly Cursor) assist with **code** and technical docs in this repository. Site text is typed by the author. Agents do not draft or translate it into the repo.
 
-- **Policy:** [`AI-USAGE.md`](../AI-USAGE.md) — tools, principles, the prose/code split
-- **Site:** `/transparency` — reader-facing summary (EN + DE)
+- **Policy:** [`AI-USAGE.md`](../AI-USAGE.md) — tools and principles
+- **Site:** `/transparency` — author-written page (EN + DE)
 - **Writing queue:** [`WRITING.md`](../WRITING.md) — author-owned checklist
 - **Commits:** optional `Assisted-by: Cursor` trailer when AI assistance on **code** was substantial — never on prose-only commits under `content/`
 

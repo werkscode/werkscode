@@ -18,6 +18,9 @@ const form = reactive({
 })
 
 const isSubmitting = ref(false)
+const hasTrust = computed(() =>
+  Boolean(t('contact.trust.who') || t('contact.trust.response') || t('contact.trust.privacy')),
+)
 
 async function onSubmit() {
   isSubmitting.value = true
@@ -28,9 +31,11 @@ async function onSubmit() {
       body: form,
     })
 
-    toast.success(t('contact.toast.successTitle'), {
-      description: t('contact.toast.successDescription'),
-    })
+    const successDescription = t('contact.toast.successDescription')
+    toast.success(
+      t('contact.toast.successTitle'),
+      successDescription ? { description: successDescription } : undefined,
+    )
 
     form.name = ''
     form.email = ''
@@ -55,17 +60,23 @@ async function onSubmit() {
       :description="t('contact.description')"
     />
 
-    <div class="mb-8 space-y-4 border-2 border-border/80 bg-muted/20 px-5 py-6 sm:px-6">
-      <p class="text-sm leading-relaxed text-foreground">
+    <div
+      class="mb-8"
+      :class="hasTrust ? 'space-y-4 border-2 border-border/80 bg-muted/20 px-5 py-6 sm:px-6' : undefined"
+    >
+      <p v-if="t('contact.trust.who')" class="text-sm leading-relaxed text-foreground">
         {{ t('contact.trust.who') }}
       </p>
-      <p class="text-sm text-muted-foreground">
+      <p v-if="t('contact.trust.response')" class="text-sm text-muted-foreground">
         {{ t('contact.trust.response') }}
       </p>
-      <p class="text-sm text-muted-foreground">
+      <p v-if="t('contact.trust.privacy')" class="text-sm text-muted-foreground">
         {{ t('contact.trust.privacy') }}
       </p>
-      <nav class="flex flex-wrap gap-x-4 gap-y-2 pt-1 text-sm">
+      <nav
+        class="flex flex-wrap gap-x-4 gap-y-2 text-sm"
+        :class="hasTrust ? 'pt-1' : undefined"
+      >
         <NuxtLink
           :to="localePath('/about')"
           class="whitespace-nowrap text-primary transition-colors hover:underline focus-visible:ring-2 focus-visible:ring-ring"

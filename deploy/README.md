@@ -13,9 +13,10 @@ The same VPS can host other sites: each app binds a unique `127.0.0.1` port; Cad
 Internet :80/:443
     → Caddy (host, /etc/caddy/)
         → werkscode.de              → 127.0.0.1:3000 (this repo root)
-        → kalkulator.werkscode.de   → 127.0.0.1:8041 (projects/kalkulations-rechner)
         → other-domain.com          → 127.0.0.1:3001 (future project)
     → Postgres containers (Docker internal only)
+    → CrowdSec engine (optional, Docker) reads Caddy JSON logs
+      LAPI on 127.0.0.1:8080 only — do not open 8080 in the firewall
 ```
 
 ### Port allocation (document on the server in `/opt/README-ports.md`)
@@ -23,9 +24,9 @@ Internet :80/:443
 | Port | Service |
 |------|---------|
 | `3000` | WERKSCODE |
-| `8041` | Kalkulations-Rechner (`kalkulator.werkscode.de`) |
 | `3001+` | Next sites |
 | `5432` | Not exposed on host in prod |
+| `8080` | CrowdSec LAPI, `127.0.0.1` only (if enabled) |
 
 ---
 
@@ -41,8 +42,6 @@ Point all WERKSCODE domains to your VPS **public IPv4** (add AAAA if you use IPv
 | `www` on werkscode.com | A | `<VPS_IP>` |
 | `@` on werkscode.dev | A | `<VPS_IP>` |
 | `www` on werkscode.dev | A | `<VPS_IP>` |
-| `kalkulator` on werkscode.de | A | `<VPS_IP>` |
-| `www.kalkulator` on werkscode.de | A | `<VPS_IP>` (optional) |
 
 Verify propagation before starting Caddy:
 
@@ -195,18 +194,87 @@ In a browser:
 
 ---
 
+## 5b. CrowdSec (optional)
+
+CrowdSec reads Caddy's JSON access log and creates bans from the `crowdsecurity/caddy` scenarios (scans, repeated 404s, and the other base HTTP scenarios). The **Caddy bouncer** enforces them. The app is only reachable through Caddy, so there is no firewall bouncer. `make dev` and `make prod-up` do not start CrowdSec.
+
+### Local test
+
+```bash
+make crowdsec-up
+```
+
+If `.env.crowdsec` is missing, that target writes a bouncer key into it. The file is gitignored. Do not commit it.
+
+What starts:
+
+- `crowdsecurity/crowdsec:v1.8.2`, LAPI on `127.0.0.1:8080`
+- a local Caddy build with the CrowdSec HTTP module, on `127.0.0.1:8088`
+
+That Caddy is a localhost stand-in for host Caddy. It trusts private peers so a test can send `X-Forwarded-For` with a documentation address (`203.0.113.0/24`). Do not copy that `trusted_proxies` block into the public Caddyfile.
+
+```bash
+curl -sS -D- http://127.0.0.1:8088/api/health
+docker compose --env-file .env.crowdsec -f docker-compose.crowdsec.yml exec crowdsec cscli decisions list
+make crowdsec-down
+```
+
+### Server
+
+1. In `/opt/werkscode/.env`, set `CROWDSEC_BOUNCER_KEY` (`openssl rand -hex 32`) and `CROWDSEC_CADDY_LOGS=/var/log/caddy`.
+2. Create the log directory: `sudo mkdir -p /var/log/caddy && sudo chown caddy:caddy /var/log/caddy && sudo chmod 750 /var/log/caddy`
+3. Start the engine: `make crowdsec-prod-up`. Confirm `ss -ltn` shows `127.0.0.1:8080` and not `0.0.0.0:8080`. Do not `ufw allow 8080`.
+4. Install a Caddy binary that includes `github.com/hslatman/caddy-crowdsec-bouncer/http@v0.15.0`. The distro package does not know the `crowdsec` directive.
+
+```bash
+curl -fsSL -o /tmp/caddy "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com/hslatman/caddy-crowdsec-bouncer/http@v0.15.0"
+sudo dpkg-divert --local --divert /usr/bin/caddy.default --rename /usr/bin/caddy
+sudo install -m 755 /tmp/caddy /usr/bin/caddy
+caddy version
+```
+
+Use `arch=arm64` on an ARM VPS. `dpkg-divert` keeps a later `apt upgrade` from putting the stock binary back.
+
+5. Give the key to the Caddy service, not to the site file:
+
+```bash
+sudo install -m 640 -o root -g caddy /dev/null /etc/caddy/crowdsec.env
+# one line, same value as CROWDSEC_BOUNCER_KEY in .env:
+# CROWDSEC_BOUNCER_KEY=...
+sudo systemctl edit caddy
+```
+
+```
+[Service]
+EnvironmentFile=/etc/caddy/crowdsec.env
+```
+
+6. Merge [`crowdsec/Caddyfile.production`](crowdsec/Caddyfile.production) into `/etc/caddy/Caddyfile` (global `crowdsec` block) and the `werkscode.de` site. Do not set `trusted_proxies`. Then `sudo systemctl restart caddy`.
+
+Console enrollment is not part of this setup. Do not set `ENROLL_KEY` unless you decide to enroll the engine yourself.
+
+To rotate the bouncer key, update `.env` and `/etc/caddy/crowdsec.env`, delete the old bouncer, and recreate the engine:
+
+```bash
+docker compose --env-file .env -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.crowdsec.yml exec crowdsec cscli bouncers delete caddy
+make crowdsec-prod-up
+sudo systemctl restart caddy
+```
+
+---
+
 ## 6. Updates (code or content)
 
-Blog/portfolio content is **baked into the Docker image** at build time.
+Blog and page content is **baked into the Docker image** at build time.
 
 ### Automatic (GitHub Actions)
 
 Pushes to `main` run [`.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml):
 
-1. Build **WERKSCODE** and **kalkulations-rechner** in CI
+1. Build **WERKSCODE** in CI
 2. SSH to the VPS and run [`scripts/deploy-prod.sh`](../scripts/deploy-prod.sh)
 
-That script pulls the monorepo, deploys the main site, then deploys `projects/kalkulations-rechner` when `$DEPLOY_PATH/projects/kalkulations-rechner/.env` exists.
+That script pulls the repo and deploys the main site.
 
 **One-time GitHub setup** (repo → Settings → Secrets and variables → Actions):
 
@@ -239,26 +307,6 @@ cd /opt/werkscode && git remote -v   # should point at github.com/werkscode/werk
 chmod +x scripts/deploy-prod.sh
 ```
 
-### One-time: enable kalkulator on the same VPS
-
-```bash
-# Env (password must match DATABASE_URL host "db")
-cp /opt/werkscode/projects/kalkulations-rechner/deploy/env.production.example \
-   /opt/werkscode/projects/kalkulations-rechner/.env
-# edit POSTGRES_PASSWORD + DATABASE_URL
-
-# Caddy site
-sudo cp /opt/werkscode/deploy/caddy/sites/kalkulator.caddy /etc/caddy/sites/
-sudo systemctl reload caddy
-
-# First deploy (or wait for the next push to main)
-cd /opt/werkscode
-make kalkulator-prod-deploy
-# or: make prod-deploy   # deploys main site + kalkulator
-```
-
-DNS: `kalkulator.werkscode.de` → same VPS IP (see §1).
-
 Test manually before relying on Actions:
 
 ```bash
@@ -281,7 +329,6 @@ Or step by step:
 git pull
 make prod-build
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate app
-make kalkulator-prod-deploy   # if projects/kalkulations-rechner/.env exists
 ```
 
 Caddy config only changes when domains or ports change.
@@ -330,9 +377,9 @@ sudo systemctl reload caddy
 |------|---------|
 | [`caddy/Caddyfile`](caddy/Caddyfile) | Main config — `import sites/*.caddy` |
 | [`caddy/sites/werkscode.caddy`](caddy/sites/werkscode.caddy) | WERKSCODE proxy + domain redirects |
-| [`caddy/sites/kalkulator.caddy`](caddy/sites/kalkulator.caddy) | Kalkulator subdomain → `:8041` |
-| [`../scripts/deploy-prod.sh`](../scripts/deploy-prod.sh) | Production deploy (main site + sub-projects) |
+| [`crowdsec/`](crowdsec/) | CrowdSec acquisition, profiles, local and production Caddy bouncer |
+| [`../docker-compose.crowdsec.yml`](../docker-compose.crowdsec.yml) | CrowdSec engine (and local bouncer profile) |
+| [`../scripts/deploy-prod.sh`](../scripts/deploy-prod.sh) | Production deploy (main site) |
 | [`../.github/workflows/deploy-production.yml`](../.github/workflows/deploy-production.yml) | CI build + SSH deploy on push to `main` |
-| [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) | PR build check (WERKSCODE + kalkulator) |
+| [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) | PR build check (WERKSCODE) |
 | [`../docker-compose.prod.yml`](../docker-compose.prod.yml) | Prod stack — app on `127.0.0.1:3000` |
-| [`../projects/kalkulations-rechner/`](../projects/kalkulations-rechner/) | Powder-coating calculator (own Docker stack on `:8041`) |

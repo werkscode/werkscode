@@ -1,12 +1,12 @@
 # WERKSCODE
 
-Personal blog and portfolio website — *WERKSCODE works*. Built with Nuxt 4, shadcn-vue, Nuxt Content, and PostgreSQL.
+Personal site named WERKSCODE. Built with Nuxt 4, shadcn-vue, Nuxt Content, and PostgreSQL.
 
 ## Stack
 
 - **Nuxt 4** — full-stack Vue framework
 - **shadcn-vue** — customizable UI components (Tailwind v4)
-- **@nuxt/content** — file-based blog and portfolio collections
+- **@nuxt/content** — file-based blog and editorial pages
 - **Drizzle ORM** — PostgreSQL for dynamic app data (contact form)
 - **Docker** — dev, staging, and production environments
 
@@ -69,14 +69,15 @@ make prod-up
 - **Canonical URL:** `https://werkscode.de` (`.com` / `.dev` redirect via Caddy)
 - App binds **`127.0.0.1:3000`** only — Caddy proxies `:443`
 - **Updates:** `git pull`, `make prod-build`, recreate `app` (content is in the image)
+- **CrowdSec** (optional, not part of `make dev` or `make prod-up`): local test with `make crowdsec-up`. Server setup is in [deploy/README.md](deploy/README.md).
 
-Caddy configs live in [`deploy/caddy/`](deploy/caddy/).
+Caddy configs live in [`deploy/caddy/`](deploy/caddy/). CrowdSec config lives in [`deploy/crowdsec/`](deploy/crowdsec/).
 
 ## Deployment
 
-Pushes to `main` deploy automatically via GitHub Actions (build WERKSCODE + kalkulator, then SSH to VPS). Setup: **[deploy/README.md](deploy/README.md)** § GitHub Actions.
+Pushes to `main` deploy automatically via GitHub Actions (build WERKSCODE, then SSH to VPS). Setup: **[deploy/README.md](deploy/README.md)** § GitHub Actions.
 
-Manual deploy on the server: `make prod-deploy` (main site + kalkulator when `projects/kalkulations-rechner/.env` exists)
+Manual deploy on the server: `make prod-deploy`
 
 ## Scripts
 
@@ -97,43 +98,29 @@ app/                  # Nuxt 4 app directory (WERKSCODE site)
   assets/css/         # Tailwind + custom theme
   components/         # Layout + shadcn UI components
   pages/              # Routes
-content/              # Blog, portfolio, and editorial pages
+content/              # Blog and editorial pages
   blog/
-  portfolio/
   pages/
-projects/             # Self-contained subdomain apps (own package.json + Docker)
-  kalkulations-rechner/
 server/               # Nitro server
   api/                # API routes
   db/                 # Drizzle schema
 drizzle/              # SQL migrations
 ```
 
-### Sub-projects (`projects/`)
-
-Standalone apps that ship with their own dependencies and Docker stack. They are meant to be hosted on a subdomain and are not part of the root Nuxt build.
-
-| Path | What | Dev |
-|------|------|-----|
-| [`projects/kalkulations-rechner/`](projects/kalkulations-rechner/) | Powder-coating quote calculator (Nuxt + Postgres + STEP converter). Online demo saves in the browser (Pinia); clone + `make kalkulator-dev` for Postgres. | `make kalkulator-dev` → [http://localhost:3100](http://localhost:3100) |
-
-See each sub-project’s README for ports, env, and deploy notes.
-
 ## Content
 
 - **Blog** — markdown in `content/blog/` (EN) and `content/de/blog/` (DE)
-- **Portfolio** — markdown in `content/portfolio/` and `content/de/portfolio/`
 - **Editorial pages** — About and Transparency in `content/pages/` and `content/de/pages/`
 - Set `draft: true` in frontmatter until ready to publish; listings hide drafts
 - Placeholder / scaffold files are included; the author fills them in by hand
 
 ### AI transparency
 
-**Code** is built with AI tools (mainly Cursor). **Text** (blog, portfolio, page copy, translations) is written by the author only — no AI drafting or translation.
+**Code** and technical docs are built with AI tools (mainly Cursor). **Reader-facing text** is typed by the author. Agents do not draft or translate it into the repo.
 
-- **Site:** [/transparency](https://werkscode.de/transparency) — reader-facing summary (EN + DE)
-- **Policy:** [AI-USAGE.md](AI-USAGE.md) — the prose/code split
-- **Writing queue:** [WRITING.md](WRITING.md) — what the author still needs to write
+- **Site:** [/transparency](https://werkscode.de/transparency) — page for the author to write (EN + DE)
+- **Policy:** [AI-USAGE.md](AI-USAGE.md)
+- **Writing queue:** [WRITING.md](WRITING.md) — strings and pages still empty
 - **Standards:** [`.cursor/public-repo-standards.md`](.cursor/public-repo-standards.md) — privacy + optional `Assisted-by: Cursor` on code commits
 
 This repo is **public from day one** — never commit real company, customer, or employee names, even in drafts.
