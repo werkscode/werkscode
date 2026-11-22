@@ -12,7 +12,7 @@ Personal site named WERKSCODE. Built with Nuxt 4, shadcn-vue, Nuxt Content, and 
 
 ## Prerequisites
 
-- Node.js 22+
+- Node.js 24+
 - pnpm 9+ (or enable Corepack for pnpm 10)
 - PostgreSQL 16 (or use Docker)
 

@@ -1,4 +1,4 @@
-FROM node:22-alpine AS deps
+FROM node:24-alpine AS deps
 
 RUN apk add --no-cache python3 make g++
 
@@ -15,7 +15,7 @@ FROM deps AS build
 COPY . .
 RUN pnpm build
 
-FROM node:22-alpine AS runtime
+FROM node:24-alpine AS runtime
 
 RUN addgroup -S nuxt && adduser -S nuxt -G nuxt
 
